@@ -1,1 +1,2 @@
-console.log('Hello Node');
+const a = "Hello Node";
+console.log(a);
