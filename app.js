@@ -1,3 +1,9 @@
+// const DATA = require("./src/dataLink")
+const DATA = require("./src/localData.json");
+
+const dataBaseService = DATA;
+console.log(DATA);
+
 const express = require("express");
 
 const app = express();
@@ -21,7 +27,7 @@ app.get("/users", (req, res) => {
     if (err) {
       return res.status(500).json({ error: err.message });
     }
-    res.json(result);
+    console.log(res.json(result));
   });
 });
 
@@ -49,7 +55,7 @@ app.delete("/users/:id", (req, res) => {
 });
 
 app.listen(PORT, () => {
-  console.log(`Server is running on ${PORT} port`);
+  console.log(`Server is running on http://localhost:${PORT}`);
 });
 
-// module.exports = app;
+module.exports = app;
