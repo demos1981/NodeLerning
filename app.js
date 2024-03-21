@@ -1,5 +1,4 @@
-// const DATA = require("./src/dataLink")
-const DATA = require("./src/localData.json");
+const DATA = require("./localData.json");
 
 const dataBaseService = DATA;
 console.log(DATA);
