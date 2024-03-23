@@ -1,4 +1,4 @@
-const sqlite = require("sqlite3").verbose();
+const sqlite3 = require("sqlite3").verbose();
 
 class DataSqlLiteServices {
   constructor() {
@@ -8,7 +8,7 @@ class DataSqlLiteServices {
 
   initializeDatabase() {
     this.db.run(
-      "CREATE TABLE IF NOT EXISTS items (id INTEGER PRYMARY KEY AUTOINCREMENT, name TEXT)"
+      "CREATE TABLE IF NOT EXISTS items (id INTEGER PRIMARY KEY AUTOINCREMENT, name TEXT)"
     );
   }
 
