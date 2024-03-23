@@ -1,9 +1,5 @@
-const DATA = require("./localData.json");
-
-const dataBaseService = DATA;
-console.log(DATA);
-
 const express = require("express");
+const dataBaseService = require("./services/dataSqlLiteServices");
 
 const app = express();
 const PORT = process.env.PORT || 3000;
@@ -11,8 +7,8 @@ app.use(express.json());
 
 //Create
 app.post("/users", (req, res) => {
-  const { name, role, email } = req.body;
-  dataBaseService.createItem(name, role, email, (err, result) => {
+  const { name } = req.body;
+  dataBaseService.createItem(name, (err, result) => {
     if (err) {
       return res.status(500).json({ error: err.message });
     }
@@ -33,8 +29,8 @@ app.get("/users", (req, res) => {
 //Update
 app.put("/users/:id", (req, res) => {
   const { id } = req.params;
-  const { name, role, email } = req.body;
-  dataBaseService.updateItem(id, name, role, email, (err, result) => {
+  const { name } = req.body;
+  dataBaseService.updateItem(id, name, (err, result) => {
     if (err) {
       return res.status(500).json({ error: err.message });
     }
@@ -51,6 +47,17 @@ app.delete("/users/:id", (req, res) => {
     }
     res.json(result);
   });
+});
+
+app.use((req, res, next) => {
+  //middleware
+  res.status(404).json({ error: "Not Found" });
+});
+
+app.use((err, req, res, next) => {
+  //middleware
+  console.error(err.stack);
+  res.status(500).json({ error: "Internal Server Error" });
 });
 
 app.listen(PORT, () => {
