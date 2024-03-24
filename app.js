@@ -48,14 +48,12 @@ app.delete("/users/:id", (req, res) => {
     res.json(result);
   });
 });
-
+//middleware
 app.use((req, res, next) => {
-  //middleware
   res.status(404).json({ error: "Not Found" });
 });
-
+//middleware
 app.use((err, req, res, next) => {
-  //middleware
   console.error(err.stack);
   res.status(500).json({ error: "Internal Server Error" });
 });
