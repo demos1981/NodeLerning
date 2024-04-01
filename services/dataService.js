@@ -1,13 +1,13 @@
 const { MongoClient, ObjectId } = require("mongodb");
 const MONGO_URL = "mongodb+srv://demos:dima180281@mydata.goqshqh.mongodb.net/";
 // const MONGO_URL = "mongodb://localhost:27017";
-const DB_NAME = "your_database";
-const COLLECTION_NAME = "users";
+const DB_NAME = "MyData";
+const COLLECTION_NAME = "employee";
 
 const client = new MongoClient(MONGO_URL);
 let collection;
 
-async function connectToDatatbase() {
+async function connectToDatabase() {
   await client.connect();
   const db = client.db(DB_NAME);
   collection = db.collection(COLLECTION_NAME);
@@ -66,8 +66,8 @@ async function deleteItem(id) {
   }
 }
 
-module.expoerts = {
-  connectToDatatbase,
+module.exports = {
+  connectToDatabase,
   disconnectFromDatabase,
   createItem,
   getItem,

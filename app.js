@@ -7,7 +7,7 @@ const PORT = process.env.PORT || 3000;
 app.use(bodyParser.json());
 
 mongoService
-  .connectToDatatbase()
+  .connectToDatabase()
   .then(() => {
     console.log("Connected to MongoDB");
 
