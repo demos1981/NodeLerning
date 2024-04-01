@@ -1,6 +1,5 @@
 const { MangoClient, ObjectId } = require("mongodb");
-const MONGO_URL =
-  "mongodb+srv://Demos:dima180281@mydata.goqshqh.mongodb.net/?retryWrites=true&w=majority&appName=MyData";
+const MONGO_URL = "mongodb+srv://Demos:dima180281@mydata.goqshqh.mongodb.net/";
 // const MONGO_URL = "mongodb://localhost:27017";
 const DB_NAME = "your_database";
 const COLLECTION_NAME = "users";
