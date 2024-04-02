@@ -1,74 +1,158 @@
 const express = require("express");
-const bodyParser = require("body-parser");
-const mongoService = require("./services/dataService");
+const mongoose = require("mongoose");
+const mongoService = require("./services/dataMongoDB");
 
 const app = express();
 const PORT = process.env.PORT || 3000;
-app.use(bodyParser.json());
 
-mongoService
-  .connectToDatabase()
-  .then(() => {
-    console.log("Connected to MongoDB");
+app.use(express.json());
 
-    //Create
-    app.post("/users", async (req, res) => {
-      const { name } = req.body;
-      try {
-        const newItem = await mongoService.createItem(name);
-        res.json(newItem);
-      } catch (err) {
-        res.status(500).json({ error: err.message });
-      }
-    });
+const MONGO_URL =
+  "mongodb+srv://demos:<password>@mydata.goqshqh.mongodb.net/?retryWrites=true&w=majority&appName=MyData";
+mongoose.connect(MONGO_URL, {
+  dbName: "mongoose",
+});
 
-    //Read
-    app.get("/users", async (req, res) => {
-      try {
-        const items = await mongoService.getItem();
-        res.json(items);
-      } catch (err) {
-        res.status(500).json({ error: err.message });
-      }
-    });
+const db = mongoose.connection;
 
-    //Update
-    app.put("/users/:id", async (req, res) => {
-      const { id } = req.params;
-      const { name } = req.body;
-      try {
-        const result = await mongoService.updateItem(id, name);
-        res.json(result);
-      } catch (err) {
-        res.status(500).json({ error: err.message });
-      }
-    });
+db.on("error", console.error.bind(console, "Error connect to MongoDB:"));
 
-    //Delete
-    app.delete("/users/:id", async (req, res) => {
-      const { id } = req.params;
-      try {
-        const result = await mongoService.deleteItem(id);
-        res.json(result);
-      } catch (err) {
-        res.status(500).json({ error: err.message });
-      }
-    });
-    //middleware
-    app.use((req, res, next) => {
-      res.status(404).json({ error: "Not Found" });
-    });
-    //middleware
-    app.use((err, req, res, next) => {
-      console.error(err.stack);
-      res.status(500).json({ error: "Internal Server Error" });
-    });
+// mongoService
+//   .connectToDatabase()
+//   .then(() => {
+//     console.log("Connected to MongoDB");
 
-    app.listen(PORT, () => {
-      console.log(`Server is running on http://localhost:${PORT}`);
-    });
-  })
-  .catch((err) => {
-    console.error("failed to connect to MangoDB:", err);
-    process.exit(1);
-  });
+//Create
+app.post("/users", async (req, res) => {
+  try {
+    const { name, role, email } = req.body;
+    const newUser = await mongoService.createUser(name, role, email);
+    res.status(201).json(newUser);
+  } catch (err) {
+    res.status(400).json({ error: err.message });
+  }
+});
+
+app.post("/posts", async (req, res) => {
+  try {
+    const { title, content, userId } = req.body;
+    const userWithPost = await mongoService.createPost(title, content, userId);
+    res.status(201).json(userWithPost);
+  } catch (err) {
+    res.status(400).json({ error: err.message });
+  }
+});
+
+app.post("/comments", async (req, res) => {
+  try {
+    const { login, content, userId } = req.body;
+    const userWithComment = await mongoService.createComment(
+      login,
+      content,
+      userId
+    );
+    res.status(201).json(userWithComment);
+  } catch (err) {
+    res.status(400).json({ error: err.message });
+  }
+});
+
+//Read
+app.get("/users", async (req, res) => {
+  try {
+    const users = await mongoService.getUsers();
+    res.json(users);
+  } catch (err) {
+    res.status(500).json({ error: err.message });
+  }
+});
+
+app.get("/users-with-posts", async (req, res) => {
+  try {
+    const usersWithMoreThanTwoPosts = await mongoService.getUsersWith2Post();
+    res.json(usersWithMoreThanTwoPosts);
+  } catch (err) {
+    res.status(500).json({ error: err.message });
+  }
+});
+
+app.get("/users-with-comments", async (req, res) => {
+  try {
+    const usersWithMoreThanTwoComments =
+      await mongoService.getUsersWith2Comments();
+    res.json(usersWithMoreThanTwoComments);
+  } catch (err) {
+    res.status(500).json({ error: err.message });
+  }
+});
+
+//Update
+app.put("/users/:id", async (req, res) => {
+  try {
+    const { id } = req.params;
+    const { name, role, email } = req.body;
+    const resultUser = await mongoService.updateUser(id, name, role, email);
+    res.json(resultUser);
+  } catch (err) {
+    res.status(500).json({ error: err.message });
+  }
+});
+
+app.put("/post/:id", async (req, res) => {
+  try {
+    const { id } = req.params;
+    const { title, content, userId } = req.body;
+    const resultPost = await mongoService.updatePost(
+      id,
+      title,
+      content,
+      userId
+    );
+    res.json(resultPost);
+  } catch (err) {
+    res.status(500).json({ error: err.message });
+  }
+});
+
+app.put("/comment/:id", async (req, res) => {
+  try {
+    const { id } = req.params;
+    const { login, content, userId } = req.body;
+    const resultComment = await mongoService.updateComment(
+      id,
+      login,
+      content,
+      userId
+    );
+    res.json(resultPost);
+  } catch (err) {
+    res.status(500).json({ error: err.message });
+  }
+});
+
+//Delete
+app.delete("/users/:id", async (req, res) => {
+  try {
+    const { id } = req.params;
+    await mongoService.deleteItem(id);
+    res
+      .status(200)
+      .json({ message: "User and their posts deleted succesfully." });
+  } catch (err) {
+    res.status(500).json({ error: err.message });
+  }
+});
+//middleware
+app.use((req, res) => {
+  console.error(res);
+  res.status(400).send("Bad Request");
+});
+//middleware
+app.use((err, req, res, next) => {
+  console.error(res);
+  res.status(500).send("Server Error");
+});
+
+app.listen(PORT, () => {
+  console.log(`Server is running on http://localhost:${PORT}`);
+});
