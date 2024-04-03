@@ -1,76 +1,106 @@
-const { MongoClient, ObjectId } = require("mongodb");
-const MONGO_URL = "mongodb+srv://demos:dima180281@mydata.goqshqh.mongodb.net/";
-// const MONGO_URL = "mongodb://localhost:27017";
-const DB_NAME = "MyData";
-const COLLECTION_NAME = "employee";
+const User = require("../models/User");
+const Post = require("../models/Post");
+const Comment = require("../models/Comment");
 
-const client = new MongoClient(MONGO_URL);
-let collection;
+const createUser = async (name, role, email) => {
+  const newUser = new User({ name, role, email });
+  return await newUser.save();
+};
 
-async function connectToDatabase() {
-  await client.connect();
-  const db = client.db(DB_NAME);
-  collection = db.collection(COLLECTION_NAME);
-}
+const getAllUsers = async () => {
+  return await User.find().populate("posts");
+};
 
-async function disconnectFromDatabase() {
-  if (client) {
-    await client.close();
-  }
-}
-
-async function createItem(name) {
+const getUsersWithPost = async () => {
   try {
-    const result = await collection.insertOne({ name });
-    if (result) {
-      const insertedId = result.insertedId;
-      const createdItem = await collection.findOne({ _id: insertedId });
-      return createdItem;
-    } else {
-      throw new Error("Failed data");
-    }
+    const usersWithPosts = await User.aggregate([
+      {
+        $lookup: {
+          from: "posts",
+          localField: "_id",
+          foreignField: "user",
+          as: "posts",
+        },
+      },
+      {
+        $addFields: {
+          postCount: { $size: "$posts" },
+        },
+      },
+      {
+        $match: { postCount: { $gte: 1 } },
+      },
+    ]);
+    return getUsersWithPost;
   } catch (error) {
-    console.error("Error in created", error.message);
-    return { error: error.message };
+    console.error("Error in getUsersWithPost", error);
+    throw error;
   }
-}
+};
 
-async function getItem() {
-  const users = await collection.find({}).toArray();
-  return users;
-}
-
-async function updateItem(id, name) {
+const getUsersWithMore2Comments = async () => {
   try {
-    const result = await collection.updateOne(
-      { _id: new ObjectId(id) },
-      { $set: { name } }
-    );
-    return result;
+    const usersWithMoreLike2Comments = await User.aggregate([
+      {
+        $lookup: {
+          from: "comment",
+          localField: "_id",
+          foreignField: "user",
+          as: "comment",
+        },
+      },
+      {
+        $addFields: {
+          commentCount: { $size: "$comment" },
+        },
+      },
+      {
+        $match: { commentCount: { $gte: 2 } },
+      },
+    ]);
+    return usersWithMoreLike2Comments;
   } catch (error) {
-    console.error("Error in updateItem:", error.message);
-    return { error: error.message };
+    console.error("Error in getUsersWithPost", error);
+    throw error;
   }
-}
+};
 
-async function deleteItem(id) {
+const createPost = async (title, content, userId) => {
+  const newPost = new Post({ title, content, user: userId });
+  await newPost.save();
+  return await User.findByIdAndUpdate(
+    userId,
+    { $push: { posts: newPost._id } },
+    { new: true }
+  );
+};
+
+const createComment = async (login, content, userId) => {
+  const newComment = new Comment({ login, content, user: userId });
+  await newComment.save();
+  return await User.findByIdAndUpdate(
+    userId,
+    { $push: { comment: newComment._id } },
+    { new: true }
+  );
+};
+
+const deleteUserPostsAndComment = async (userId) => {
   try {
-    if (!ObjectId.isValid(id)) {
-      throw new Error("Invalid ObjectId");
-    }
-    const result = await collection.deleteOne({ _id: new ObjectId(id) });
-    return result;
+    await User.findByIdAndDelete(userId);
+    await Post.deleteMany({ user: userId });
+    await Comment.deleteMany({ user: userId });
   } catch (error) {
-    console.error("Error in deleteItem", error.message);
-    return { error: error.message };
+    throw new Error("Failed to delete data");
   }
-}
+};
 
 module.exports = {
-  connectToDatabase,
-  disconnectFromDatabase,
-  createItem,
-  getItem,
-  updateItem,
-  deleteItem,
+  createUser,
+  getAllUsers,
+  getUsersWithPost,
+  getUsersWithMore2Comments,
+  createPost,
+  createComment,
+  deleteUserPostsAndComment,
 };

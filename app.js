@@ -8,9 +8,9 @@ const PORT = process.env.PORT || 3000;
 app.use(express.json());
 
 const MONGO_URL =
-  "mongodb+srv://demos:<password>@mydata.goqshqh.mongodb.net/?retryWrites=true&w=majority&appName=MyData";
+  "mongodb+srv://demos:dima180281@mydata.goqshqh.mongodb.net/?retryWrites=true&w=majority&appName=MyData";
 mongoose.connect(MONGO_URL, {
-  dbName: "mongoose",
+  dbName: "models",
 });
 
 const db = mongoose.connection;
@@ -69,8 +69,8 @@ app.get("/users", async (req, res) => {
 
 app.get("/users-with-posts", async (req, res) => {
   try {
-    const usersWithMoreThanTwoPosts = await mongoService.getUsersWith2Post();
-    res.json(usersWithMoreThanTwoPosts);
+    const usersWithPosts = await mongoService.getUsersWithPost();
+    res.json(usersWithPosts);
   } catch (err) {
     res.status(500).json({ error: err.message });
   }
@@ -78,63 +78,63 @@ app.get("/users-with-posts", async (req, res) => {
 
 app.get("/users-with-comments", async (req, res) => {
   try {
-    const usersWithMoreThanTwoComments =
-      await mongoService.getUsersWith2Comments();
-    res.json(usersWithMoreThanTwoComments);
+    const usersWhichLeftMoreLike2Comments =
+      await mongoService.getUsersWithMore2Comments();
+    res.json(usersWhichLeftMoreLike2Comments);
   } catch (err) {
     res.status(500).json({ error: err.message });
   }
 });
 
-//Update
-app.put("/users/:id", async (req, res) => {
-  try {
-    const { id } = req.params;
-    const { name, role, email } = req.body;
-    const resultUser = await mongoService.updateUser(id, name, role, email);
-    res.json(resultUser);
-  } catch (err) {
-    res.status(500).json({ error: err.message });
-  }
-});
+// //Update
+// app.put("/users/:id", async (req, res) => {
+//   try {
+//     const { id } = req.params;
+//     const { name, role, email } = req.body;
+//     const resultUser = await mongoService.updateUser(id, name, role, email);
+//     res.json(resultUser);
+//   } catch (err) {
+//     res.status(500).json({ error: err.message });
+//   }
+// });
 
-app.put("/post/:id", async (req, res) => {
-  try {
-    const { id } = req.params;
-    const { title, content, userId } = req.body;
-    const resultPost = await mongoService.updatePost(
-      id,
-      title,
-      content,
-      userId
-    );
-    res.json(resultPost);
-  } catch (err) {
-    res.status(500).json({ error: err.message });
-  }
-});
+// app.put("/post/:id", async (req, res) => {
+//   try {
+//     const { id } = req.params;
+//     const { title, content, userId } = req.body;
+//     const resultPost = await mongoService.updatePost(
+//       id,
+//       title,
+//       content,
+//       userId
+//     );
+//     res.json(resultPost);
+//   } catch (err) {
+//     res.status(500).json({ error: err.message });
+//   }
+// });
 
-app.put("/comment/:id", async (req, res) => {
-  try {
-    const { id } = req.params;
-    const { login, content, userId } = req.body;
-    const resultComment = await mongoService.updateComment(
-      id,
-      login,
-      content,
-      userId
-    );
-    res.json(resultPost);
-  } catch (err) {
-    res.status(500).json({ error: err.message });
-  }
-});
+// app.put("/comment/:id", async (req, res) => {
+//   try {
+//     const { id } = req.params;
+//     const { login, content, userId } = req.body;
+//     const resultComment = await mongoService.updateComment(
+//       id,
+//       login,
+//       content,
+//       userId
+//     );
+//     res.json(resultPost);
+//   } catch (err) {
+//     res.status(500).json({ error: err.message });
+//   }
+// });
 
 //Delete
 app.delete("/users/:id", async (req, res) => {
   try {
     const { id } = req.params;
-    await mongoService.deleteItem(id);
+    await mongoService.deleteUserPostsAndComment(id);
     res
       .status(200)
       .json({ message: "User and their posts deleted succesfully." });
@@ -145,7 +145,7 @@ app.delete("/users/:id", async (req, res) => {
 //middleware
 app.use((req, res) => {
   console.error(res);
-  res.status(400).send("Bad Request");
+  res.status(404).send("Bad Request");
 });
 //middleware
 app.use((err, req, res, next) => {
