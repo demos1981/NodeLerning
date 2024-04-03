@@ -17,11 +17,6 @@ const db = mongoose.connection;
 
 db.on("error", console.error.bind(console, "Error connect to MongoDB:"));
 
-// mongoService
-//   .connectToDatabase()
-//   .then(() => {
-//     console.log("Connected to MongoDB");
-
 //Create
 app.post("/users", async (req, res) => {
   try {
@@ -85,50 +80,6 @@ app.get("/users-with-comments", async (req, res) => {
     res.status(500).json({ error: err.message });
   }
 });
-
-// //Update
-// app.put("/users/:id", async (req, res) => {
-//   try {
-//     const { id } = req.params;
-//     const { name, role, email } = req.body;
-//     const resultUser = await mongoService.updateUser(id, name, role, email);
-//     res.json(resultUser);
-//   } catch (err) {
-//     res.status(500).json({ error: err.message });
-//   }
-// });
-
-// app.put("/post/:id", async (req, res) => {
-//   try {
-//     const { id } = req.params;
-//     const { title, content, userId } = req.body;
-//     const resultPost = await mongoService.updatePost(
-//       id,
-//       title,
-//       content,
-//       userId
-//     );
-//     res.json(resultPost);
-//   } catch (err) {
-//     res.status(500).json({ error: err.message });
-//   }
-// });
-
-// app.put("/comment/:id", async (req, res) => {
-//   try {
-//     const { id } = req.params;
-//     const { login, content, userId } = req.body;
-//     const resultComment = await mongoService.updateComment(
-//       id,
-//       login,
-//       content,
-//       userId
-//     );
-//     res.json(resultPost);
-//   } catch (err) {
-//     res.status(500).json({ error: err.message });
-//   }
-// });
 
 //Delete
 app.delete("/users/:id", async (req, res) => {
