@@ -32,4 +32,4 @@ AppDataSource.initialize()
       console.log(`Server is running on http://localhost:${PORT}`);
     });
   })
-  .catch((error: any) => console.log("Error:", error));
+  .catch((error) => console.log("Error:", error));
