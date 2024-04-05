@@ -9,6 +9,12 @@
 
 # dependencies
 /node_modules
+.env
+.env.*
+.env.local
+.env.development
+.env.production
+.env.test
 
 # profiling files
 chrome-profiler-events*.json
