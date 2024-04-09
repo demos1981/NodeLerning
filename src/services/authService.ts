@@ -1,17 +1,14 @@
 import bcrypt from "bcrypt";
-import jwt from "jsonwebtoken";
 import { User } from "../entities/users.entity";
-import { removeRefreshToken } from "../utils/tokenManagement";
-
-type UserPayload = {
-  id: number;
-  email: string;
-};
 
 export const registerUser = async (registerUserData: any) => {
   const { name, email, password } = registerUserData;
   const hashPassword = await bcrypt.hash(password, 10);
-  const newUser: User = await User.save(registerUserData);
+  const newUser: User = await User.save({
+    name,
+    email,
+    password: hashPassword,
+  });
   return newUser;
 };
 
@@ -24,22 +21,3 @@ export const loginUser = async (email: string, password: string) => {
   const isPasswordValid = await bcrypt.compare(password, user.password);
   return isPasswordValid ? user : null;
 };
-
-export const generateAcessToken = (user: UserPayload) => {
-  return jwt.sign(
-    { id: user.id, email: user.email },
-    process.env.ACESS_TOKEN_SECRET!,
-    { expiresIn: "id" }
-  );
-};
-
-export const generateRefreshToken = (user: UserPayload) => {
-  return jwt.sign(
-    { id: user.id, email: user.email },
-    process.env.REFRESH_TOKEN_SECRET!
-  );
-};
-
-// export const logoutUser = async (token: string) => {
-//   await removeRefreshToken(token);
-// };
