@@ -3,7 +3,6 @@
   "version": "1.0.0",
   "description": "",
   "main": "src/app.ts",
-  "type": "module",
   "scripts": {
     "start": "ts-node src/app.ts",
     "typeorm:sync": "dotenv scripts/sync.sh"
@@ -26,12 +25,14 @@
     "package-name": "^0.1.0",
     "pg": "^8.11.5",
     "reflect-metadata": "^0.2.2",
-    "ts-node": "^10.9.2",
     "typeorm": "^0.3.20"
   },
   "devDependencies": {
+    "@types/node": "^20.12.6",
     "eslint": "^8.57.0",
     "prettier": "^3.2.5",
+    "ts-node": "^10.9.2",
+    "tslib": "^2.6.2",
     "tsx": "^4.7.2",
     "typescript": "^5.4.4"
   },
