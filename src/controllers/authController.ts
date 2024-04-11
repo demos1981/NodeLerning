@@ -1,7 +1,7 @@
 import { Request, Response } from "express";
 import * as authService from "../services/authService";
 import { ErrorMessage } from "../utils/constants/constants";
-
+import { storeRefreshToken } from "../utils/tokenManagement";
 export const register = async (req: Request, res: Response) => {
   try {
     const registerUserDto: any = req.body as any;
@@ -13,12 +13,20 @@ export const register = async (req: Request, res: Response) => {
   }
 };
 export const login = async (req: Request, res: Response) => {
-  try {
-    const { email, password } = req.body;
-    const user = await authService.loginUser(email, password);
-    res.status(202).json({ message: "Your login is ok", user });
-  } catch (error: unknown) {
-    console.error(error);
+  const { email, password } = req.body;
+  const user = await authService.loginUser(email, password);
+  if (user) {
+    const acessToken = authService.generateAcessToken({
+      id: user.id,
+      email: user.email,
+    });
+    const refreshToken = authService.generateRefreshToken({
+      id: user.id,
+      email: user.email,
+    });
+    await storeRefreshToken(user.id, refreshToken);
+    res.json({ acessToken, refreshToken });
+  } else {
     res.status(400).send(ErrorMessage.errorInvalidPassword);
   }
 };
