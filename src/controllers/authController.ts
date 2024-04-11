@@ -2,6 +2,7 @@ import { Request, Response } from "express";
 import * as authService from "../services/authService";
 import { ErrorMessage } from "../utils/constants/constants";
 import { storeRefreshToken } from "../utils/tokenManagement";
+
 export const register = async (req: Request, res: Response) => {
   try {
     const registerUserDto: any = req.body as any;
