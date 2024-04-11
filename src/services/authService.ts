@@ -1,5 +1,11 @@
 import bcrypt from "bcrypt";
 import { User } from "../entities/users.entity";
+import jwt from "jsonwebtoken";
+
+type UserPayload = {
+  id: number;
+  email: string;
+};
 
 export const registerUser = async (registerUserData: any) => {
   const { name, email, password } = registerUserData;
@@ -20,4 +26,19 @@ export const loginUser = async (email: string, password: string) => {
   if (!user) return null;
   const isPasswordValid = await bcrypt.compare(password, user.password);
   return isPasswordValid ? user : null;
+};
+
+export const generateAcessToken = (user: UserPayload) => {
+  return jwt.sign(
+    { id: user.id, email: user.email },
+    process.env.ACESS_TOKEN_SECRET!,
+    { expiresIn: "id" }
+  );
+};
+export const generateRefreshToken = (user: UserPayload) => {
+  return jwt.sign(
+    { id: user.id, email: user.email },
+    process.env.REFRESH_TOKEN_SECRET!,
+    { expiresIn: "id" }
+  );
 };
