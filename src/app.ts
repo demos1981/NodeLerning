@@ -22,6 +22,7 @@ app.use(helmet());
 app.use(hpp());
 
 app.use("/api/auth", routesAuth);
+app.use("/api/users", routesAuth);
 
 app.get("/", (req, res) => {
   res.send("Hello, server is listen ");
