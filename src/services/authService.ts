@@ -1,7 +1,6 @@
 import bcrypt from "bcrypt";
 import { User } from "../entities/users.entity";
 import jwt from "jsonwebtoken";
-import { RefreshToken } from "src/entities/refresh-tokens.entity";
 import { removeRefreshToken } from "src/utils/tokenManagement";
 
 type UserPayload = {

@@ -11,6 +11,7 @@ import bodyParser from "body-parser";
 import cors from "cors";
 import { AppDataSource } from "./data-source";
 import routesAuth from "./routes/auth";
+import routesUser from "./routes/user";
 
 const app: Express = express();
 
@@ -22,7 +23,7 @@ app.use(helmet());
 app.use(hpp());
 
 app.use("/api/auth", routesAuth);
-app.use("/api/users", routesAuth);
+app.use("/api/users", routesUser);
 
 app.get("/", (req, res) => {
   res.send("Hello, server is listen ");

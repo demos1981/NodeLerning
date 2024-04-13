@@ -7,3 +7,7 @@ export const getAllUsers = async () => {
     count,
   };
 };
+
+export const createUser = async () => {};
+
+export const updateUser = async () => {};

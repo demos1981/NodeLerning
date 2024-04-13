@@ -9,3 +9,7 @@ export const getAllUsers = async (req: Request, res: Response) => {
     res.status(error.response?.status || 500).json({ error: error.message });
   }
 };
+
+export const createUser = async (req: Request, res: Response) => {};
+
+export const updateUser = async (req: Request, res: Response) => {};
