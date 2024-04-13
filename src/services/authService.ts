@@ -1,6 +1,8 @@
 import bcrypt from "bcrypt";
 import { User } from "../entities/users.entity";
 import jwt from "jsonwebtoken";
+import { RefreshToken } from "src/entities/refresh-tokens.entity";
+import { removeRefreshToken } from "src/utils/tokenManagement";
 
 type UserPayload = {
   id: number;
@@ -41,4 +43,8 @@ export const generateRefreshToken = (user: UserPayload) => {
     process.env.REFRESH_TOKEN_SECRET!,
     { expiresIn: "id" }
   );
+};
+
+export const logoutUser = async (token: string) => {
+  await removeRefreshToken(token);
 };
