@@ -12,3 +12,9 @@ export interface DataStoredInToken {
   role: string;
   email: string;
 }
+export interface DataUser {
+  id?: number;
+  name: string;
+  email: string;
+  password: string;
+}
