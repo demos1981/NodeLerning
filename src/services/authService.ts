@@ -22,7 +22,6 @@ export const registerUser = async (registerUserData: any) => {
 export const loginUser = async (email: string, password: string) => {
   const user: User = await User.findOne({
     where: { email },
-    select: ["id", "email", "password"],
   });
   if (!user) return null;
   const isPasswordValid = await bcrypt.compare(password, user.password);
@@ -33,14 +32,13 @@ export const generateAcessToken = (user: UserPayload) => {
   return jwt.sign(
     { id: user.id, email: user.email },
     process.env.ACESS_TOKEN_SECRET!,
-    { expiresIn: "id" }
+    { expiresIn: "1d" }
   );
 };
 export const generateRefreshToken = (user: UserPayload) => {
   return jwt.sign(
     { id: user.id, email: user.email },
-    process.env.REFRESH_TOKEN_SECRET!,
-    { expiresIn: "id" }
+    process.env.REFRESH_TOKEN_SECRET!
   );
 };
 
