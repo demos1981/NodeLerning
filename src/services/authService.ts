@@ -1,6 +1,7 @@
 import bcrypt from "bcrypt";
 import { User } from "../entities/users.entity";
 import jwt from "jsonwebtoken";
+import { removeRefreshToken } from "../../src/utils/tokenManagement/index";
 
 type UserPayload = {
   id: number;
@@ -29,16 +30,14 @@ export const loginUser = async (email: string, password: string) => {
 };
 
 export const generateAcessToken = (user: UserPayload) => {
-  return jwt.sign(
-    { id: user.id, email: user.email },
-    process.env.ACESS_TOKEN_SECRET!,
-    { expiresIn: "id" }
-  );
+  return jwt.sign({ id: user.id, email: user.email }, "ssh", {
+    expiresIn: "1d",
+  });
 };
 export const generateRefreshToken = (user: UserPayload) => {
-  return jwt.sign(
-    { id: user.id, email: user.email },
-    process.env.REFRESH_TOKEN_SECRET!,
-    { expiresIn: "id" }
-  );
+  return jwt.sign({ id: user.id, email: user.email }, "ssh");
+};
+
+export const logoutUser = async (token: string) => {
+  await removeRefreshToken(token);
 };

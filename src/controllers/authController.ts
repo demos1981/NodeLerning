@@ -1,7 +1,7 @@
 import { Request, Response } from "express";
 import * as authService from "../services/authService";
 import { ErrorMessage } from "../utils/constants/constants";
-import { storeRefreshToken } from "../utils/tokenManagement";
+import { storeRefreshToken } from "../../src/utils/tokenManagement/index";
 
 export const register = async (req: Request, res: Response) => {
   try {
