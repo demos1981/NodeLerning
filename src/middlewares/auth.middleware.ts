@@ -10,10 +10,10 @@ const authMiddleware = (): RequestHandler => {
   return async (req: RequestWithUser, res: Response, next: NextFunction) => {
     try {
       const authorization =
-        req.cookies["Authorization"] ||
-        (req.header("Authorization")
+        // req.cookies["Authorization"] ||
+        req.header("Authorization")
           ? req.header("Authorization").split("Bearer")[1]
-          : null);
+          : null;
       if (authorization) {
         const secretKey: string = process.env.ACESS_TOKEN_SECRET;
         const { id } = verify(authorization, secretKey) as DataStoredInToken;
