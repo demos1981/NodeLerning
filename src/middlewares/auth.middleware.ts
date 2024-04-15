@@ -10,8 +10,7 @@ const authMiddleware = (): RequestHandler => {
   return async (req: RequestWithUser, res: Response, next: NextFunction) => {
     try {
       const authorization =
-        // req.cookies["Authorization"] ||
-        req.header("Authorization")
+        req.cookies["Authorization"] || req.header("Authorization")
           ? req.header("Authorization").split("Bearer")[1]
           : null;
       if (authorization) {
