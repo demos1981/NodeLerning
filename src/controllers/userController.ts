@@ -32,18 +32,3 @@ export const updateUser = async (req: Request, res: Response) => {
     res.status(500).send(error.message);
   }
 };
-
-// if (newUser) {
-//   const acessToken = authService.generateAcessToken({
-//     id: newUser.id,
-//     email: newUser.email,
-//   });
-//   const refreshToken = authService.generateRefreshToken({
-//     id: newUser.id,
-//     email: newUser.email,
-//   });
-//   await storeRefreshToken(newUser.id, refreshToken);
-//   res.json({ acessToken, refreshToken });
-// } else {
-//   res.status(400).send(ErrorMessage.errorInvalidPassword);
-// }

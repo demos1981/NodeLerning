@@ -23,15 +23,24 @@ export const createUser = async (createUserData: DataUser) => {
 
 export const updateUser = async (id: number, updateUserData: DataUser) => {
   const { name, email, password } = updateUserData;
-  const hashPassword = await bcrypt.hash(password, 10);
-  const user = await User.findOne({
-    where: { id },
-  });
 
-  user.name = name;
-  user.email = email;
-  user.password = hashPassword;
+  let user: User | undefined;
 
-  await user.save();
+  const updatedFields: Partial<User> = {
+    ...(name && { name }),
+    ...(email && { email }),
+  };
+
+  if (password) {
+    const hashPassword = await bcrypt.hash(password, 10);
+    updatedFields.password = hashPassword;
+  }
+
+  const result = await User.update({ id }, updatedFields);
+  if (result && result.affected) {
+    user = await User.findOne({ where: { id } });
+  } else {
+    throw Error("Not update user");
+  }
   return user;
 };
