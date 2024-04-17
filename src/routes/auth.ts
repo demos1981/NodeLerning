@@ -1,7 +1,7 @@
 import express, { Router } from "express";
 import * as authController from "../controllers/authController";
-import { validationMiddleware } from "src/middlewares/validation.middleware";
-import { RegisterUserDto } from "src/dto/auth.dto";
+import { validationMiddleware } from "../../src/middlewares/validation.middleware";
+import { RegisterUserDto } from "../../src/dto/auth.dto";
 
 const router: Router = express.Router();
 
