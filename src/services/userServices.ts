@@ -1,5 +1,6 @@
 import { User } from "../entities/users.entity";
 import bcrypt from "bcrypt";
+import { CreateUserDto } from "src/dto/user.dto";
 import { DataUser } from "src/interfaces/auth.interface";
 
 export const getAllUsers = async () => {
@@ -10,7 +11,7 @@ export const getAllUsers = async () => {
   };
 };
 
-export const createUser = async (createUserData: DataUser) => {
+export const createUser = async (createUserData: CreateUserDto) => {
   const { name, email, password } = createUserData;
   const hashPassword = await bcrypt.hash(password, 10);
   const newUser: User = await User.save({
@@ -21,7 +22,7 @@ export const createUser = async (createUserData: DataUser) => {
   return newUser;
 };
 
-export const updateUser = async (id: number, updateUserData: DataUser) => {
+export const updateUser = async (id: number, updateUserData: CreateUserDto) => {
   const { name, email, password } = updateUserData;
 
   let user: User | undefined;

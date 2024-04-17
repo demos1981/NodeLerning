@@ -1,7 +1,6 @@
 import { Request, Response } from "express";
 import * as userServices from "../services/userServices";
-import { ErrorMessage } from "../utils/constants/constants";
-import { storeRefreshToken } from "../../src/utils/tokenManagement";
+import { CreateUserDto } from "src/dto/user.dto";
 
 export const getAllUsers = async (req: Request, res: Response) => {
   try {
@@ -14,7 +13,7 @@ export const getAllUsers = async (req: Request, res: Response) => {
 
 export const createUser = async (req: Request, res: Response) => {
   try {
-    const createUserData = req.body;
+    const createUserData: CreateUserDto = req.body;
     const newUser = await userServices.createUser(createUserData);
     res.status(201).json(newUser);
   } catch (error) {
@@ -25,7 +24,7 @@ export const createUser = async (req: Request, res: Response) => {
 export const updateUser = async (req: Request, res: Response) => {
   try {
     const { id } = req.params;
-    const updateUserData = req.body;
+    const updateUserData: CreateUserDto = req.body;
     const updatedUser = await userServices.updateUser(id, updateUserData);
     res.status(200).json(updatedUser);
   } catch (error) {
