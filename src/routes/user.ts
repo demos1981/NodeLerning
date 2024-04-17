@@ -6,15 +6,16 @@ import { CreateUserDto } from "../../src/dto/user.dto";
 
 const router: Router = express.Router();
 
-router.get("/", userController.getAllUsers);
+router.get("/", authMiddleware(), userController.getAllUsers);
 router.post(
   "/",
-
+  authMiddleware(),
   validationMiddleware(CreateUserDto, "body"),
   userController.createUser
 );
 router.put(
   "/:id",
+  authMiddleware(),
   validationMiddleware(CreateUserDto, "body"),
   userController.updateUser
 );
