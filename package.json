@@ -5,14 +5,20 @@
   "main": "src/app.ts",
   "scripts": {
     "start": "ts-node src/app.ts",
+    "dev": "nodemon --watch 'src/**/*.ts' --exec 'ts-node' src/app.ts",
+    "lint": "eslint . --ext .js,.ts ",
+    "lint-fix": "eslint . --ext .js,.ts --fix",
     "typeorm:sync": "dotenv scripts/sync.sh"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "@typescript-eslint/eslint-plugin": "^7.7.0",
     "axios": "^1.6.8",
     "bcrypt": "^5.1.1",
     "body-parser": "^1.20.2",
+    "class-transformer": "^0.5.1",
+    "class-validator": "^0.14.1",
     "compression": "^1.7.4",
     "cookie-parser": "^1.4.6",
     "cors": "^2.8.5",
@@ -32,11 +38,12 @@
   "devDependencies": {
     "@types/node": "^20.12.6",
     "eslint": "^8.57.0",
+    "globals": "^15.0.0",
     "prettier": "^3.2.5",
     "ts-node": "^10.9.2",
     "tslib": "^2.6.2",
     "tsx": "^4.7.2",
-    "typescript": "^5.4.4"
+    "typescript": "^5.4.5"
   },
   "optionalDependencies": {
     "win-node-env": "^0.6.1"
