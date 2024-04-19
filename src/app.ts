@@ -24,6 +24,7 @@ app.use(hpp());
 
 app.use("/api/auth", routesAuth);
 app.use("/api/users", routesUser);
+app.use("/api/products", routesProduct);
 
 app.get("/", (req, res) => {
   res.send("Hello, server is listen ");
