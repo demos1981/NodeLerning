@@ -20,8 +20,8 @@ export class UpdateUserDto {
   public name: string;
 
   @IsNotEmpty()
-  @IsEmail()
   @IsString()
+  @IsEmail()
   public email: string;
 
   @IsNotEmpty()
