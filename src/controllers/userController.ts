@@ -1,6 +1,6 @@
 import { Request, Response } from "express";
 import * as userServices from "../services/userServices";
-import { CreateUserDto } from "src/dto/user.dto";
+import { CreateUserDto, UpdateUserDto } from "src/dto/user.dto";
 
 export const getAllUsers = async (req: Request, res: Response) => {
   try {
@@ -24,7 +24,7 @@ export const createUser = async (req: Request, res: Response) => {
 export const updateUser = async (req: Request, res: Response) => {
   try {
     const { id } = req.params;
-    const updateUserData: CreateUserDto = req.body;
+    const updateUserData: UpdateUserDto = req.body;
     const updatedUser = await userServices.updateUser(id, updateUserData);
     res.status(200).json(updatedUser);
   } catch (error) {
