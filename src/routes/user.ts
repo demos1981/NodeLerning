@@ -13,6 +13,7 @@ router.post(
   validationMiddleware(CreateUserDto, "body"),
   userController.createUser
 );
+router.post('/:id/add-product/:productId',authMiddleware(),userController.addProduct);
 router.put(
   "/:id",
   authMiddleware(),

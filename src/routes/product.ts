@@ -6,3 +6,5 @@ const router: Router = express.Router();
 
 router.get("/", authMiddleware(), productController.getAllProduct);
 router.post("/", authMiddleware(), productController.createProduct);
+
+export default router;
