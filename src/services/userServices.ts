@@ -4,7 +4,9 @@ import { CreateUserDto, UpdateUserDto } from "src/dto/user.dto";
 import { Product } from "src/entities/product.entity";
 
 export const getAllUsers = async () => {
-  const [users, count] = await User.findAndCount({});
+  const [users, count] = await User.findAndCount({
+    relations: ["products"],
+  });
   return {
     users,
     count,
@@ -47,8 +49,10 @@ export const updateUser = async (id: number, updateUserData: UpdateUserDto) => {
 };
 
 export const addProduct = async (id: number, productId: number) => {
-  const user = await User.findOne({ where: { id } });
-  const product: Product = await Product.findOne({ where: { id: productId } });
+  const user = await User.findOne({ where: { id }, relations: ["products"] });
+  const product: Product = await Product.findOne({
+    where: { id: productId },
+  });
   if (!user || !product) {
     throw new Error("User or product not  found");
   }
