@@ -10,6 +10,11 @@ export const getAllProduct = async (req: Request, res: Response) => {
   }
 };
 
+export const getProductByIdWithUsers = async (req: Request, res: Response) => {
+  try {
+  } catch {}
+};
+
 export const createProduct = async (req: Request, res: Response) => {
   try {
     const createProductDto = req.body;

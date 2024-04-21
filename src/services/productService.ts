@@ -1,4 +1,4 @@
-import { Product } from "src/entities/product.entity";
+import { Product } from "../../src/entities/product.entity";
 
 export const getAllProduct = async () => {
   const [products, count] = await Product.findAndCount({
@@ -9,6 +9,8 @@ export const getAllProduct = async () => {
     count,
   };
 };
+
+export const getProductByIdWithUsers = async () => {};
 
 export const createProduct = async (createProductDto: any) => {
   const product = await Product.save(createProductDto);

@@ -11,6 +11,11 @@ export const getAllUsers = async (req: Request, res: Response) => {
   }
 };
 
+export const getAllUserWithProducts = async (req: Request, res: Response) => {
+  try {
+  } catch {}
+};
+
 export const createUser = async (req: Request, res: Response) => {
   try {
     const createUserData: CreateUserDto = req.body;
