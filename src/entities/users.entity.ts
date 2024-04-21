@@ -30,6 +30,8 @@ export class User extends BaseEntity {
     joinColumn: { name: "user_id", referencedColumnName: "id" },
     inverseJoinColumn: { name: "product_id", referencedColumnName: "id" },
   })
+  products: Product[];
+
   @CreateDateColumn({ type: "timestamp", default: () => "CURRENT_TIMESTAMP" })
   createdAt: Date;
 

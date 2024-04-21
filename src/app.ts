@@ -12,6 +12,7 @@ import cors from "cors";
 import { AppDataSource } from "./data-source";
 import routesAuth from "./routes/auth";
 import routesUser from "./routes/user";
+import routesProduct from "./routes/product";
 
 const app: Express = express();
 

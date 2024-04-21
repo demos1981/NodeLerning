@@ -11,7 +11,7 @@ import {
 
 import { User } from "./users.entity";
 
-@Entity({ name: "product" })
+@Entity({ name: "products" })
 export class Product extends BaseEntity {
   @PrimaryGeneratedColumn()
   id!: number;
