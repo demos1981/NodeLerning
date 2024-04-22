@@ -6,12 +6,23 @@ import { CreateUserDto, UpdateUserDto } from "../../src/dto/user.dto";
 
 const router: Router = express.Router();
 
-router.get("/", authMiddleware(), userController.getAllUsers);
+router.get("/", userController.getAllUsers);
+router.get(
+  "/all-user-with-product",
+  authMiddleware(),
+  userController.getAllUserWithProducts
+);
+
 router.post(
   "/",
   authMiddleware(),
   validationMiddleware(CreateUserDto, "body"),
   userController.createUser
+);
+router.post(
+  "/:id/add-product/:productId",
+  authMiddleware(),
+  userController.addProduct
 );
 router.put(
   "/:id",
