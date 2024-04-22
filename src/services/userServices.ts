@@ -4,16 +4,18 @@ import { CreateUserDto, UpdateUserDto } from "src/dto/user.dto";
 import { Product } from "../../src/entities/product.entity";
 
 export const getAllUsers = async () => {
-  const [users, count] = await User.findAndCount({
-    relations: ["products"],
-  });
+  const [users, count] = await User.findAndCount({});
   return {
     users,
     count,
   };
 };
 
-export const getAllUserWithProducts = async () => {};
+export const getAllUserWithProducts = async () => {
+  return await User.createQueryBuilder("user")
+    .innerJoinAndSelect("user.products", "product")
+    .getMany();
+};
 
 export const createUser = async (createUserData: CreateUserDto) => {
   const { name, email, password } = createUserData;

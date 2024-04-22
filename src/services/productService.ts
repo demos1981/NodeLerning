@@ -1,9 +1,7 @@
 import { Product } from "../../src/entities/product.entity";
 
 export const getAllProduct = async () => {
-  const [products, count] = await Product.findAndCount({
-    relations: ["users"],
-  });
+  const [products, count] = await Product.findAndCount({});
   return {
     products,
     count,

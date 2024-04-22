@@ -12,7 +12,11 @@ export const getAllProduct = async (req: Request, res: Response) => {
 
 export const getProductByIdWithUsers = async (req: Request, res: Response) => {
   try {
-  } catch {}
+    const getProductByIdUsers = await productService.getProductByIdWithUsers();
+    res.status(200).json(getProductByIdUsers);
+  } catch (error) {
+    res.status(error.response?.status || 500).json({ error: error.message });
+  }
 };
 
 export const createProduct = async (req: Request, res: Response) => {

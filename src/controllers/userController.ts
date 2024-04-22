@@ -10,10 +10,13 @@ export const getAllUsers = async (req: Request, res: Response) => {
     res.status(error.response?.status || 500).json({ error: error.message });
   }
 };
-
 export const getAllUserWithProducts = async (req: Request, res: Response) => {
   try {
-  } catch {}
+    const userWithProducts = await userServices.getAllUserWithProducts();
+    res.status(200).json(userWithProducts);
+  } catch (error) {
+    res.status(error.response?.status || 500).json({ error: error.message });
+  }
 };
 
 export const createUser = async (req: Request, res: Response) => {
