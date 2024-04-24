@@ -48,6 +48,9 @@ const options = {
   apis: ["swagger.yaml"],
 };
 
+const specs = swaggerJsDoc(options);
+app.use("/api-docs", swaggerUi.serve, swaggerUi.setup(specs));
+
 const PORT: number = parseInt(process.env.PORT || "3000", 10);
 
 AppDataSource.initialize()
