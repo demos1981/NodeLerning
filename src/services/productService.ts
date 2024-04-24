@@ -8,7 +8,11 @@ export const getAllProduct = async () => {
   };
 };
 
-export const getProductByIdWithUsers = async () => {};
+export const getProductByIdWithUsers = async () => {
+  return await Product.createQueryBuilder("product")
+    .innerJoinAndSelect("product.users", "user")
+    .getMany();
+};
 
 export const createProduct = async (createProductDto: any) => {
   const product = await Product.save(createProductDto);

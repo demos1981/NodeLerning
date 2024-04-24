@@ -6,7 +6,7 @@ import { CreateUserDto, UpdateUserDto } from "../../src/dto/user.dto";
 
 const router: Router = express.Router();
 
-router.get("/", userController.getAllUsers);
+router.get("/", authMiddleware(), userController.getAllUsers);
 router.get(
   "/all-user-with-product",
   authMiddleware(),

@@ -1,5 +1,6 @@
 import { Request, Response } from "express";
 import * as productService from "../services/productService";
+import { CreateProductDto } from "../../src/dto/product.dto";
 
 export const getAllProduct = async (req: Request, res: Response) => {
   try {
@@ -21,7 +22,7 @@ export const getProductByIdWithUsers = async (req: Request, res: Response) => {
 
 export const createProduct = async (req: Request, res: Response) => {
   try {
-    const createProductDto = req.body;
+    const createProductDto: CreateProductDto = req.body;
     const product = await productService.createProduct(createProductDto);
     res.json(product);
   } catch (error) {

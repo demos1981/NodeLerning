@@ -7,6 +7,7 @@ import {
   CreateDateColumn,
   UpdateDateColumn,
   ManyToMany,
+  JoinTable,
 } from "typeorm";
 
 import { User } from "./users.entity";
@@ -22,7 +23,12 @@ export class Product extends BaseEntity {
   @Column({ type: "varchar", length: 256, nullable: false })
   color!: string;
 
-  @ManyToMany(() => User, { cascade: true })
+  @ManyToMany(() => User, (user) => user.products)
+  @JoinTable({
+    name: "user-products",
+    joinColumn: { name: "product_id", referencedColumnName: "id" },
+    inverseJoinColumn: { name: "user_id", referencedColumnName: "id" },
+  })
   users: User[];
 
   @CreateDateColumn({ type: "timestamp", default: () => "CURRENT_TIMESTAMP" })
