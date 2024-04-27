@@ -10,6 +10,7 @@ import {
   JoinTable,
 } from "typeorm";
 import { Product } from "./product.entity";
+import { UserRole } from "../../src/interfaces/user.interface";
 @Entity({ name: "users" })
 export class User extends BaseEntity {
   @PrimaryGeneratedColumn()
@@ -23,6 +24,9 @@ export class User extends BaseEntity {
 
   @Column({ type: "varchar", length: 128, nullable: false, select: false })
   password!: string;
+
+  @Column({ type: "varchar", length: 128, nullable: false })
+  role!: UserRole;
 
   @ManyToMany(() => Product, { cascade: true })
   @JoinTable({
