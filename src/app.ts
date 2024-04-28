@@ -16,7 +16,6 @@ import routesProduct from "./routes/product";
 import morgan from "morgan";
 import swaggerJsDoc from "swagger-jsdoc";
 import swaggerUi from "swagger-ui-express";
-import { title } from "process";
 
 const loggerMiddleware = morgan("dev");
 const app: Express = express();
@@ -38,7 +37,7 @@ app.get("/", (req, res) => {
 });
 
 const options = {
-  swaggerDefifnition: {
+  swaggerDefinition: {
     info: {
       title: "REST API",
       version: "1.0.0",
@@ -49,6 +48,7 @@ const options = {
 };
 
 const specs = swaggerJsDoc(options);
+
 app.use("/api-docs", swaggerUi.serve, swaggerUi.setup(specs));
 
 const PORT: number = parseInt(process.env.PORT || "3000", 10);

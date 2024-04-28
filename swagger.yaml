@@ -1,0 +1,198 @@
+swagger: "2.0"
+info:
+  version: "1.0.0"
+  title: "REST API"
+  description: "Docs magazine"
+securityDefinitions:
+  type: "apikey"
+  name: "Authorization"
+  in: "header"
+  description: "Bearer authentication with a JWT"
+
+security: -bearerAuth:[]
+
+paths:
+  /:
+    get:
+      summary: "Root endpoint"
+      responses:
+        200:
+          description: "OK"
+          schema:
+            type: string
+            example: "Hello from the server!"
+
+/api/auth/register:
+  post:
+    tags: ["AUTH"]
+    summary: "User registration route"
+    consumes:
+      - application/json
+    produces:
+      - application/json
+    parameters:
+      - in: body
+        name: user
+        description: "User details for registration"
+        required: true
+        schema:
+          $ref: "#/definitions/User"
+    responses:
+      201:
+        description: "Created"
+        schema:
+          type: object
+          properties:
+            massage:
+              type: string
+              example: "User registtered succesfully"
+            userId:
+              type: number
+              example: 1
+      400:
+        description: "Bad request"
+      500:
+        description: "Server error"
+
+/api/auth/login:
+  post:
+    tags: ["AUTH"]
+    summary: "User login route"
+    consumes:
+      - application/json
+    produces:
+      - application/json
+    parameters:
+      - in: body
+        name: credentials
+        description: "User login credentials"
+        required: true
+        schema:
+          type: object
+          properties:
+            email:
+              type: string
+              example: "user@example.com"
+            password:
+              type: string
+              example: "password"
+    responses:
+      200:
+        description: "Login"
+        schema:
+          type: oject
+          properties:
+            accessToken:
+              type: string
+              example: "eyJhbGciOiJIUzI1NiIsIn..."
+      400:
+        description: "User not found or Invalid Password"
+      500:
+        description: "Server Error"
+
+/api/auth/token:
+  post:
+    tags: ["AUTH"]
+    summary: "Token route"
+    consumes:
+      - application/json
+    produces:
+      - application/json
+    parameters:
+      - in: body
+        name: credentials
+        description: "Token credentials"
+        required: true
+        schema:
+          type: object
+          properties:
+            token:
+              type: string
+              example: "eyJhbGciOiJIUzI1NiIsIn..."
+    responses:
+      200:
+        description: "Done"
+        schema:
+          type: object
+          properties:
+            accessToken:
+              type: string
+              example: "eyJhbGciOiJIUzI1NiIsIn..."
+      401:
+        description: "Unauthorized"
+      403:
+        description: "Invalid Refresh Token"
+      500:
+        description: "Server Error"
+
+/api/auth/logout:
+  delete:
+    tags: ["AUTH"]
+    summary: "Logout route to remove route"
+    consumes:
+      - application/json
+    produces:
+      - application/json
+    parameters:
+      - in: body
+        name: token
+        description: "Refresh token"
+        required: true
+        schema:
+          type: object
+          properties:
+            token:
+              type: string
+              example: "eyJhbGciOiJIUzI1NiIsIn..."
+    responses:
+      200:
+        description: "Done"
+      500:
+        description: "Server Error"
+
+/api/users:
+  get:
+    tags: ["USERS"]
+    summary: "Get all users"
+    responses:
+      200:
+        description: "Done"
+        schema:
+          type: object
+          properties:
+            users:
+              type: array
+              items:
+                $ref: "#/definitions/User"
+            count:
+              type: integer
+              example: 2
+      500:
+        description: "Server Error"
+    security:
+      - bearerAuth: []
+
+definitions:
+  User:
+    type: object
+    required:
+      - name
+      - email
+      - password
+      - role
+    properties:
+      id:
+        type: integer
+        example: 1
+      name:
+        type: string
+        example: "name"
+      email:
+        type: string
+        example: "jonny.mnemonik@example.com"
+      password:
+        type: string
+        example: "password"
+      role:
+        type: string
+        example: "OWNER"

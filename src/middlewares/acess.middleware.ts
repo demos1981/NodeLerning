@@ -1,7 +1,7 @@
 import { NextFunction, Response } from "express";
 import { RequestWithUser } from "../../src/interfaces/auth.interface";
 
-const roleMiddleware =
+export const roleMiddleware =
   (...roles) =>
   (req: RequestWithUser, res: Response, next: NextFunction) => {
     const userRole = req.user.role;
@@ -11,4 +11,4 @@ const roleMiddleware =
     next();
   };
 
-export default roleMiddleware;
+

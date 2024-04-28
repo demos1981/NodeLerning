@@ -2,7 +2,7 @@ import { plainToInstance } from "class-transformer";
 import { validate, ValidationError } from "class-validator";
 import { Requesthandler } from "express";
 
-const getErrorMessage = (
+export const getErrorMessage = (
   errors: ValidationError[],
   existingMessage
 ): string => {

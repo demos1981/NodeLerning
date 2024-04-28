@@ -2,6 +2,7 @@ import { User } from "../entities/users.entity";
 import bcrypt from "bcrypt";
 import { CreateUserDto, UpdateUserDto } from "src/dto/user.dto";
 import { Product } from "../../src/entities/product.entity";
+import { UserRole } from "../../src/interfaces/user.interface";
 
 export const getAllUsers = async () => {
   const [users, count] = await User.findAndCount({});
@@ -18,12 +19,13 @@ export const getAllUserWithProducts = async () => {
 };
 
 export const createUser = async (createUserData: CreateUserDto) => {
-  const { name, email, password } = createUserData;
+  const { name, email, password, role } = createUserData;
   const hashPassword = await bcrypt.hash(password, 10);
   const newUser: User = await User.save({
     name,
     email,
     password: hashPassword,
+    role,
   });
   return newUser;
 };
