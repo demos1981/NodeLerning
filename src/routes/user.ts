@@ -22,7 +22,7 @@ router.get(
 
 router.post(
   "/",
-
+  authMiddleware(),
   validationMiddleware(CreateUserDto, "body"),
   userController.createUser
 );
