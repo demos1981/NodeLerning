@@ -18,18 +18,19 @@ export const getAllUserWithProducts = async () => {
 };
 
 export const createUser = async (createUserData: CreateUserDto) => {
-  const { name, email, password } = createUserData;
+  const { name, email, password, role } = createUserData;
   const hashPassword = await bcrypt.hash(password, 10);
   const newUser: User = await User.save({
     name,
     email,
     password: hashPassword,
+    role,
   });
   return newUser;
 };
 
 export const updateUser = async (id: number, updateUserData: UpdateUserDto) => {
-  const { name, email, password } = updateUserData;
+  const { name, email, password, role } = updateUserData;
 
   let user: User | undefined;
 
