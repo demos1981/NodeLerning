@@ -3,13 +3,14 @@ info:
   version: "1.0.0"
   title: "REST API"
   description: "Docs magazine"
-securityDefinitions:
-  type: "apikey"
-  name: "Authorization"
-  in: "header"
-  description: "Bearer authentication with a JWT"
+    securityDefinitions:
+    type: "apikey"
+    name: "Authorization"
+    in: "header"
+    description: "Bearer authentication with a JWT"
 
-security: -bearerAuth:[]
+  security: 
+    - bearerAuth: []
 
 paths:
   /:
@@ -157,16 +158,6 @@ paths:
       responses:
         200:
           description: "Done"
-          schema:
-            type: object
-            properties:
-              users:
-                type: array
-                items:
-                  $ref: "#/definitions/User"
-              count:
-                type: number
-                example: 2
         500:
           description: "Server Error"
     post:
@@ -188,6 +179,7 @@ paths:
           description: "Succesfull operation"
         500:
           description: "Server Error"
+  /api/users/:id:
     put:
       tags: ["USERS"]
       summary: "Update User"
@@ -202,9 +194,42 @@ paths:
           required: true
           schema:
             $ref: "#/definitions/User"
-       responses:
+      responses:
         200:
           description: "Succesfull operation"
+        500:
+          description: "Server Error"
+  /api/users/add-product/:productId:
+    post:
+      tags: ["USERS"]
+      summary: "Add product by user id"
+      consumes:
+        - application/json
+      produces:
+        - application/json
+      parameters:
+        - in: path
+          name: userId
+          description: "User id"
+          required: true
+          schema:
+            type: number
+            example: 2
+        - in: path
+          name: productId
+          description: "Product id"
+          required: true
+          schema:
+            type: number
+            example: 3
+        - in: body
+          name: "Add product "
+          description: "Product with user"
+          schema:
+            $ref: "#/definitions/Product"
+      responses:
+        200:
+          description: "Successful operation"
         500:
           description: "Server Error"
   definitions:
@@ -265,6 +290,25 @@ paths:
           description: "Succesfull operation"
         500:
           description: "Server Error"
+  /api/product/product-by-id-with-users:
+    get:
+      tags: ["PRODUCT"]
+      summary: "get"
+      description: "Find product by id with user"
+      parameters:
+        - in: path
+          name: productId
+          required: true
+          schema:
+            type: number
+            example: 2
+      responses:
+        200:
+          description: "Successful operation"
+        400:
+          description: "Invalid Id"
+        500:
+          description: "Server Error"
     definitions:
       Product:
         type: object
@@ -281,7 +325,3 @@ paths:
           color:
             type: string
             example: "color"
-    
-
-
-          
