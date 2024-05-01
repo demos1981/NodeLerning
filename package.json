@@ -8,11 +8,13 @@
     "dev": "nodemon --watch 'src/**/*.ts' --exec 'ts-node' src/app.ts",
     "lint": "eslint . -ext .js,.jsx,.ts,.tsx ",
     "lint-fix": "eslint . -ext .js,.jsx,.ts,.tsx --fix",
+    "test": "jest",
     "typeorm:sync": "dotenv scripts/sync.sh"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "@types/jest": "^29.5.12",
     "@typescript-eslint/eslint-plugin": "^7.7.0",
     "axios": "^1.6.8",
     "babel-core": "^6.26.3",
@@ -45,6 +47,7 @@
     "@types/node": "^20.12.6",
     "eslint": "^8.57.0",
     "globals": "^15.0.0",
+    "ts-jest": "^29.1.2",
     "ts-node": "^10.9.2",
     "tslib": "^2.6.2",
     "tsx": "^4.7.2",
