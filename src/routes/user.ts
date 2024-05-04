@@ -11,7 +11,7 @@ const router: Router = express.Router();
 router.get(
   "/",
   authMiddleware(),
-
+  roleMiddleware(UserRole.ADMIN, UserRole.OWNER),
   userController.getAllUsers
 );
 router.get(
