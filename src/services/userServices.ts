@@ -70,3 +70,5 @@ export const addProduct = async (id: number, productId: number) => {
   await user.save();
   return user;
 };
+
+export const newFunct = async () => {};
