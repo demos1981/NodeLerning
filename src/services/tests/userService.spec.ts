@@ -8,7 +8,6 @@ import {
   createUser,
 } from "../userServices";
 import { UserRole } from "../../../src/interfaces/user.interface";
-import { rejects } from "assert";
 
 jest.mock("../../entities/users.entity");
 jest.mock("../../entities/product.entity");
