@@ -300,8 +300,7 @@ paths:
           name: productId
           required: true
           schema:
-            type: number
-            example: 2
+            $ref: "#/definitions/Product"
       responses:
         200:
           description: "Successful operation"
