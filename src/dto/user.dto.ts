@@ -1,4 +1,4 @@
-import { IsString, IsNotEmpty, IsEmail, IsOptional } from "class-validator";
+import { IsString, IsNotEmpty } from "class-validator";
 import { UserRole } from "../../src/interfaces/user.interface";
 
 export class CreateUserDto {
