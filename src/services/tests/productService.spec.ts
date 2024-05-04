@@ -11,7 +11,7 @@ jest.mock("../../entities/product.entity", () => ({
 describe("getAllProduct", () => {
   it("should return products and count products", async () => {
     const mockProducts = [
-      { id: 1, name: "Product 1" },
+      { id: 1, name: "Product1" },
       { id: 2, name: "Product2" },
     ];
     const mockCount = 2;

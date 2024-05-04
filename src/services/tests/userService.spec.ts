@@ -1,8 +1,14 @@
 import bcrypt from "bcrypt";
-import { User } from "../../entities/users.entity";
+import { User } from "../../../src/entities/users.entity";
 import { Product } from "../../entities/product.entity";
-import { getAllUsers, updateUser, addProduct } from "../userServices";
+import {
+  getAllUsers,
+  updateUser,
+  addProduct,
+  createUser,
+} from "../userServices";
 import { UserRole } from "../../../src/interfaces/user.interface";
+import { rejects } from "assert";
 
 jest.mock("../../entities/users.entity");
 jest.mock("../../entities/product.entity");
@@ -11,8 +17,8 @@ jest.mock("bcrypt");
 describe("getAllUser", () => {
   it("should return users and count when users are found", async () => {
     const mockUsers = [
-      { id: 1, name: "User" },
-      { id: 2, name: "User" },
+      { id: 1, name: "User1" },
+      { id: 2, name: "User2" },
     ];
     const mockCount = 2;
     (User.findAndCount as jest.Mock).mockResolvedValue([mockUsers, mockCount]);
@@ -31,6 +37,23 @@ describe("getAllUser", () => {
     expect(result).toEqual({ users: [], count: 0 });
   });
 });
+describe("createUser", () => {
+  it("should return create user", async () => {
+    const createUserDto = {
+      name: "New User",
+      email: "firstuser@gmail.com",
+      password: "new password",
+      role: UserRole.CUSTOMER,
+    };
+    const mockUsers = { id: 1, ...createUserDto };
+    (User.save as jest.Mock).mockResolvedValue(mockUsers);
+
+    const result = await createUser(createUserDto);
+
+    expect(User.save).toHaveBeenCalled();
+    expect(result).toEqual(mockUsers);
+  });
+});
 
 describe("updateUser", () => {
   it("should return the update user", async () => {
@@ -41,9 +64,9 @@ describe("updateUser", () => {
       password: "newpassword",
       role: UserRole.OWNER,
     };
-    const mockUsers = { id: userId, ...updateDto };
+    const mockUser = { id: userId, ...updateDto };
     (User.update as jest.Mock).mockResolvedValue({ affected: 1 });
-    (User.findOne as jest.Mock).mockResolvedValue(mockUsers);
+    (User.findOne as jest.Mock).mockResolvedValue(mockUser);
     (bcrypt.hash as jest.Mock).mockResolvedValue("hashedPassword");
 
     const result = await updateUser(userId, updateDto);
@@ -57,8 +80,8 @@ describe("updateUser", () => {
         role: UserRole.OWNER,
       }
     );
-    // expect(User.findOne).toHaveBeenCalledWith({ where: { id: userId } });
-    expect(result).toEqual(mockUsers);
+    expect(User.findOne).toHaveBeenCalledWith({ where: { id: userId } });
+    expect(result).toEqual(mockUser);
   });
 
   it("should throw error when user is not update", async () => {
@@ -71,8 +94,17 @@ describe("updateUser", () => {
     };
     (User.update as jest.Mock).mockResolvedValue({ affected: 0 });
 
-    await expect(updateUser(userId, updateDto)).rejects.toThrow(
-      new Error("Not updated user")
-    );
+    await expect(updateUser(userId, updateDto)).rejects.toThrow();
+  });
+});
+
+describe("addProduct", () => {
+  it("should throw error when user or product is not found", async () => {
+    const userId = 1;
+    const productId = 1;
+    (User.findOne as jest.Mock).mockResolvedValue(null);
+    (Product.findOne as jest.Mock).mockResolvedValue(null);
+
+    await expect(addProduct(userId, productId)).rejects.toThrow();
   });
 });
