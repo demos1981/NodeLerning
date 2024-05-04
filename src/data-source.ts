@@ -3,7 +3,6 @@ import { DataSource } from "typeorm";
 import { User } from "./entities/users.entity";
 import { RefreshToken } from "./entities/refresh-tokens.entity";
 import { Product } from "./entities/product.entity";
-import { Logger } from "./entities/logger.entity";
 
 export const AppDataSource = new DataSource({
   type: "postgres",
@@ -14,5 +13,5 @@ export const AppDataSource = new DataSource({
   database: process.env.POSTGRES_DB,
   synchronize: true,
   logging: false,
-  entities: [User, RefreshToken, Product, Logger],
+  entities: [User, RefreshToken, Product],
 });
