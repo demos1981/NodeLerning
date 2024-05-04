@@ -3,6 +3,8 @@ import * as userController from "../controllers/userController";
 import authMiddleware from "../middlewares/auth.middleware";
 import { validationMiddleware } from "../middlewares/validation.middleware";
 import { CreateUserDto } from "../dto/user.dto";
+import { UserRole } from "../../src/interfaces/user.interface";
+import { roleMiddleware } from "../../src/middlewares/acess.middleware";
 
 const router: Router = express.Router();
 
