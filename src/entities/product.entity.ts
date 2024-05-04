@@ -25,7 +25,7 @@ export class Product extends BaseEntity {
 
   @ManyToMany(() => User, (user) => user.products)
   @JoinTable({
-    name: "user-products",
+    name: "product-user",
     joinColumn: { name: "product_id", referencedColumnName: "id" },
     inverseJoinColumn: { name: "user_id", referencedColumnName: "id" },
   })

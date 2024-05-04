@@ -3,14 +3,15 @@ info:
   version: "1.0.0"
   title: "REST API"
   description: "Docs magazine"
-    securityDefinitions:
+securityDefinitions:
+  bearerAuth:
     type: "apikey"
     name: "Authorization"
     in: "header"
     description: "Bearer authentication with a JWT"
 
-  security: 
-    - bearerAuth: []
+security:
+  - bearerAuth: []
 
 paths:
   /:
@@ -267,8 +268,7 @@ paths:
           description: "Id of the product return"
           required: true
           schema:
-            type: number
-            example: 1
+            $ref: "#/definitions/Product"
       responses:
         200:
           description: "Successful operation"
@@ -300,8 +300,7 @@ paths:
           name: productId
           required: true
           schema:
-            type: number
-            example: 2
+            $ref: "#/definitions/Product"
       responses:
         200:
           description: "Successful operation"
@@ -325,3 +324,6 @@ paths:
           color:
             type: string
             example: "color"
+    schemes:
+      - https
+      - http

@@ -18,23 +18,3 @@ export class CreateUserDto {
   @IsString()
   public role: UserRole;
 }
-
-export class UpdateUserDto {
-  @IsNotEmpty()
-  @IsString()
-  public name: string;
-
-  @IsNotEmpty()
-  @IsString()
-  @IsEmail()
-  public email: string;
-
-  @IsNotEmpty()
-  @IsString()
-  @IsOptional()
-  public password: string;
-
-  @IsNotEmpty()
-  @IsString()
-  public role: string;
-}
