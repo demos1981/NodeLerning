@@ -2,7 +2,7 @@ import express, { Router } from "express";
 import * as userController from "../controllers/userController";
 import authMiddleware from "../middlewares/auth.middleware";
 import { validationMiddleware } from "../middlewares/validation.middleware";
-import { CreateUserDto, UpdateUserDto } from "../dto/user.dto";
+import { CreateUserDto } from "../dto/user.dto";
 import { UserRole } from "../interfaces/user.interface";
 import { roleMiddleware } from "../middlewares/acess.middleware";
 
@@ -34,7 +34,7 @@ router.post(
 router.put(
   "/:id",
   authMiddleware(),
-  validationMiddleware(UpdateUserDto, "body"),
+  validationMiddleware(CreateUserDto, "body"),
   userController.updateUser
 );
 
