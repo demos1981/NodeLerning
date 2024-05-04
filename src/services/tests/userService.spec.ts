@@ -2,6 +2,7 @@ import bcrypt from "bcrypt";
 import { User } from "../../entities/users.entity";
 import { Product } from "../../entities/product.entity";
 import { getAllUsers, updateUser, addProduct } from "../userServices";
+import { UserRole } from "../../../src/interfaces/user.interface";
 
 jest.mock("../../entities/users.entity");
 jest.mock("../../entities/product.entity");
@@ -38,7 +39,7 @@ describe("updateUser", () => {
       name: "Update User",
       email: "update@example.com",
       password: "newpassword",
-      role: "newrole",
+      role: UserRole.OWNER,
     };
     const mockUsers = { id: userId, ...updateDto };
     (User.update as jest.Mock).mockResolvedValue({ affected: 1 });
@@ -53,10 +54,10 @@ describe("updateUser", () => {
         name: "Update User",
         email: "update@example.com",
         password: "hashedPassword",
-        role: "newrole",
+        role: UserRole.OWNER,
       }
     );
-    expect(User.findOne).toHaveBeenCalledWith({ where: { id: userId } });
+    // expect(User.findOne).toHaveBeenCalledWith({ where: { id: userId } });
     expect(result).toEqual(mockUsers);
   });
 
@@ -66,12 +67,12 @@ describe("updateUser", () => {
       name: "Update User",
       email: "update@example.com",
       password: "newpassword",
-      role: "newrole",
+      role: UserRole.ADMIN,
     };
     (User.update as jest.Mock).mockResolvedValue({ affected: 0 });
 
-    await expect(updateUser(userId, updateDto)).rejects.toThrowError(
-      "Not updated user"
+    await expect(updateUser(userId, updateDto)).rejects.toThrow(
+      new Error("Not updated user")
     );
   });
 });

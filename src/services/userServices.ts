@@ -1,7 +1,8 @@
 import { User } from "../entities/users.entity";
 import bcrypt from "bcrypt";
-import { CreateUserDto, UpdateUserDto } from "src/dto/user.dto";
+import { CreateUserDto } from "src/dto/user.dto";
 import { Product } from "../../src/entities/product.entity";
+import { UserRole } from "src/interfaces/user.interface";
 
 export const getAllUsers = async () => {
   const [users, count] = await User.findAndCount({});
@@ -29,7 +30,7 @@ export const createUser = async (createUserData: CreateUserDto) => {
   return newUser;
 };
 
-export const updateUser = async (id: number, updateUserData: UpdateUserDto) => {
+export const updateUser = async (id: number, updateUserData: CreateUserDto) => {
   const { name, email, password, role } = updateUserData;
 
   let user: User | undefined;
