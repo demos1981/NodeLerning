@@ -1,7 +1,15 @@
 import { Logger } from "src/entities/logger.entity";
-import { CreateLoggerDto } from "../../src/dto/logger.dto";
+import { loggerType } from "src/interfaces/logger.interfaces";
 
-export const createLogger = async (createLoggerData: CreateLoggerDto) => {
+export const getAllLoggs = async () => {
+  const [loggs, count] = await Logger.findAndCount({});
+  return {
+    loggs,
+    count,
+  };
+};
+
+export const createLogger = async (createLoggerData: loggerType) => {
   const { method, url, status } = createLoggerData;
   const newLog: Logger = await Logger.save({
     method,

@@ -13,6 +13,7 @@ import { AppDataSource } from "./data-source";
 import routesAuth from "./routes/auth";
 import routesUser from "./routes/user";
 import routesProduct from "./routes/product";
+import routesLogger from "./routes/logger";
 import morgan from "morgan";
 import swaggerJsDoc from "swagger-jsdoc";
 import swaggerUi from "swagger-ui-express";
@@ -31,6 +32,7 @@ app.use(loggerMiddleware);
 app.use("/api/auth", routesAuth);
 app.use("/api/users", routesUser);
 app.use("/api/products", routesProduct);
+app.use("/api/loggs", routesLogger);
 
 app.get("/", (req, res) => {
   res.send("Hello, server is listen ");
