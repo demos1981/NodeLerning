@@ -3,12 +3,20 @@ import * as userController from "../controllers/userController";
 import authMiddleware from "../middlewares/auth.middleware";
 import { validationMiddleware } from "../middlewares/validation.middleware";
 import { CreateUserDto } from "../dto/user.dto";
+import { UserRole } from "../../src/interfaces/user.interface";
+import { roleMiddleware } from "../../src/middlewares/role.middleware";
 
 const router: Router = express.Router();
 
-router.get("/", authMiddleware(), userController.getAllUsers);
+router.get(
+  "/",
+  authMiddleware(),
+  roleMiddleware(UserRole.ADMIN, UserRole.OWNER),
+  userController.getAllUsers
+);
 router.get(
   "/all-user-with-product",
+  roleMiddleware(UserRole.ADMIN, UserRole.OWNER),
   authMiddleware(),
   userController.getAllUserWithProducts
 );
