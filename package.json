@@ -1,5 +1,5 @@
 {
-  "name": "hillel_node_homework",
+  "name": "node_postgresql",
   "version": "1.0.0",
   "description": "",
   "main": "src/app.ts",
@@ -41,6 +41,7 @@
     "package-name": "^0.1.0",
     "path": "^0.12.7",
     "pg": "^8.11.5",
+    "pm2": "^5.3.1",
     "reflect-metadata": "^0.2.2",
     "swagger-jsdoc": "^6.2.8",
     "swagger-ui-express": "^5.0.0",
