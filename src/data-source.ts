@@ -25,3 +25,4 @@ export const AppDataSource = new DataSource({
   logging: false,
   entities: [User, RefreshToken, Product],
 });
+//"postgres://default:Va2puz0nEvTt@ep-broad-water-a4fhh14t.us-east-1.aws.neon.tech:5432/verceldb?sslmode=require"
