@@ -16,8 +16,8 @@ router.get(
 );
 router.get(
   "/all-user-with-product",
-  roleMiddleware(UserRole.ADMIN, UserRole.OWNER),
   authMiddleware(),
+  roleMiddleware(UserRole.ADMIN, UserRole.OWNER),
   userController.getAllUserWithProducts
 );
 
