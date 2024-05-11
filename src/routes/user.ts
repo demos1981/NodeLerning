@@ -10,31 +10,31 @@ const router: Router = express.Router();
 
 router.get(
   "/",
-  authMiddleware(),
-  roleMiddleware(UserRole.ADMIN, UserRole.OWNER),
+  // authMiddleware(),
+  // roleMiddleware(UserRole.ADMIN, UserRole.OWNER),
   userController.getAllUsers
 );
 router.get(
   "/all-user-with-product",
-  authMiddleware(),
-  roleMiddleware(UserRole.ADMIN, UserRole.OWNER),
+  // authMiddleware(),
+  // roleMiddleware(UserRole.ADMIN, UserRole.OWNER),
   userController.getAllUserWithProducts
 );
 
 router.post(
   "/",
-  authMiddleware(),
+  // authMiddleware(),
   validationMiddleware(CreateUserDto, "body"),
   userController.createUser
 );
 router.post(
   "/:id/add-product/:productId",
-  authMiddleware(),
+  // authMiddleware(),
   userController.addProduct
 );
 router.put(
   "/:id",
-  authMiddleware(),
+  // authMiddleware(),
   validationMiddleware(CreateUserDto, "body"),
   userController.updateUser
 );
