@@ -19,7 +19,7 @@ import { Product } from "./entities/product.entity";
 export const AppDataSource = new DataSource({
   type: "postgres",
   url:
-    process.env.DATABASE_URL ||
+    process.env.POSTGRES_DB ||
     "postgres://default:Va2puz0nEvTt@ep-broad-water-a4fhh14t.us-east-1.aws.neon.tech:5432/verceldb?sslmode=require",
   synchronize: true,
   logging: false,
