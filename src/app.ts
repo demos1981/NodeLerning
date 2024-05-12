@@ -29,7 +29,7 @@ app.use(helmet());
 app.use(hpp());
 app.use(loggerMiddleware);
 
-app.use("/", express.static("public"));
+app.use("/static", express.static("public"));
 app.use("/api/auth", routesAuth);
 app.use("/api/users", routesUser);
 app.use("/api/products", routesProduct);
