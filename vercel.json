@@ -5,7 +5,11 @@
     { "src": "public/**", "use": "@vercel/static" }
   ],
   "routes": [
-    { "src": "/api(.*)", "dest": "src/app.ts" },
+    {
+      "src": "/api(.*)",
+      "dest": "src/app.ts",
+      "methods": ["GET", "POST", "PUT", "PATCH", "DELETE", "OPTIONS"]
+    },
     { "src": "/", "dest": "public/index.html" },
     { "src": "/(.+)", "dest": "public/$1" }
   ]
