@@ -1,7 +1,3 @@
-import React from "react";
-
-const App: React.FC = () => {
-  return <h1 className="text-3xl font-bold underline">Hello world!</h1>;
-};
-
-export { App };
+export default function App() {
+  return <div className="bg-sky-500 aspect-square font-sans">Product Shop</div>;
+}
