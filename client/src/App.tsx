@@ -1,10 +1,16 @@
-import { PageHeader } from "./layouts/PageHeader";
+import React from "react";
 
-export default function App() {
+import PageHeader from "./layouts/PageHeader";
+import { BrowserRouter } from "react-router-dom";
+import Approuter from "./routes/Approuter";
+
+const App = () => {
   return (
-    <div className="max-h-screen flex flex-col">
+    <BrowserRouter>
+      <Approuter />
       <PageHeader />
-      <div>World</div>
-    </div>
+    </BrowserRouter>
   );
-}
+};
+
+export default App;
