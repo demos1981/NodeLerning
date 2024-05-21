@@ -1,7 +1,9 @@
+import { PageHeader } from "./layouts/PageHeader";
+
 export default function App() {
   return (
     <div className="max-h-screen flex flex-col">
-      <div>Hello</div>
+      <PageHeader />
       <div>World</div>
     </div>
   );
