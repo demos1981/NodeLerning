@@ -12,6 +12,11 @@ const buttonStyle = cva(["transition-colors"], {
         "hover:bg-secondary-dark-hover",
         "text-secondary",
       ],
+      light: [
+        "bg-primary-light",
+        "hover:bg-primary-light-hover",
+        "text-primary",
+      ],
     },
     size: {
       default: [],

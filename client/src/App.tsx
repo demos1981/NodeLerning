@@ -10,8 +10,8 @@ const App = () => {
     <BrowserRouter>
       <div className="max-h-screen flex flex-col">
         <PageHeader />
-        <div className="flex justify-center flex-grow-1 overflow-auto">
-          <div className="sticky top-0 bg-white z-10 pb-4">
+        <div className="flex justify-center flex-grow-1 overflow-auto ">
+          <div className="sticky top-0  z-10 pb-4 ">
             <CategoryMenu categories={categories} />
           </div>
         </div>
