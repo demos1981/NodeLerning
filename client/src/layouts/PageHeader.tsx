@@ -1,4 +1,10 @@
-import { Search, SquareMenu, UsersRound, BarChart } from "lucide-react";
+import {
+  Search,
+  SquareMenu,
+  UsersRound,
+  BarChart,
+  ShoppingCart,
+} from "lucide-react";
 import logo from "../assets/logo.png";
 import Button from "../components/Button";
 
@@ -10,8 +16,10 @@ const PageHeader = () => {
           <SquareMenu />
         </Button>
         <a href="/">
-          <img src={logo} alt="logo" className="h-36" />
+          <img src={logo} alt="logo" className="h-20" />
         </a>
+      </div>
+      <div className="flex items-center flex-shrink-0 md:gap-2">
         <Button size="icon" variant="ghost">
           <Search />
         </Button>
@@ -21,8 +29,10 @@ const PageHeader = () => {
         <Button size="icon" variant="ghost">
           <BarChart />
         </Button>
+        <Button size="icon" variant="ghost">
+          <ShoppingCart />
+        </Button>
       </div>
-      <div></div>
     </div>
   );
 };
