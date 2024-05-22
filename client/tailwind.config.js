@@ -19,6 +19,14 @@ module.exports = {
         dark: colors.neutral[800],
         // ["dark-hover"]: colors.neutral[900],
       },
+      primary: {
+        DEFAULT: colors.gray[100],
+        hover: colors.gray[300],
+        border: colors.gray[500],
+        text: colors.blue[800],
+        dark: colors.blue[900],
+        // ["dark-hover"]: colors.blue[900],
+      },
     },
     fontFamily: {
       sans: ["Graphik", "sans-serif"],
