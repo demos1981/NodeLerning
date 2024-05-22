@@ -1,3 +1,5 @@
+import colors from "tailwindcss/colors";
+
 /** @type {import('tailwindcss').Config} */
 module.exports = {
   content: ["./public/index.html", "./src/**/*.{js,jsx,ts,tsx}"],
@@ -9,15 +11,14 @@ module.exports = {
       xl: "1440px",
     },
     colors: {
-      blue: "#1fb6ff",
-      purple: "#7e5bef",
-      pink: "#ff49db",
-      orange: "#ff7849",
-      green: "#13ce66",
-      yellow: "#ffc82c",
-      "gray-dark": "#273444",
-      gray: "#8492a6",
-      "gray-light": "#d3dce6",
+      secondary: {
+        DEFAULT: colors.neutral[200],
+        hover: colors.neutral[300],
+        border: colors.neutral[400],
+        text: colors.neutral[500],
+        dark: colors.neutral[800],
+        ["dark-hover"]: colors.neutral[900],
+      },
     },
     fontFamily: {
       sans: ["Graphik", "sans-serif"],
