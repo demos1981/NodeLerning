@@ -15,10 +15,10 @@ const PageFooter: React.FC = () => {
           </div>
           <div className="flex flex-col">
             <div>
-              <Link to="/womanscloses">Женская одежда</Link>
+              <Link to="/womanscloses">Жіночий одяг</Link>
             </div>
             <div>
-              <Link to="/womansblazer">Женские пиджаки</Link>
+              <Link to="/womansblazer">Жіночі піджаки</Link>
             </div>
           </div>
         </div>
@@ -28,10 +28,10 @@ const PageFooter: React.FC = () => {
           </div>
           <div className="flex flex-col">
             <div>
-              <Link to="/womansjackets">Женские куртки</Link>
+              <Link to="/womansjackets">Жіночі куртки</Link>
             </div>
             <div>
-              <Link to="/womansleggings">Женские легинсы</Link>
+              <Link to="/womansleggings">Жіночі легінси</Link>
             </div>
           </div>
         </div>
@@ -41,10 +41,10 @@ const PageFooter: React.FC = () => {
           </div>
           <div className="flex flex-col">
             <div>
-              <Link to="/manscloses">Мужская одежда</Link>
+              <Link to="/manscloses">Чоловічій одяг</Link>
             </div>
             <div>
-              <Link to="/manstrousers">Мужские штаны</Link>
+              <Link to="/manstrousers">Чоловічі штани</Link>
             </div>
           </div>
         </div>
@@ -54,10 +54,10 @@ const PageFooter: React.FC = () => {
           </div>
           <div className="flex flex-col">
             <div>
-              <Link to="/manspants">Мужская одежда</Link>
+              <Link to="/juniorpants">Юнаки одяг</Link>
             </div>
             <div>
-              <Link to="/manssoks">Мужские носки</Link>
+              <Link to="/juniorssoks">Юнаки шкарпетки</Link>
             </div>
           </div>
         </div>

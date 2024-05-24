@@ -1,7 +1,7 @@
 export const categories = [
-  "About",
-  "Contacts",
-  "Delivery Services",
-  "Payment",
-  "Personal Area",
+  "Стосовно нас",
+  "Контакти",
+  "Доставка",
+  "Оплата",
+  "Кабінет користувача",
 ];

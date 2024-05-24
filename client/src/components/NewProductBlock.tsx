@@ -8,6 +8,7 @@ import picture5 from "../assets/picture5.jpg";
 const NewProductBlock: React.FC = () => {
   return (
     <div className="flex flex-col justify-between mt-2 ml-4">
+      <p className="flex ml-4 mt-6">Нове надходження жінки</p>
       <div className="flex flex-row">
         <div className="max-w-52 max-h-fit mr-2">
           <img src={picture1} alt="picture1"></img>
@@ -25,6 +26,7 @@ const NewProductBlock: React.FC = () => {
           <img src={picture5} alt="picture5"></img>
         </div>
       </div>
+      <p className="flex ml-4 mt-6">Нове надходження чоловіки</p>
       <div className="flex flex-row">
         <div className="max-w-52 max-h-fit mr-2">
           <img src={picture1} alt="picture1"></img>

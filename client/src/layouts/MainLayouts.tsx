@@ -7,7 +7,7 @@ const MainLayouts: React.FC = () => {
   return (
     <div className="">
       <Banner />
-      <p className="flex ml-4 mt-6">New product</p>
+
       <NewProductBlock />
 
       <NewCategoryBlock />

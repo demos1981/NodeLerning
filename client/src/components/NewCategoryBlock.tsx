@@ -8,15 +8,15 @@ const NewCategoryBlock: React.FC = () => {
     <div className="flex flex-row justify-between mt-2 ml-4">
       <div className="max-w-xs max-h-fit mr-2">
         <img src={minBanner1} alt="minBanner"></img>
-        <p className="">New jackets</p>
+        <p className="">Нові жакети</p>
       </div>
       <div className="max-w-xs max-h-fit mr-2">
         <img src={minBanner2} alt="minBanner"></img>
-        <p className="">New jersey</p>
+        <p className="">Нові светри</p>
       </div>
       <div className="max-w-xs max-h-fit mr-2">
         <img src={minBanner3} alt="minBanner"></img>
-        <p className="">New junior jersey</p>
+        <p className="">Нові світшоти</p>
       </div>
     </div>
   );
