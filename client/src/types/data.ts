@@ -5,3 +5,8 @@ export interface User {
   password: string;
   role: string;
 }
+
+export type Routes = {
+  path: string;
+  Component: React.FC;
+};

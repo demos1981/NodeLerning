@@ -1,8 +1,12 @@
 import React from "react";
+import HeaderLayouts from "../layouts/HeaderLayouts";
 
-const Product = () => {
-  return <div>Product page</div>;
+const Product: React.FC = () => {
+  return (
+    <div>
+      <HeaderLayouts />
+    </div>
+  );
 };
 
 export default Product;
-
