@@ -1,10 +1,10 @@
 import React from "react";
-import AuthStatus from "../components/AuthStatus";
+import Form from "../components/Form";
 
 const Auth: React.FC = () => {
   return (
-    <div>
-      <AuthStatus />
+    <div className=" flex items-center justify-center mt-90">
+      <Form />
     </div>
   );
 };

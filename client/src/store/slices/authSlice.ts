@@ -1,11 +1,10 @@
 import { createSlice } from "@reduxjs/toolkit";
+import { AuthUser } from "../../types/data";
 
-type authState = {
-  isAuthenticated: boolean;
-};
-
-const initialState: authState = {
-  isAuthenticated: false,
+const initialState: AuthUser = {
+  id: 1,
+  email: "email",
+  token: "123",
 };
 
 const authSlice = createSlice({
@@ -13,15 +12,19 @@ const authSlice = createSlice({
   // `createSlice` выведет тип состояния из аргумента `initialState`
   initialState,
   reducers: {
-    login: (state) => {
-      state.isAuthenticated = true;
+    setUser(state, action) {
+      state.id = action.payload.id;
+      state.email = action.payload.email;
+      state.token = action.payload.token;
     },
-    logout: (state) => {
-      state.isAuthenticated = false;
+    removeUser(state) {
+      state.id = undefined;
+      state.email = "";
+      state.token = "";
     },
   },
 });
-console.log(authSlice);
-export const { login, logout } = authSlice.actions;
+
+export const { setUser, removeUser } = authSlice.actions;
+
 export default authSlice.reducer;
-console.log(authSlice.reducer);
