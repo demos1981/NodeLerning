@@ -1,6 +1,7 @@
 import React from "react";
+import Form from "./Form";
 
-const SignUp = () => {
+const SignUp: React.FC = () => {
   return <div></div>;
 };
 

@@ -6,11 +6,7 @@ import authSlice, { setUser } from "../store/slices/authSlice";
 const Login: React.FC = () => {
   const dispatch = useAppDispatch();
 
-  return (
-    <div className="flex items-center justify-center ">
-      <Form />
-    </div>
-  );
+  return <div className="flex items-center justify-center "></div>;
 };
 
 export default Login;

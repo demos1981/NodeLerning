@@ -19,5 +19,15 @@ export interface AuthUser {
 
 export interface FormProps {
   title: string;
-  handleClick: () => void;
+  handleClick: (email: string, password: string) => void;
+}
+
+export interface RegistrationUser {
+  title: string;
+  handleClick: (formData: {
+    name: string;
+    email: string;
+    password: string;
+    role: string;
+  }) => void;
 }
