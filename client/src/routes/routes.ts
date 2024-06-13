@@ -4,6 +4,7 @@ import Basket from "../pages/Basket";
 import Home from "../pages/Home";
 import { Routes } from "../types/data";
 import Product from "../pages/Product";
+import Registr from "../pages/Registr";
 import {
   ADMIN_ROUTE,
   BASKET_ROUTE,
@@ -39,6 +40,6 @@ export const publicRoutes: Routes[] = [
   },
   {
     path: REGISTRATION_ROUTE,
-    Component: Auth,
+    Component: Registr,
   },
 ];
