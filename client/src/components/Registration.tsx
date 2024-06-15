@@ -1,5 +1,6 @@
 import React, { useState, ChangeEvent } from "react";
 import { RegistrationUser } from "../types/data";
+import axios from "axios";
 
 const Registration: React.FC<RegistrationUser> = ({ title, handleClick }) => {
   const [name, setName] = useState<string>("");
@@ -23,12 +24,26 @@ const Registration: React.FC<RegistrationUser> = ({ title, handleClick }) => {
     setRole(e.target.value);
   };
 
-  const handleSubmit = () => {
-    const formData = { name, email, password, role };
-    console.log(formData);
-    handleClick(formData);
-  };
+  // const handleSubmit = () => {
+  //   const formData = { name, email, password, role };
+  //   console.log(formData);
+  //   handleClick(formData);
+  // };
 
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    try {
+      const response = await axios.post("http://localhost:3001/api/users", {
+        name,
+        email,
+        password,
+        role,
+      });
+      console.log("Data saved:", response.data);
+    } catch (error) {
+      console.error("Error saving data:", error);
+    }
+  };
   return (
     <div className="max-w-md mx-auto p-6 bg-white shadow-md rounded-lg">
       <h1 className="text-2xl font-bold mb-6 text-center">{title}</h1>
@@ -75,7 +90,7 @@ const Registration: React.FC<RegistrationUser> = ({ title, handleClick }) => {
       </div>
       <button
         onClick={handleSubmit}
-        className="w-full bg-blue-500 text-white py-2 rounded-lg hover:bg-blue-600 transition duration-300"
+        className="w-full bg-blue-500 text-white py-2 rounded-lg hover:bg-blue-600 transition duration-300 border-2 "
       >
         Submit
       </button>
