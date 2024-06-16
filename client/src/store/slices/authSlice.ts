@@ -1,30 +1,46 @@
-import { createSlice } from "@reduxjs/toolkit";
-import { AuthUser } from "../../types/data";
+import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
+import { AuthState } from "../../types/data";
+import axios from "axios";
 
-const initialState: AuthUser = {
-  id: 1,
-  email: "email",
-  token: "123",
+const initialState: AuthState = {
+  isLoggedIn: false,
+  message: "",
+  loading: false,
 };
+
+export const login = createAsyncThunk(
+  "auth/login",
+  async ({ email, password }: { email: string; password: string }) => {
+    const response = await axios.post("http://localhost:3001/api/auth/login", {
+      email,
+      password,
+    });
+    return response.data;
+  }
+);
 
 const authSlice = createSlice({
   name: "auth",
   // `createSlice` выведет тип состояния из аргумента `initialState`
   initialState,
-  reducers: {
-    setUser(state, action) {
-      state.id = action.payload.id;
-      state.email = action.payload.email;
-      state.token = action.payload.token;
-    },
-    removeUser(state) {
-      state.id = undefined;
-      state.email = "";
-      state.token = "";
-    },
+  reducers: {},
+  extraReducers: (builder) => {
+    builder
+      .addCase(login.pending, (state) => {
+        state.loading = true;
+        state.message = "";
+      })
+      .addCase(login.fulfilled, (state, action) => {
+        state.loading = false;
+        state.isLoggedIn = true;
+        state.message = action.payload.message;
+      })
+      .addCase(login.rejected, (state, action) => {
+        state.loading = false;
+        state.isLoggedIn = false;
+        state.message = "Login failed. Invalid credentials or user not found.";
+      });
   },
 });
-
-export const { setUser, removeUser } = authSlice.actions;
 
 export default authSlice.reducer;

@@ -1,7 +1,7 @@
 import React from "react";
 import Registration from "../components/Registration";
 
-const Registr: React.FC = () => {
+const RegistrPage: React.FC = () => {
   const handleRegistrationSubmit = (formData: {
     name: string;
     email: string;
@@ -17,4 +17,4 @@ const Registr: React.FC = () => {
   );
 };
 
-export default Registr;
+export default RegistrPage;

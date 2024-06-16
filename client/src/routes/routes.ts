@@ -1,10 +1,10 @@
-import Admin from "../pages/Admin";
-import Auth from "../pages/Auth";
-import Basket from "../pages/Basket";
-import Home from "../pages/Home";
+import AdminPage from "../pages/AdminPage";
+import AuthPage from "../pages/AuthPage";
+import BasketPage from "../pages/BasketPage";
+import HomePage from "../pages/HomePage";
 import { Routes } from "../types/data";
-import Product from "../pages/Product";
-import Registr from "../pages/Registr";
+import ProductPage from "../pages/ProductPage";
+import RegistrPage from "../pages/RegistrPage";
 import {
   ADMIN_ROUTE,
   BASKET_ROUTE,
@@ -13,33 +13,34 @@ import {
   PRODUCT_ROUTE,
   REGISTRATION_ROUTE,
 } from "../utils/consts";
+import LoginPage from "../pages/LoginPage";
 
 export const authRoutes: Routes[] = [
   {
     path: ADMIN_ROUTE,
-    Component: Admin,
+    Component: AdminPage,
   },
   {
     path: BASKET_ROUTE,
-    Component: Basket,
+    Component: BasketPage,
   },
 ];
 
 export const publicRoutes: Routes[] = [
   {
     path: HOME_ROUTE,
-    Component: Home,
+    Component: HomePage,
   },
   {
     path: LOGIN_ROUTE,
-    Component: Auth,
+    Component: LoginPage,
   },
   {
     path: PRODUCT_ROUTE + "/:id",
-    Component: Product,
+    Component: ProductPage,
   },
   {
     path: REGISTRATION_ROUTE,
-    Component: Registr,
+    Component: RegistrPage,
   },
 ];

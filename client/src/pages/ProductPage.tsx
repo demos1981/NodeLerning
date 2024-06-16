@@ -1,7 +1,7 @@
 import React from "react";
 import HeaderLayouts from "../layouts/HeaderLayouts";
 
-const Product: React.FC = () => {
+const ProductPage: React.FC = () => {
   return (
     <div>
       <HeaderLayouts />
@@ -9,4 +9,4 @@ const Product: React.FC = () => {
   );
 };
 
-export default Product;
+export default ProductPage;

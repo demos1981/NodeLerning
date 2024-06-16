@@ -31,3 +31,9 @@ export interface RegistrationUser {
     role: string;
   }) => void;
 }
+
+export interface AuthState {
+  isLoggedIn: boolean;
+  message: string;
+  loading: boolean;
+}

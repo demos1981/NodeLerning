@@ -1,6 +1,6 @@
 import React from "react";
 
-const Basket = () => {
+const BasketPage = () => {
   return (
     <div>
       <h1>Basket</h1>
@@ -8,4 +8,4 @@ const Basket = () => {
   );
 };
 
-export default Basket;
+export default BasketPage;

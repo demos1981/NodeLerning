@@ -3,7 +3,7 @@ import HeaderLayouts from "../layouts/HeaderLayouts";
 import MainLayouts from "../layouts/MainLayouts";
 import FooterLayouts from "../layouts/FooterLayouts";
 
-const Home: React.FC = () => {
+const HomePage: React.FC = () => {
   return (
     <div>
       <HeaderLayouts />
@@ -13,4 +13,4 @@ const Home: React.FC = () => {
   );
 };
 
-export default Home;
+export default HomePage;
