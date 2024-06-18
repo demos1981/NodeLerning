@@ -13,7 +13,6 @@ import {
   PRODUCT_ROUTE,
   REGISTRATION_ROUTE,
 } from "../utils/consts";
-import LoginPage from "../pages/LoginPage";
 
 export const authRoutes: Routes[] = [
   {
@@ -33,7 +32,7 @@ export const publicRoutes: Routes[] = [
   },
   {
     path: LOGIN_ROUTE,
-    Component: LoginPage,
+    Component: AuthPage,
   },
   {
     path: PRODUCT_ROUTE + "/:id",

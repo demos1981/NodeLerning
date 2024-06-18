@@ -14,7 +14,6 @@ const Login: React.FC = () => {
   const handleLogin = async (e: React.FormEvent) => {
     e.preventDefault();
     dispatch(login({ email, password }));
-    console.log(handleLogin);
   };
 
   return (
