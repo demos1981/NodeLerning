@@ -10,8 +10,8 @@ const router: Router = express.Router();
 
 router.get(
   "/",
-  authMiddleware(),
-  roleMiddleware(UserRole.ADMIN, UserRole.OWNER),
+  // authMiddleware(),
+  // roleMiddleware(UserRole.ADMIN, UserRole.OWNER),
   productController.getAllProduct
 );
 router.get(
@@ -22,8 +22,8 @@ router.get(
 );
 router.post(
   "/",
-  authMiddleware(),
-  validationMiddleware(CreateProductDto, "body"),
+  // authMiddleware(),
+  // validationMiddleware(CreateProductDto, "body"),
   productController.createProduct
 );
 
