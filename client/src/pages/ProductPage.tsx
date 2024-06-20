@@ -1,13 +1,21 @@
 import React from "react";
 import HeaderLayouts from "../layouts/HeaderLayouts";
-import Product from "../components/Product";
+import ProductDisplay from "../components/ProductDisplay";
 
 const ProductPage: React.FC = () => {
+  const product = {
+    image: "https://via.placeholder.com/150", // Replace with the actual image URL
+    name: "Sample Product",
+    color: "Red",
+  };
   return (
     <>
-      <h1>Product</h1>
       <HeaderLayouts />
-      <Product />
+      <ProductDisplay
+        image={product.image}
+        name={product.name}
+        color={product.color}
+      />
     </>
   );
 };

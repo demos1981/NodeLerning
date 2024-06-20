@@ -37,3 +37,9 @@ export interface AuthState {
   message: string;
   loading: boolean;
 }
+
+export interface ProductProps {
+  image: string;
+  name: string;
+  color: string;
+}
