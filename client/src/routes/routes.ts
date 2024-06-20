@@ -5,6 +5,7 @@ import HomePage from "../pages/HomePage";
 import { Routes } from "../types/data";
 import ProductPage from "../pages/ProductPage";
 import RegistrPage from "../pages/RegistrPage";
+import ProductListPage from "../pages/ProductListPage";
 import {
   ADMIN_ROUTE,
   BASKET_ROUTE,
@@ -12,6 +13,7 @@ import {
   LOGIN_ROUTE,
   PRODUCT_ROUTE,
   REGISTRATION_ROUTE,
+  PRODUCT_LIST_ROUTE,
 } from "../utils/consts";
 
 export const authRoutes: Routes[] = [
@@ -41,5 +43,9 @@ export const publicRoutes: Routes[] = [
   {
     path: REGISTRATION_ROUTE,
     Component: RegistrPage,
+  },
+  {
+    path: PRODUCT_LIST_ROUTE,
+    Component: ProductListPage,
   },
 ];

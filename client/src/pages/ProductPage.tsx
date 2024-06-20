@@ -1,13 +1,14 @@
 import React from "react";
 import HeaderLayouts from "../layouts/HeaderLayouts";
-import Product from "../components/ProductList";
+import Product from "../components/Product";
 
 const ProductPage: React.FC = () => {
   return (
-    <div>
+    <>
+      <h1>Product</h1>
       <HeaderLayouts />
       <Product />
-    </div>
+    </>
   );
 };
 
