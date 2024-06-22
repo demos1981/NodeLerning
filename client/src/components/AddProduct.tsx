@@ -1,20 +1,28 @@
 import React, { useState } from "react";
 import { useAppDispatch } from "../hook/hooks";
 import { addProduct } from "../store/slices/productSlice";
+import axios from "axios";
 
 const AddProduct: React.FC = () => {
-  const [name, setName] = useState("");
-  const [price, setPrice] = useState("");
-  const [description, setDescription] = useState("");
-  const dispatch = useAppDispatch();
+  const [name, setName] = useState<string>("");
+  const [color, setColor] = useState<string>("");
+  // const dispatch = useAppDispatch();
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    const product = { name, price: parseFloat(price), description };
-    dispatch(addProduct(product));
-    setName("");
-    setPrice("");
-    setDescription("");
+    try {
+      const product = await axios.post("http://localhost:3001/api/products", {
+        name,
+        color,
+      });
+      console.log("Data saved:", product.data);
+    } catch (err) {
+      console.error("Error saving data:", err);
+    }
+    // dispatch(addProduct(product));
+    // setName("");
+    // setPrice("");
+    // setDescription("");
   };
 
   return (
@@ -34,24 +42,17 @@ const AddProduct: React.FC = () => {
         <div>
           <label className="block text-gray-700">Price</label>
           <input
-            type="number"
-            value={price}
-            onChange={(e) => setPrice(e.target.value)}
+            type="text"
+            value={color}
+            onChange={(e) => setColor(e.target.value)}
             className="mt-2 px-4 py-2 border rounded w-full"
             required
           />
         </div>
-        <div>
-          <label className="block text-gray-700">Description</label>
-          <textarea
-            value={description}
-            onChange={(e) => setDescription(e.target.value)}
-            className="mt-2 px-4 py-2 border rounded w-full"
-            required
-          ></textarea>
-        </div>
+
         <button
           type="submit"
+          onClick={handleSubmit}
           className="bg-blue-500 text-white px-4 py-2 rounded"
         >
           Add Product

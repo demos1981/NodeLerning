@@ -33,8 +33,9 @@ export interface RegistrationUser {
 }
 
 export interface AuthState {
-  isLoggedIn: boolean;
-  message: string;
+  token: string | null;
+  role: string | null;
+  message: string | null;
   loading: boolean;
 }
 

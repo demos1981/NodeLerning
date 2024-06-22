@@ -1,11 +1,13 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import { AuthState } from "../../types/data";
 import axios from "axios";
+import jwtDecode from "jwt-decode";
 
 const initialState: AuthState = {
-  isLoggedIn: false,
-  message: "",
+  token: null,
+  role: null,
   loading: false,
+  message: null,
 };
 
 export const login = createAsyncThunk(
@@ -23,21 +25,25 @@ const authSlice = createSlice({
   name: "auth",
   // `createSlice` выведет тип состояния из аргумента `initialState`
   initialState,
-  reducers: {},
+  reducers: {
+    logout: (state) => {
+      state.token = null;
+      state.role = null;
+    },
+  },
   extraReducers: (builder) => {
     builder
       .addCase(login.pending, (state) => {
         state.loading = true;
-        state.message = "";
+        state.message = null;
       })
       .addCase(login.fulfilled, (state, action) => {
         state.loading = false;
-        state.isLoggedIn = true;
-        state.message = action.payload.message;
+        state.token = action.payload.token;
+        state.role = action.payload.role;
       })
       .addCase(login.rejected, (state, action) => {
         state.loading = false;
-        state.isLoggedIn = false;
         state.message = "Login failed. Invalid credentials or user not found.";
       });
   },

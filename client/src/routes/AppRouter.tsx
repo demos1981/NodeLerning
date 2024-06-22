@@ -2,12 +2,17 @@ import React from "react";
 import { Switch, Route, Redirect } from "react-router-dom";
 import { authRoutes, publicRoutes } from "./routes";
 import { HOME_ROUTE } from "../utils/consts";
+import { useAppSelector } from "../hook/hooks";
+import { RootState } from "../store/store";
 
 const AppRouter: React.FC = () => {
-  const isAuth = false;
+  const isAuthenticated = useAppSelector(
+    (state: RootState) => !!state.auth.token
+  );
+  // const isAuth = false;
   return (
     <Switch>
-      {isAuth &&
+      {isAuthenticated &&
         authRoutes.map(({ path, Component }) => (
           <Route key={path} path={path} component={Component} exact />
         ))}

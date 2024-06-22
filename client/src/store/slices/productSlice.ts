@@ -23,29 +23,25 @@ const initialState: ProductState = {
 // Async thunks for API calls
 export const fetchProducts = createAsyncThunk(
   "products/fetchProducts",
-  async () => {
-    const response = await axios.get("http://localhost:3001/api/products");
+  async (_, { getState }) => {
+    const state = getState() as { auth: { token: string } };
+    const response = await axios.get("http://localhost:3001/api/products", {
+      headers: { Authorization: state.auth.token },
+    });
     return response.data;
   }
 );
 
 export const addProduct = createAsyncThunk(
   "products/addProduct",
-  async (product: Omit<Product, "id">) => {
+  async (product: Omit<Product, "id">, { getState }) => {
+    const state = getState() as { auth: { token: string } };
     const response = await axios.post(
       "http://localhost:3001/api/products",
-      product
-    );
-    return response.data;
-  }
-);
-
-export const updateProduct = createAsyncThunk(
-  "products/updateProduct",
-  async ({ id, product }: { id: number; product: Omit<Product, "id"> }) => {
-    const response = await axios.put(
-      `http://localhost:3001/api/products/${id}`,
-      product
+      product,
+      {
+        headers: { Authorization: state.auth.token },
+      }
     );
     return response.data;
   }
@@ -80,14 +76,7 @@ const productSlice = createSlice({
       .addCase(addProduct.fulfilled, (state, action) => {
         state.products.push(action.payload);
       })
-      .addCase(updateProduct.fulfilled, (state, action) => {
-        const index = state.products.findIndex(
-          (product) => product.id === action.payload.id
-        );
-        if (index !== -1) {
-          state.products[index] = action.payload;
-        }
-      })
+
       .addCase(deleteProduct.fulfilled, (state, action) => {
         state.products = state.products.filter(
           (product) => product.id !== action.payload
