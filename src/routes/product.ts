@@ -16,8 +16,8 @@ router.get(
 );
 router.get(
   "/product-by-id-with-users",
-  roleMiddleware(UserRole.ADMIN, UserRole.OWNER),
-  authMiddleware(),
+  // roleMiddleware(UserRole.ADMIN, UserRole.OWNER),
+  // authMiddleware(),
   productController.getProductByIdWithUsers
 );
 router.post(
