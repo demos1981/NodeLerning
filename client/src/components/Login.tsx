@@ -7,9 +7,7 @@ const Login: React.FC = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const dispatch = useAppDispatch();
-  const { isLoggedIn, message, loading } = useAppSelector(
-    (state: RootState) => state.auth
-  );
+  const { message, loading } = useAppSelector((state: RootState) => state.auth);
 
   const handleLogin = async (e: React.FormEvent) => {
     e.preventDefault();

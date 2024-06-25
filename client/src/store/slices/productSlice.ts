@@ -1,15 +1,9 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
+import { ProductProps } from "../../types/data";
 import axios from "axios";
 
-interface Product {
-  id: number;
-  name: string;
-  price: number;
-  description: string;
-}
-
 interface ProductState {
-  products: Product[];
+  products: ProductProps[];
   loading: boolean;
   error: string | null;
 }
@@ -34,7 +28,7 @@ export const fetchProducts = createAsyncThunk(
 
 export const addProduct = createAsyncThunk(
   "products/addProduct",
-  async (product: Omit<Product, "id">, { getState }) => {
+  async (product: Omit<ProductProps, "id">, { getState }) => {
     const state = getState() as { auth: { token: string } };
     const response = await axios.post(
       "http://localhost:3001/api/products",
@@ -47,13 +41,13 @@ export const addProduct = createAsyncThunk(
   }
 );
 
-export const deleteProduct = createAsyncThunk(
-  "products/deleteProduct",
-  async (id: number) => {
-    await axios.delete(`http://localhost:3001/api/products/${id}`);
-    return id;
-  }
-);
+// export const deleteProduct = createAsyncThunk(
+//   "products/deleteProduct",
+//   async (id: number) => {
+//     await axios.delete(`http://localhost:3001/api/products/${id}`);
+//     return id;
+//   }
+// );
 
 const productSlice = createSlice({
   name: "products",
@@ -75,13 +69,13 @@ const productSlice = createSlice({
       })
       .addCase(addProduct.fulfilled, (state, action) => {
         state.products.push(action.payload);
-      })
-
-      .addCase(deleteProduct.fulfilled, (state, action) => {
-        state.products = state.products.filter(
-          (product) => product.id !== action.payload
-        );
       });
+
+    // .addCase(deleteProduct.fulfilled, (state, action) => {
+    //   state.products = state.products.filter(
+    //     (product) => product.id !== action.payload
+    // //   );
+    // });
   },
 });
 

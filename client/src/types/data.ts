@@ -40,7 +40,10 @@ export interface AuthState {
 }
 
 export interface ProductProps {
-  image: string;
+  id: number;
   name: string;
+  price: number;
+  description: string;
+  image: string;
   color: string;
 }
