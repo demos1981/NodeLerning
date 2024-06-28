@@ -47,3 +47,22 @@ export interface ProductProps {
   image: string;
   color: string;
 }
+
+export interface ProductState {
+  products: ProductProps[];
+  loading: boolean;
+  error: string | null;
+}
+
+export interface UserProps {
+  id: number;
+  name: "string";
+  email: "string";
+  role: "string";
+}
+
+export interface UserState {
+  users: UserProps[];
+  loading: boolean;
+  error: string | null;
+}
