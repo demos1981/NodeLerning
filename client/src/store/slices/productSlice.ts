@@ -17,7 +17,7 @@ export const fetchProducts = createAsyncThunk(
     const response = await axios.get("http://localhost:3001/api/products", {
       headers: { Authorization: state.auth.token },
     });
-  
+
     return response.data;
   }
 );
@@ -37,13 +37,13 @@ export const addProduct = createAsyncThunk(
   }
 );
 
-// export const deleteProduct = createAsyncThunk(
-//   "products/deleteProduct",
-//   async (id: number) => {
-//     await axios.delete(`http://localhost:3001/api/products/${id}`);
-//     return id;
-//   }
-// );
+export const deleteProduct = createAsyncThunk(
+  "products/deleteProduct",
+  async (id: number) => {
+    await axios.delete(`http://localhost:3001/api/products/${id}`);
+    return id;
+  }
+);
 
 const productSlice = createSlice({
   name: "products",
@@ -65,13 +65,13 @@ const productSlice = createSlice({
       })
       .addCase(addProduct.fulfilled, (state, action) => {
         state.products.push(action.payload);
-      });
+      })
 
-    // .addCase(deleteProduct.fulfilled, (state, action) => {
-    //   state.products = state.products.filter(
-    //     (product) => product.id !== action.payload
-    // //   );
-    // });
+      .addCase(deleteProduct.fulfilled, (state, action) => {
+        state.products = state.products.filter(
+          (product) => product.id !== action.payload
+        );
+      });
   },
 });
 

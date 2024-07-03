@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import { useAppDispatch } from "../hook/hooks";
 import { addProduct } from "../store/slices/productSlice";
-import axios from "axios";
 
 const AddProduct: React.FC = () => {
   const [name, setName] = useState<string>("");
@@ -10,19 +9,8 @@ const AddProduct: React.FC = () => {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    try {
-      const product = await axios.post("http://localhost:3001/api/products", {
-        name,
-        color,
-      });
-      console.log("Data saved:", product.data);
-    } catch (err) {
-      console.error("Error saving data:", err);
-    }
-    // dispatch(addProduct(product));
-    // setName("");
-    // setPrice("");
-    // setDescription("");
+    dispatch(addProduct({ name, color }));
+    alert("Product added successfully");
   };
 
   return (
@@ -40,7 +28,7 @@ const AddProduct: React.FC = () => {
           />
         </div>
         <div>
-          <label className="block text-gray-700">Price</label>
+          <label className="block text-gray-700">Color</label>
           <input
             type="text"
             value={color}
@@ -53,7 +41,7 @@ const AddProduct: React.FC = () => {
         <button
           type="submit"
           onClick={handleSubmit}
-          className="bg-blue-500 text-white px-4 py-2 rounded"
+          className="mt-2 px-4 py-2 border rounded w-full"
         >
           Add Product
         </button>
