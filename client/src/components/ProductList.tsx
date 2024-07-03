@@ -24,12 +24,12 @@ const ProductList: React.FC = () => {
     <div className="container mx-auto p-4">
       <h1 className="text-2xl font-bold mb-4">Product List</h1>
       <ul>
-        {products.map((product) => (
-          <li key={product.id} className="mb-4 p-4 border rounded">
-            <h2 className="text-xl font-bold">{product.name}</h2>
-            <p>{product.description}</p>
-            <p>Color: {product.color}</p>
-            <p>${product.price}</p>
+        {products.map((products) => (
+          <li key={products.id} className="mb-4 p-4 border rounded">
+            <h2 className="text-xl font-bold">{products.name}</h2>
+
+            <p>Color: {products.color}</p>
+
             {/* <button
               onClick={() => handleDelete(product.id)}
               className="bg-red-500 text-white px-4 py-2 rounded mt-2"

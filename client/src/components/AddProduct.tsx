@@ -6,7 +6,7 @@ import axios from "axios";
 const AddProduct: React.FC = () => {
   const [name, setName] = useState<string>("");
   const [color, setColor] = useState<string>("");
-  // const dispatch = useAppDispatch();
+  const dispatch = useAppDispatch();
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();

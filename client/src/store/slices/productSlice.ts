@@ -17,6 +17,7 @@ export const fetchProducts = createAsyncThunk(
     const response = await axios.get("http://localhost:3001/api/products", {
       headers: { Authorization: state.auth.token },
     });
+  
     return response.data;
   }
 );

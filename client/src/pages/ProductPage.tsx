@@ -16,9 +16,6 @@ const ProductPage: React.FC = () => {
       <HeaderLayouts />
       <ProductDisplay
         id={product.id}
-        price={product.price}
-        description={product.description}
-        image={product.image}
         name={product.name}
         color={product.color}
       />
