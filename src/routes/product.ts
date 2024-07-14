@@ -26,5 +26,6 @@ router.post(
   // validationMiddleware(CreateProductDto, "body"),
   productController.createProduct
 );
-
+router.delete("/", productController.deleteProduct);
+router.put("/", productController.updateProduct);
 export default router;

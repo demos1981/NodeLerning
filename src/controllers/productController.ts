@@ -29,3 +29,27 @@ export const createProduct = async (req: Request, res: Response) => {
     res.status(error.response?.status || 500).json({ error: error.message });
   }
 };
+
+export const updateProduct = async (req: Request, res: Response) => {
+  try {
+    const id = +req.params.id;
+    const updateProductData = req.body;
+    const updatedProduct = await productService.updateProduct(
+      id,
+      updateProductData
+    );
+    res.status(200).json(updatedProduct);
+  } catch (error) {
+    res.status(500).send(error.message);
+  }
+};
+
+export const deleteProduct = async (req: Request, res: Response) => {
+  try {
+    const id = +req.params.id;
+    await productService.deleteProduct(id);
+    res.status(200).send("Product deleted successfully");
+  } catch (error) {
+    res.status(500).send(error.message);
+  }
+};

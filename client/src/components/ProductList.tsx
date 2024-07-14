@@ -1,46 +1,59 @@
 import React, { useEffect } from "react";
-import { useAppDispatch, useAppSelector } from "../hook/hooks";
-import { RootState } from "../store/store";
-import { fetchProducts } from "../store/slices/productSlice";
+import { useAppSelector, useAppDispatch } from "../hook/hooks";
+import { fetchProducts, deleteProduct } from "../store/slices/productSlice"; // Import the thunk
 
-const ProductList: React.FC = () => {
+const ProductsList: React.FC = () => {
   const dispatch = useAppDispatch();
-  const { products, loading, error } = useAppSelector(
-    (state: RootState) => state.products
-  );
+  const products = useAppSelector((state) => state.products.products);
+  console.log(products);
+  const loading = useAppSelector((state) => state.products.loading);
+  const error = useAppSelector((state) => state.products.error);
 
   useEffect(() => {
-    dispatch(fetchProducts());
-  }, [dispatch]);
+    dispatch(fetchProducts()); // Dispatch the thunk on component mount
+  }, [dispatch]); // Add the dispatch dependency
 
-  // const handleDelete = (id: number) => {
-  //   dispatch(deleteProduct(id));
-  // };
+  console.log(products);
 
-  if (loading) return <div>Loading...</div>;
-  if (error) return <div>{error}</div>;
+  const handleDeleteProduct = async (productId: number) => {
+    try {
+      await dispatch(deleteProduct(productId)); // Dispatch the thunk for deletion
+    } catch (err) {
+      console.error("Failed to delete product:", err);
+    }
+  };
 
   return (
-    <div className="container mx-auto p-4">
-      <h1 className="text-2xl font-bold mb-4">Product List</h1>
-      <ul>
-        {products.map((products) => (
-          <li key={products.id} className="mb-4 p-4 border rounded">
-            <h2 className="text-xl font-bold">{products.name}</h2>
+    <>
+      {loading ? (
+        <p>Loading products...</p>
+      ) : error ? (
+        <p>Error: {error}</p>
+      ) : (
+        <div className="container mx-auto p-4">
+          <h1 className="text-2xl font-bold mb-4">Product List</h1>
+          <ul>
+            {products.map((product) => (
+              <li
+                key={product.id}
+                className="product-item border p-4 rounded mb-4"
+              >
+                <h2 className="text-xl font-bold">{product.name}</h2>
 
-            <p>Color: {products.color}</p>
-
-            {/* <button
-              onClick={() => handleDelete(product.id)}
-              className="bg-red-500 text-white px-4 py-2 rounded mt-2"
-            >
-              Delete
-            </button> */}
-          </li>
-        ))}
-      </ul>
-    </div>
+                <p>Color: {product.color}</p>
+                <button
+                  onClick={() => handleDeleteProduct(product.id)}
+                  className="bg-red-500 text-white px-4 py-2 rounded"
+                >
+                  Delete
+                </button>
+              </li>
+            ))}
+          </ul>
+        </div>
+      )}
+    </>
   );
 };
 
-export default ProductList;
+export default ProductsList;

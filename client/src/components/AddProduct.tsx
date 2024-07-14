@@ -11,6 +11,7 @@ const AddProduct: React.FC = () => {
     e.preventDefault();
     dispatch(addProduct({ name, color }));
     alert("Product added successfully");
+    
   };
 
   return (

@@ -5,7 +5,7 @@ import HomePage from "../pages/HomePage";
 import { Routes } from "../types/data";
 import ProductPage from "../pages/ProductPage";
 import RegistrPage from "../pages/RegistrPage";
-import ProductListPage from "../pages/ProductListPage";
+import ProductList from "../components/ProductList";
 import AddProduct from "../components/AddProduct";
 import {
   ADMIN_ROUTE,
@@ -48,7 +48,7 @@ export const publicRoutes: Routes[] = [
   },
   {
     path: PRODUCT_LIST_ROUTE,
-    Component: ProductListPage,
+    Component: ProductList,
   },
   {
     path: PRODUCT_ADD,
