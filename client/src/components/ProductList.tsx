@@ -40,10 +40,10 @@ const ProductsList: React.FC = () => {
               >
                 <h2 className="text-xl font-bold">{product.name}</h2>
 
-                <p>Color: {product.color}</p>
+                <p>{product.color}</p>
                 <button
                   onClick={() => handleDeleteProduct(product.id)}
-                  className="bg-red-500 text-white px-4 py-2 rounded"
+                  className=" border-double border-2 border-red-300 px-4 py-2 rounded-md"
                 >
                   Delete
                 </button>

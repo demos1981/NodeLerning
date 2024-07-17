@@ -40,8 +40,11 @@ export const addProduct = createAsyncThunk(
 export const deleteProduct = createAsyncThunk(
   "products/deleteProduct",
   async (id: number) => {
-    await axios.delete(`http://localhost:3001/api/products/${id}`);
-    return id;
+    const result = await axios.delete(
+      `http://localhost:3001/api/products/${id}`
+    );
+    console.log(result);
+    return result.data;
   }
 );
 
@@ -74,5 +77,7 @@ const productSlice = createSlice({
       });
   },
 });
+//   },
+// });
 
 export default productSlice.reducer;
