@@ -20,8 +20,8 @@ import swaggerUi from "swagger-ui-express";
 
 const loggerMiddleware = morgan("dev");
 const app: Express = express();
-app.use(cors());
 app.use(bodyParser.json());
+app.use(cors());
 
 app.use(cookieParser());
 app.use(compression());
