@@ -20,10 +20,6 @@ import {
 
 export const authRoutes: Routes[] = [
   {
-    path: ADMIN_ROUTE,
-    Component: AdminPage,
-  },
-  {
     path: BASKET_ROUTE,
     Component: BasketPage,
   },
@@ -53,5 +49,9 @@ export const publicRoutes: Routes[] = [
   {
     path: PRODUCT_ADD,
     Component: AddProduct,
+  },
+  {
+    path: ADMIN_ROUTE,
+    Component: AdminPage,
   },
 ];

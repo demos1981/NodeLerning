@@ -5,15 +5,13 @@ import { fetchProducts, deleteProduct } from "../store/slices/productSlice"; // 
 const ProductsList: React.FC = () => {
   const dispatch = useAppDispatch();
   const products = useAppSelector((state) => state.products.products);
-  console.log(products);
+
   const loading = useAppSelector((state) => state.products.loading);
   const error = useAppSelector((state) => state.products.error);
 
   useEffect(() => {
     dispatch(fetchProducts()); // Dispatch the thunk on component mount
   }, [dispatch]); // Add the dispatch dependency
-
-  console.log(products);
 
   const handleDeleteProduct = async (productId: number) => {
     try {
