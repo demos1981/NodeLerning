@@ -1,5 +1,5 @@
 import { NextFunction, Response } from "express";
-import { RequestWithUser } from "../../src/interfaces/auth.interface";
+import { RequestWithUser } from "../interfaces/auth.interface";
 
 export const roleMiddleware =
   (...roles) =>

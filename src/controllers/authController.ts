@@ -4,9 +4,9 @@ import { ErrorMessage } from "../utils/constants/constants";
 import {
   retrieveRefreshToken,
   storeRefreshToken,
-} from "../../src/utils/tokenManagement/index";
-import { RegisterUserDto } from "src/dto/auth.dto";
-import { User } from "../../src/entities/users.entity";
+} from "../utils/tokenManagement/index";
+import { RegisterUserDto } from "../dto/auth.dto";
+import { User } from "../entities/users.entity";
 import jwt from "jsonwebtoken";
 
 export const register = async (req: Request, res: Response) => {

@@ -2,15 +2,15 @@
   "version": 2,
   "builds": [
     { "src": "src/app.ts", "use": "@vercel/node" },
-    { "src": "public/**", "use": "@vercel/static" }
+    { "src": "client/public/**", "use": "@vercel/static" }
   ],
   "routes": [
     {
       "src": "/api(.*)",
-      "dest": "src/app.ts",
+      "dest": "server/src/app.ts",
       "methods": ["GET", "POST", "PUT", "PATCH", "DELETE", "OPTIONS"]
     },
-    { "src": "/", "dest": "public/index.html" },
-    { "src": "/(.+)", "dest": "public/$1" }
+    { "src": "/", "dest": "client/public/index.html" },
+    { "src": "/(.+)", "dest": "client/public/$1" }
   ]
 }

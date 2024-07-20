@@ -10,7 +10,7 @@ import {
   JoinTable,
 } from "typeorm";
 import { Product } from "./product.entity";
-import { UserRole } from "../../src/interfaces/user.interface";
+import { UserRole } from "../interfaces/user.interface";
 @Entity({ name: "users" })
 export class User extends BaseEntity {
   @PrimaryGeneratedColumn()

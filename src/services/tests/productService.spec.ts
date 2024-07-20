@@ -1,5 +1,5 @@
 import { createProduct, getAllProduct } from "../productService";
-import { Product } from "../../../src/entities/product.entity";
+import { Product } from "../../entities/product.entity";
 
 jest.mock("../../entities/product.entity", () => ({
   Product: {
