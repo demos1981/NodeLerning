@@ -1,5 +1,5 @@
 import { IsString, IsNotEmpty } from "class-validator";
-import { UserRole } from "../../src/interfaces/user.interface";
+import { UserRole } from "../interfaces/user.interface";
 
 export class CreateUserDto {
   @IsNotEmpty()

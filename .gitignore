@@ -9,6 +9,7 @@
 /bazel-out
 
 # dependencies
+node_modules
 /node_modules
 /uploads
 .env
@@ -58,3 +59,4 @@ Thumbs.db
 .vscode/settings.json
 .vscode/settings.json
 results/*
+node_modules

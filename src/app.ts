@@ -20,9 +20,9 @@ import swaggerUi from "swagger-ui-express";
 
 const loggerMiddleware = morgan("dev");
 const app: Express = express();
-
-app.use(bodyParser.json());
 app.use(cors());
+app.use(bodyParser.json());
+
 app.use(cookieParser());
 app.use(compression());
 app.use(helmet());
@@ -36,7 +36,7 @@ app.use("/api/products", routesProduct);
 app.use("/api/files", routesFile);
 
 app.get("/", (req, res) => {
-  res.send("Hello, server is listen ");
+  res.send("Hello, server is listen you");
 });
 
 const options = {
@@ -54,7 +54,7 @@ const specs = swaggerJsDoc(options);
 
 app.use("/api-docs", swaggerUi.serve, swaggerUi.setup(specs));
 
-const PORT: number = parseInt(process.env.PORT || "3000", 10);
+const PORT: number = parseInt(process.env.PORT || "3001", 10);
 
 AppDataSource.initialize()
   .then(async () => {

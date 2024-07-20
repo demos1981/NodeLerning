@@ -1,8 +1,8 @@
 import bcrypt from "bcrypt";
 import { User } from "../entities/users.entity";
 import jwt from "jsonwebtoken";
-import { removeRefreshToken } from "../../src/utils/tokenManagement/index";
-import { RegisterUserDto } from "src/dto/auth.dto";
+import { removeRefreshToken } from "../utils/tokenManagement/index";
+import { RegisterUserDto } from "../dto/auth.dto";
 
 type UserPayload = {
   id: number;

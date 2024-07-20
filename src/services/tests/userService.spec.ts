@@ -1,5 +1,5 @@
 import bcrypt from "bcrypt";
-import { User } from "../../../src/entities/users.entity";
+import { User } from "../../entities/users.entity";
 import { Product } from "../../entities/product.entity";
 import {
   getAllUsers,
@@ -7,7 +7,7 @@ import {
   addProduct,
   createUser,
 } from "../userServices";
-import { UserRole } from "../../../src/interfaces/user.interface";
+import { UserRole } from "../../interfaces/user.interface";
 
 jest.mock("../../entities/users.entity");
 jest.mock("../../entities/product.entity");

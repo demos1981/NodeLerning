@@ -1,8 +1,8 @@
 import express, { Router } from "express";
 import * as fileController from "../controllers/fileController";
-import authMiddleware from "../../src/middlewares/auth.middleware";
-import { roleMiddleware } from "../../src/middlewares/role.middleware";
-import { UserRole } from "../../src/interfaces/user.interface";
+import authMiddleware from "../middlewares/auth.middleware";
+import { roleMiddleware } from "../middlewares/role.middleware";
+import { UserRole } from "../interfaces/user.interface";
 import multer from "multer";
 import path from "path";
 import fs from "fs";

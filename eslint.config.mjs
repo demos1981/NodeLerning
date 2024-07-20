@@ -41,7 +41,7 @@ export default [
     rules: {
       semi: ["error", "always"],
       indent: ["error", 2],
-      "max-len": ["error", { code: 160 }],
+      "max-len": ["error", { code: 100 }],
 
       eqeqeq: ["error", "smart"],
       "no-multi-space": "error",

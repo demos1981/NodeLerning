@@ -1,8 +1,7 @@
 import { User } from "../entities/users.entity";
 import bcrypt from "bcrypt";
-import { CreateUserDto } from "src/dto/user.dto";
-import { Product } from "../../src/entities/product.entity";
-import { DataUser } from "src/interfaces/auth.interface";
+import { CreateUserDto } from "../dto/user.dto";
+import { Product } from "../entities/product.entity";
 
 export const getAllUsers = async () => {
   const [users, count] = await User.findAndCount({});
