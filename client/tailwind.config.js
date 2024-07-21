@@ -25,7 +25,7 @@ module.exports = {
         border: colors.gray[500],
         text: colors.gray[800],
         dark: colors.gray[900],
-        // ["dark-hover"]: colors.blue[900],
+        ["dark-hover"]: colors.blue[900],
       },
     },
     fontFamily: {

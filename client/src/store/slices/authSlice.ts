@@ -1,7 +1,6 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import { AuthState } from "../../types/data";
 import axios from "axios";
-import jwtDecode from "jwt-decode";
 
 const initialState: AuthState = {
   token: null,
