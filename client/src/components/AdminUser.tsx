@@ -8,21 +8,18 @@ const AdminUser: React.FC = () => {
         <div>
           <h3>Users</h3>
           <div>
-            <div className="h-24">
-              <h3>Add</h3>
-              <button className=" border-double border-2 border-red-300 px-4 py-2 rounded-md hover:bg-orange-300">
+            <div className="h-24 flex justify-center mb-1">
+              <button className="border-double border-2 px-4 py-2 rounded-md  min-w-44">
                 Add users
               </button>
             </div>
-            <div className="h-24">
-              <h3>List</h3>
-              <button className=" border-double border-2 border-red-300 px-4 py-2 rounded-md">
+            <div className="h-24 flex justify-center mb-1">
+              <button className="border-double border-2 px-4 py-2 rounded-md  min-w-44">
                 Users List
               </button>
             </div>
-            <div className="h-24">
-              <h3>Update</h3>
-              <button className=" border-double border-2 border-red-300 px-4 py-2 rounded-md">
+            <div className="h-24 flex justify-center mb-1">
+              <button className="border-double border-2 px-4 py-2 rounded-md  min-w-44">
                 Update users
               </button>
             </div>
