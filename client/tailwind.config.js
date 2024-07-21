@@ -11,6 +11,17 @@ module.exports = {
       xl: "1440px",
     },
     colors: {
+      base: {
+        blue: "#1fb6ff",
+        purple: "#7e5bef",
+        pink: "#ff49db",
+        orange: "#ff7849",
+        green: "#13ce66",
+        yellow: "#ffc82c",
+        "gray-dark": "#273444",
+        gray: "#8492a6",
+        "gray-light": "#d3dce6",
+      },
       secondary: {
         DEFAULT: colors.neutral[200],
         hover: colors.neutral[300],
