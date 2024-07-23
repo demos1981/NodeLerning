@@ -6,7 +6,7 @@ const AdminProduct: React.FC = () => {
     <div>
       <div className="flex justify-start flex-col  max-w-sm ">
         <div className=" text-white"></div>
-        <div className="flex flex-row ml-10px  ">
+        <div className="flex flex-row ml-10px ">
           <Shirt />
           <h3>Products</h3>
           <div className="ml-10px">
