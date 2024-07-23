@@ -48,6 +48,14 @@ module.exports = {
         128: "32rem",
         144: "36rem",
       },
+      margin: {
+        "5px": "5px",
+        "10px": "10px",
+        "15px": "15px",
+        "20px": "20px",
+        "25px": "25px",
+        "30px": "30px",
+      },
       borderRadius: {
         "4xl": "2rem",
       },
