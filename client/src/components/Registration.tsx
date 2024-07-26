@@ -45,55 +45,57 @@ const Registration: React.FC<RegistrationUser> = ({ title, handleClick }) => {
     }
   };
   return (
-    <div className="max-w-md mx-auto p-6 bg-white shadow-md rounded-lg">
-      <h1 className="text-2xl font-bold mb-6 text-center">{title}</h1>
-      <div className="mb-4">
-        <input
-          type="text"
-          value={name}
-          onChange={handleNameChange}
-          placeholder="Name"
-          className="w-full px-3 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
-        />
-      </div>
-      <div className="mb-4">
-        <input
-          type="email"
-          value={email}
-          onChange={handleEmailChange}
-          placeholder="Email"
-          className="w-full px-3 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
-        />
-      </div>
-      <div className="mb-4">
-        <input
-          type="password"
-          value={password}
-          onChange={handlePasswordChange}
-          placeholder="Password"
-          className="w-full px-3 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
-        />
-      </div>
-      <div className="mb-4">
-        <select
-          value={role}
-          onChange={handleRoleChange}
-          className="w-full px-3 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+    <div className="min-h-screen flex items-center justify-center w-full bg-base-gray text-base-gray-light">
+      <div className="max-w-md mx-auto p-6 bg-white shadow-md rounded-lg bg-base-gray-dark">
+        <h1 className="text-2xl font-bold mb-6 text-center">{title}</h1>
+        <div className="mb-4">
+          <input
+            type="text"
+            value={name}
+            onChange={handleNameChange}
+            placeholder="Name"
+            className="w-full px-3 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+          />
+        </div>
+        <div className="mb-4">
+          <input
+            type="email"
+            value={email}
+            onChange={handleEmailChange}
+            placeholder="Email"
+            className="w-full px-3 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+          />
+        </div>
+        <div className="mb-4">
+          <input
+            type="password"
+            value={password}
+            onChange={handlePasswordChange}
+            placeholder="Password"
+            className="w-full px-3 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+          />
+        </div>
+        <div className="mb-4">
+          <select
+            value={role}
+            onChange={handleRoleChange}
+            className="w-full px-3 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+          >
+            <option value="" disabled>
+              Select Role
+            </option>
+            <option value="admin">Admin</option>
+            <option value="user">User</option>
+            <option value="guest">Guest</option>
+          </select>
+        </div>
+        <button
+          onClick={handleSubmit}
+          className="w-full bg-blue-500 text-white py-2 rounded-lg hover:bg-blue-600 transition duration-300 border-2 "
         >
-          <option value="" disabled>
-            Select Role
-          </option>
-          <option value="admin">Admin</option>
-          <option value="user">User</option>
-          <option value="guest">Guest</option>
-        </select>
+          Submit
+        </button>
       </div>
-      <button
-        onClick={handleSubmit}
-        className="w-full bg-blue-500 text-white py-2 rounded-lg hover:bg-blue-600 transition duration-300 border-2 "
-      >
-        Submit
-      </button>
     </div>
   );
 };

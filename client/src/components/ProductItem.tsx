@@ -12,6 +12,7 @@ interface ProductItemProps {
 // };
 
 const ProductItem: React.FC<ProductItemProps> = ({ product }) => {
+  console.log(product);
   return (
     <div className="product-item border p-4 rounded mb-4">
       <h2 className="text-xl font-bold">{product.name}</h2>
