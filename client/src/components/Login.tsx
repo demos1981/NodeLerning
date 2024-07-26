@@ -15,7 +15,7 @@ const Login: React.FC = () => {
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center ">
+    <div className=" min-h-screen flex items-center justify-center max-w-md bg-base-gray text-base-gray-light ">
       <div className=" p-8 rounded-md shadow-md  max-w-md bg-base-gray-dark text-base-gray-light">
         <h2 className="text-2xl font-bold mb-6 text-center">Login</h2>
         <form onSubmit={handleLogin}>
