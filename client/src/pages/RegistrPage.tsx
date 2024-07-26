@@ -12,7 +12,10 @@ const RegistrPage: React.FC = () => {
   };
   return (
     <div>
-      <Registration title="Register" handleClick={handleRegistrationSubmit} />
+      <Registration
+        title="Registration"
+        handleClick={handleRegistrationSubmit}
+      />
     </div>
   );
 };

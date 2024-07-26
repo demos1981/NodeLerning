@@ -45,9 +45,11 @@ const Registration: React.FC<RegistrationUser> = ({ title, handleClick }) => {
     }
   };
   return (
-    <div className="min-h-screen flex items-center justify-center max-w-md bg-base-gray text-base-gray-light">
-      <div className=" mx-auto p-6 bg-white shadow-md rounded-lg bg-base-gray-dark">
-        <h1 className="text-2xl font-bold mb-6 text-center">{title}</h1>
+    <div className="min-h-screen flex items-center justify-center max-w-md bg-base-gray text-base-gray-dark">
+      <div className=" mx-auto  p-6 bg-white shadow-md rounded-lg bg-base-gray-dark">
+        <h1 className="text-2xl font-bold mb-6 text-center text-base-gray-light">
+          {title}
+        </h1>
         <div className="mb-4">
           <input
             type="text"
@@ -91,7 +93,7 @@ const Registration: React.FC<RegistrationUser> = ({ title, handleClick }) => {
         </div>
         <button
           onClick={handleSubmit}
-          className="w-full bg-blue-500 text-white py-2 rounded-lg hover:bg-base-green transition duration-300 border-2 "
+          className="w-full bg-blue-500 text-white py-2 rounded-lg hover:bg-base-green transition duration-300 border-2 text-base-gray-light"
         >
           Submit
         </button>

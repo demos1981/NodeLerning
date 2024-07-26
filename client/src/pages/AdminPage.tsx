@@ -5,9 +5,9 @@ import AdminUser from "../components/AdminUser";
 const AdminPage: React.FC = () => {
   return (
     <>
-      <div className="flex bg-base-gray text-base-gray-dark ">
+      <div className="min-h-screen">
         <div className=" bg-base-gray-dark max-w-fit h-svh rounded-r-lg ">
-          <h1 className="flex w-full justify-center text-2xl font-medium  h-fit bg-base-gray-dark text-base-gray-light mt-10">
+          <h1 className="flex w-full justify-center text-2xl font-medium  h-fit  text-base-gray-light mb-3 ">
             ADMIN PAGE
           </h1>
           <AdminProduct />

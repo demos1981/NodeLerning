@@ -25,7 +25,7 @@ const Login: React.FC = () => {
               type="email"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
-              className="mt-2 px-4 py-2 border rounded w-full"
+              className="mt-2 px-4 py-2 border rounded w-full text-base-gray-dark"
               required
             />
           </div>
@@ -35,7 +35,7 @@ const Login: React.FC = () => {
               type="password"
               value={password}
               onChange={(e) => setPassword(e.target.value)}
-              className="mt-2 px-4 py-2 border rounded w-full"
+              className="mt-2 px-4 py-2 border rounded w-full text-base-gray-dark"
               required
             />
           </div>
