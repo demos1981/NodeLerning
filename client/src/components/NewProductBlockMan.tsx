@@ -13,7 +13,7 @@ const NewProductBlock: React.FC = () => {
           NEW ARRIVAL MAN
         </p>
       </div>
-      <div className="flex flex-row justify-around ">
+      <div className="flex flex-row justify-evenly ">
         <div className="max-w-52 max-h-fit border-2 rounded-lg border-base-gray-dark">
           <img src={picture1} alt="picture1"></img>
         </div>

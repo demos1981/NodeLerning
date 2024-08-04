@@ -1,7 +1,1 @@
-export const categories = [
-  "Стосовно нас",
-  "Контакти",
-  "Доставка",
-  "Оплата",
-  "Кабінет користувача",
-];
+export const categories = ["ABOUT", "CONTACTS", "DELIVERY", "PAYMENTS"];
