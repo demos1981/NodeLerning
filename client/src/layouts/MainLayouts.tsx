@@ -1,12 +1,12 @@
 import React from "react";
-import Banner from "../components/Banner";
+import HeroSection from "../components/HeroSection";
 import NewProductBlock from "../components/NewProductBlock";
 import NewCategoryBlock from "../components/NewCategoryBlock";
 
 const MainLayouts: React.FC = () => {
   return (
     <div className="">
-      <Banner />
+      <HeroSection />
 
       <NewProductBlock />
 

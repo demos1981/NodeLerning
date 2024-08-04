@@ -7,7 +7,7 @@ type CategoryMenuProps = {
 };
 export function CategoryMenu({ categories }: CategoryMenuProps) {
   return (
-    <div className="flex items-center whitespace-nowrap gap-x-14 transition-transform w-[max-content] h-20">
+    <div className="flex items-center whitespace-nowrap gap-x-14 transition-transform max-w-screen-2xl h-20 ">
       <div className="flex flex-row items-center ">
         Каталог
         <Button variant="ghost" size="icon">
