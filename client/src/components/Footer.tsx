@@ -8,12 +8,12 @@ import { Link } from "react-router-dom";
 const Footer: React.FC = () => {
   return (
     <>
-      <div className="flex flex-row">
+      <div className="flex flex-row bg-base-gray-dark">
         <div className="flex flex-row">
           <div className="max-w-40 max-h-fit">
             <img src={minBanner4} alt="minBanner4" />
           </div>
-          <div className="flex flex-col">
+          <div className="flex flex-col text-base-gray">
             <div>
               <Link to="/womanscloses">Жіночий одяг</Link>
             </div>
@@ -26,7 +26,7 @@ const Footer: React.FC = () => {
           <div className="max-w-40 max-h-fit">
             <img src={minBanner1} alt="minBanner1" />
           </div>
-          <div className="flex flex-col">
+          <div className="flex flex-col text-base-gray">
             <div>
               <Link to="/womansjackets">Жіночі куртки</Link>
             </div>
@@ -39,7 +39,7 @@ const Footer: React.FC = () => {
           <div className="max-w-40 max-h-fit">
             <img src={minBanner2} alt="minBanner2" />
           </div>
-          <div className="flex flex-col">
+          <div className="flex flex-col text-base-gray">
             <div>
               <Link to="/manscloses">Чоловічій одяг</Link>
             </div>
@@ -52,7 +52,7 @@ const Footer: React.FC = () => {
           <div className="max-w-40 max-h-fit">
             <img src={minBanner3} alt="minBanner3" />
           </div>
-          <div className="flex flex-col">
+          <div className="flex flex-col text-base-gray">
             <div>
               <Link to="/juniorpants">Юнаки одяг</Link>
             </div>
@@ -62,7 +62,7 @@ const Footer: React.FC = () => {
           </div>
         </div>
       </div>
-      <div className="flex justify-center items-center h-20 bg-[#e7e59d] ">
+      <div className="flex justify-center items-center h-20 bg-base-gray-dark text-base-gray ">
         <p>Develop by Yaremenko Dmitriy</p>
       </div>
     </>
