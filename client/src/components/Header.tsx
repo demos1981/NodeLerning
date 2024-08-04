@@ -1,17 +1,16 @@
 import { Search, UsersRound, BarChart, ShoppingCart } from "lucide-react";
 import logo from "../assets/logo.png";
 import Button from "../components/Button";
-import { CategoryMenu } from "../components/CategoryMenu";
-import { categories } from "../data/home";
+
 import React from "react";
 const Header: React.FC = () => {
   return (
-    <div className="flex flex-col gap-10 lg:gap-20 justify-between pt-2 mb-6 mx-4">
+    <div className="flex flex-col gap-10 lg:gap-20 justify-between pt-2  mx-4  text-base-gray-dark h-20">
       <div className="flex flex-row">
         <div className="flex gap-4 items-center flex-shrink-0">
-          <a href="/">
+          {/* <a href="/">
             <img src={logo} alt="logo" className="h-20" />
-          </a>
+          </a> */}
         </div>
         <form className="md:flex hidden gap-4 flex-grow justify-center items-center">
           <div className="flex flex-grow max-w-[600px]">
