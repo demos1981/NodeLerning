@@ -93,7 +93,7 @@ const Registration: React.FC<RegistrationUser> = ({ title, handleClick }) => {
         </div>
         <button
           onClick={handleSubmit}
-          className="w-full bg-blue-500 text-white py-2 rounded-lg hover:bg-base-green transition duration-300 border-2 text-base-gray-light"
+          className="w-full bg-blue-500 text-white py-2 rounded-lg hover:bg-base-blue transition duration-300 border-2 text-base-gray-light"
         >
           Submit
         </button>

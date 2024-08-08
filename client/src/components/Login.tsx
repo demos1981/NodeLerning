@@ -41,7 +41,7 @@ const Login: React.FC = () => {
           </div>
           <button
             type="submit"
-            className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded w-full"
+            className="bg-blue-500 hover:bg-base-blue text-white font-bold py-2 px-4 rounded w-full transition duration-300"
             disabled={loading}
           >
             {loading ? "Logging in..." : "Login"}

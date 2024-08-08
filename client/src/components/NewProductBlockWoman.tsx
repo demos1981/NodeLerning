@@ -7,7 +7,7 @@ import picture5 from "../assets/picture5.jpg";
 
 const NewProductBlockWoman: React.FC = () => {
   return (
-    <div className="flex flex-col  max-w-full max-h-fit  box-border bg-base-gray ">
+    <section className="flex flex-col  max-w-full max-h-fit  box-border bg-base-gray ">
       <div className="flex justify-center">
         <p className="flex ml-4 mt-6 mb-2 justify-center w-52 h-12 items-center bg-base-gray-dark text-base-gray-light font-semibold rounded-lg">
           NEW ARRIVAL WOMAN
@@ -30,7 +30,7 @@ const NewProductBlockWoman: React.FC = () => {
           <img src={picture5} alt="picture5" />
         </div>
       </div>
-    </div>
+    </section>
   );
 };
 

@@ -5,7 +5,7 @@ import Button from "../components/Button";
 import React from "react";
 const Header: React.FC = () => {
   return (
-    <div className="flex flex-col gap-10 lg:gap-20 justify-between pt-2  mx-4  text-base-gray-dark h-20">
+    <header className="flex flex-col gap-10 lg:gap-20 justify-between pt-2  mx-4  text-base-gray-dark h-20">
       <div className="flex flex-row">
         <div className="flex gap-4 items-center flex-shrink-0">
           {/* <a href="/">
@@ -36,7 +36,7 @@ const Header: React.FC = () => {
           </Button>
         </div>
       </div>
-    </div>
+    </header>
   );
 };
 
