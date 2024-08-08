@@ -42,7 +42,7 @@ const AddProduct: React.FC = () => {
           <button
             type="submit"
             onClick={handleSubmit}
-            className="mt-2 px-4 py-2 border rounded w-full hover:bg-base-blue hover:text-base-gray-dark transition duration-300"
+            className="mt-2 px-4 py-2 border bg-base-gray text-base-gray-dark rounded w-full hover:bg-base-blue hover:text-base-gray-dark transition duration-300"
           >
             Add Product
           </button>
