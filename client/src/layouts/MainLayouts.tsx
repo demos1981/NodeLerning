@@ -6,7 +6,7 @@ import NewProductBlockWoman from "../components/NewProductBlockWoman";
 
 const MainLayouts: React.FC = () => {
   return (
-    <div className="">
+    <div className="bg-base-gray">
       <HeroSection />
 
       <NewProductBlockMan />

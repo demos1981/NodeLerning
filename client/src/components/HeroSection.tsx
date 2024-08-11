@@ -4,9 +4,9 @@ import banner_small_1 from "../assets/banner_small_1.jpg";
 import banner_small_2 from "../assets/banner_small_2.jpg";
 import banner_small_3 from "../assets/banner_small_3.jpg";
 
-const Banner: React.FC = () => {
+const HeroSection: React.FC = () => {
   return (
-    <section className="flex flex-row items-center justify-center max-w-full max-h-fit  box-border bg-base-gray">
+    <section className="flex flex-row items-center justify-center max-w-full max-h-fit  box-border ">
       {/*block1*/}
       <div className="flex  max-w-4xl max-h-fit ">
         <a href="/">
@@ -38,4 +38,4 @@ const Banner: React.FC = () => {
   );
 };
 
-export default Banner;
+export default HeroSection;
