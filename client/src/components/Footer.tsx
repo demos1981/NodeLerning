@@ -54,10 +54,10 @@ const Footer: React.FC = () => {
           </div>
           <div className="flex flex-col text-base-gray">
             <div>
-              <Link to="/juniorpants">Юнаки одяг</Link>
+              <Link to="/juniorpants">Junior clothes</Link>
             </div>
             <div>
-              <Link to="/juniorssoks">Юнаки шкарпетки</Link>
+              <Link to="/juniorssoks">Junior </Link>
             </div>
           </div>
         </div>

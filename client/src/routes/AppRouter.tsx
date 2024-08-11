@@ -1,5 +1,5 @@
 import React from "react";
-import { Switch, Route, Redirect } from "react-router-dom";
+import { Routes, Route, Navigate } from "react-router-dom";
 import { authRoutes, publicRoutes } from "./routes";
 import { HOME_ROUTE } from "../utils/consts";
 import { useAppSelector } from "../hook/hooks";
@@ -11,16 +11,16 @@ const AppRouter: React.FC = () => {
   );
   // const isAuth = false;
   return (
-    <Switch>
+    <Routes>
       {isAuthenticated &&
-        authRoutes.map(({ path, Component }) => (
-          <Route key={path} path={path} component={Component} exact />
+        authRoutes.map(({ path, component: Component }) => (
+          <Route key={path} path={path} element={<Component />} />
         ))}
-      {publicRoutes.map(({ path, Component }) => (
-        <Route key={path} path={path} component={Component} exact />
+      {publicRoutes.map(({ path, component: Component }) => (
+        <Route key={path} path={path} element={<Component />} />
       ))}
-      <Redirect to={HOME_ROUTE} />
-    </Switch>
+      <Route path="*" element={<Navigate to={HOME_ROUTE} replace />} />
+    </Routes>
   );
 };
 

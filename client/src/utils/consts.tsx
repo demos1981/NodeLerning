@@ -6,3 +6,7 @@ export const BASKET_ROUTE = "/basket";
 export const PRODUCT_LIST_ROUTE = "/product-list";
 export const PRODUCT_ROUTE = "/product";
 export const PRODUCT_ADD = "/product-add";
+export const ABOUT_ROUTE = "/about";
+export const CONTACTS_ROUTE = "/contacts";
+export const DELIVERY_ROUTE = "/delivery";
+export const PAYMENTS_ROUTE = "/payments";

@@ -8,7 +8,7 @@ export interface User {
 
 export type Routes = {
   path: string;
-  Component: React.FC;
+  element: React.FC;
 };
 
 export interface AuthUser {

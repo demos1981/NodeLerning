@@ -2,11 +2,14 @@ import AdminPage from "../pages/AdminPage";
 import AuthPage from "../pages/AuthPage";
 import BasketPage from "../pages/BasketPage";
 import HomePage from "../pages/HomePage";
-import { Routes } from "../types/data";
 import ProductPage from "../pages/ProductPage";
 import RegistrPage from "../pages/RegistrPage";
 import ProductList from "../components/ProductList";
 import AddProduct from "../components/AddProduct";
+import AboutPage from "../pages/AboutPage";
+import ContactPage from "../pages/ContactPage";
+import DeliveryPage from "../pages/DeliveryPage";
+import PaymentsPage from "../pages/PaymentsPage";
 import {
   ADMIN_ROUTE,
   BASKET_ROUTE,
@@ -16,42 +19,62 @@ import {
   REGISTRATION_ROUTE,
   PRODUCT_LIST_ROUTE,
   PRODUCT_ADD,
+  ABOUT_ROUTE,
+  CONTACTS_ROUTE,
+  DELIVERY_ROUTE,
+  PAYMENTS_ROUTE,
 } from "../utils/consts";
 
-export const authRoutes: Routes[] = [
+export const authRoutes = [
   {
     path: BASKET_ROUTE,
-    Component: BasketPage,
+    component: BasketPage,
   },
 ];
 
-export const publicRoutes: Routes[] = [
+export const publicRoutes = [
   {
     path: HOME_ROUTE,
-    Component: HomePage,
+    component: HomePage,
   },
   {
     path: LOGIN_ROUTE,
-    Component: AuthPage,
+    component: AuthPage,
   },
   {
     path: PRODUCT_ROUTE + "/:id",
-    Component: ProductPage,
+    component: ProductPage,
   },
   {
     path: REGISTRATION_ROUTE,
-    Component: RegistrPage,
+    component: RegistrPage,
   },
   {
     path: PRODUCT_LIST_ROUTE,
-    Component: ProductList,
+    component: ProductList,
   },
   {
     path: PRODUCT_ADD,
-    Component: AddProduct,
+    component: AddProduct,
   },
   {
     path: ADMIN_ROUTE,
-    Component: AdminPage,
+    component: AdminPage,
+  },
+  {
+    path: ABOUT_ROUTE,
+    component: AboutPage,
+  },
+  {
+    path: CONTACTS_ROUTE,
+    component: ContactPage,
+  },
+  {
+    path: DELIVERY_ROUTE,
+    component: DeliveryPage,
+  },
+  {
+    path: PAYMENTS_ROUTE,
+    component: PaymentsPage,
   },
 ];
