@@ -5,18 +5,18 @@ import minBanner3 from "../assets/minBanner3.jpg";
 
 const NewCategoryBlock: React.FC = () => {
   return (
-    <section className="flex flex-row max-h-fit  box-border  pt-6 pb-6 justify-evenly">
-      <div className="max-w-80 max-h-fit mr-2">
-        <img src={minBanner1} alt="minBanner"></img>
+    <section className="flex flex-row     pt-6 pb-6 justify-evenly">
+      <div className="mr-2">
         <p className="">Нові жакети</p>
+        <img className="max-w-60 " src={minBanner1} alt="minBanner"></img>
       </div>
-      <div className="max-w-80 max-h-fit mr-2">
-        <img src={minBanner2} alt="minBanner"></img>
+      <div className="mr-2">
         <p className="">Нові светри</p>
+        <img className="max-w-72 " src={minBanner2} alt="minBanner"></img>
       </div>
-      <div className="max-w-80 max-h-fit mr-2">
-        <img src={minBanner3} alt="minBanner"></img>
+      <div className="mr-2">
         <p className="">Нові світшоти</p>
+        <img className="max-w-60 " src={minBanner3} alt="minBanner"></img>
       </div>
     </section>
   );

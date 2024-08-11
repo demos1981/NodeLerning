@@ -8,9 +8,9 @@ import { Link } from "react-router-dom";
 const Footer: React.FC = () => {
   return (
     <>
-      <div className="flex flex-row bg-base-gray-dark">
-        <div className="flex flex-row">
-          <div className="max-w-40 max-h-fit">
+      <div className="flex flex-row bg-base-gray-dark justify-evenly">
+        <div className="flex flex-col">
+          <div className="max-w-40 max-h-fit mt-4">
             <img src={minBanner4} alt="minBanner4" />
           </div>
           <div className="flex flex-col text-base-gray">
@@ -22,8 +22,8 @@ const Footer: React.FC = () => {
             </div>
           </div>
         </div>
-        <div className="flex flex-row">
-          <div className="max-w-40 max-h-fit">
+        <div className="flex flex-col">
+          <div className="max-w-40 max-h-fit mt-4">
             <img src={minBanner1} alt="minBanner1" />
           </div>
           <div className="flex flex-col text-base-gray">
@@ -35,8 +35,8 @@ const Footer: React.FC = () => {
             </div>
           </div>
         </div>
-        <div className="flex flex-row">
-          <div className="max-w-40 max-h-fit">
+        <div className="flex flex-col">
+          <div className="max-w-48 max-h-fit mt-4">
             <img src={minBanner2} alt="minBanner2" />
           </div>
           <div className="flex flex-col text-base-gray">
@@ -48,8 +48,8 @@ const Footer: React.FC = () => {
             </div>
           </div>
         </div>
-        <div className="flex flex-row">
-          <div className="max-w-40 max-h-fit">
+        <div className="flex flex-col">
+          <div className="max-w-40 max-h-fit mt-4">
             <img src={minBanner3} alt="minBanner3" />
           </div>
           <div className="flex flex-col text-base-gray">
