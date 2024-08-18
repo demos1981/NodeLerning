@@ -6,9 +6,9 @@ import FooterLayouts from "../layouts/FooterLayouts";
 const HomePage: React.FC = () => {
   return (
     <div>
-      <HeaderLayouts />
+      {/* <HeaderLayouts /> */}
       <MainLayouts />
-      <FooterLayouts />
+      {/* <FooterLayouts /> */}
     </div>
   );
 };

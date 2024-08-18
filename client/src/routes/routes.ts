@@ -10,6 +10,9 @@ import AboutPage from "../pages/AboutPage";
 import ContactPage from "../pages/ContactPage";
 import DeliveryPage from "../pages/DeliveryPage";
 import PaymentsPage from "../pages/PaymentsPage";
+import ErrorPage from "../pages/ErrorPage";
+
+import Layout from "../layouts/Layout";
 import {
   ADMIN_ROUTE,
   BASKET_ROUTE,
@@ -24,6 +27,7 @@ import {
   DELIVERY_ROUTE,
   PAYMENTS_ROUTE,
 } from "../utils/consts";
+import HeroSection from "../components/HeroSection";
 
 export const authRoutes = [
   {
@@ -35,7 +39,14 @@ export const authRoutes = [
 export const publicRoutes = [
   {
     path: HOME_ROUTE,
-    component: HomePage,
+    component: Layout,
+    errorElement: ErrorPage,
+    children: [
+      {
+        component: HomePage,
+        index: true,
+      },
+    ],
   },
   {
     path: LOGIN_ROUTE,

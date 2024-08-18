@@ -4,6 +4,7 @@ import minBanner1 from "../assets/minBanner1.jpg";
 import minBanner2 from "../assets/minBanner2.jpg";
 import minBanner3 from "../assets/minBanner3.jpg";
 import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 
 const Footer: React.FC = () => {
   return (
@@ -62,8 +63,9 @@ const Footer: React.FC = () => {
           </div>
         </div>
       </div>
-      <div className="flex justify-center items-center h-20 bg-base-gray-dark text-base-gray ">
+      <div className="flex flex-col justify-center items-center h-20 bg-base-gray-dark text-base-gray ">
         <p>Develop by Yaremenko Dmitriy</p>
+        <NavLink to="/">Home</NavLink>
       </div>
     </>
   );
