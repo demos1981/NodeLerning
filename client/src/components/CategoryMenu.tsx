@@ -1,6 +1,6 @@
 import Button from "./Button";
 import { SquareMenu } from "lucide-react";
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 
 type CategoryMenuProps = {
   categories: string[];
@@ -16,7 +16,7 @@ export function CategoryMenu({ categories }: CategoryMenuProps) {
         </Button>
       </div>
       {categories.map((category) => (
-        <Link to={`/${category.toLowerCase()}`} key={category}>
+        <NavLink to={`/${category.toLowerCase()}`} key={category}>
           <Button
             className="flex justify-between "
             variant="ghost"
@@ -24,7 +24,7 @@ export function CategoryMenu({ categories }: CategoryMenuProps) {
           >
             {category}
           </Button>
-        </Link>
+        </NavLink>
       ))}
     </div>
   );

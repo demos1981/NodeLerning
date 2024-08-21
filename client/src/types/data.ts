@@ -6,7 +6,7 @@ export interface User {
   role: string;
 }
 
-export type Routes = {
+export type RoutesLink = {
   path: string;
   element: React.FC;
 };
