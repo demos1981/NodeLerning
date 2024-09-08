@@ -1,8 +1,8 @@
 export const catalogCategoriesData = [
-  "Mans Wear",
-  "Womens Wear",
-  "Junior Wear",
-  "New Arrival",
-  "Accessories",
-  "Bags & Wallets",
+  "MEN'S CLOTHING",
+  "WOMEN'S CLOTHING",
+  "CHILDREN'S CLOTHES",
+  "NEW ARRIVAL",
+  "ACCESSORIES",
+  "BAGS & WALLETS",
 ];

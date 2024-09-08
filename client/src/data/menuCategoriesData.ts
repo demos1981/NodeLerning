@@ -1,1 +1,1 @@
-export const Menucategories = ["ABOUT", "CONTACTS", "DELIVERY", "PAYMENTS"];
+export const menuCategories = ["ABOUT", "CONTACTS", "DELIVERY", "PAYMENTS"];
