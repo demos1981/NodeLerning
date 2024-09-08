@@ -26,6 +26,7 @@ export function CategoryMenu({ categories }: CategoryMenuProps) {
           </Button>
         </NavLink>
       ))}
+      <NavLink to="/">HOME</NavLink>
     </div>
   );
 }

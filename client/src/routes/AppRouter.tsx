@@ -1,12 +1,11 @@
 import React from "react";
-import { Routes, Route, BrowserRouter as Router } from "react-router-dom";
+import { Routes, Route } from "react-router-dom";
 import { authRoutes, publicRoutes } from "./routes";
 import {
   ABOUT_ROUTE,
   ADMIN_ROUTE,
   CONTACTS_ROUTE,
   DELIVERY_ROUTE,
-  HOME_ROUTE,
   LOGIN_ROUTE,
   PAYMENTS_ROUTE,
   PRODUCT_ADD,

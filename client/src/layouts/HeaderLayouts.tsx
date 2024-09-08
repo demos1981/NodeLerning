@@ -1,14 +1,14 @@
 import React from "react";
 import Header from "../components/Header";
 import { CategoryMenu } from "../components/CategoryMenu";
-import { categories } from "../data/home";
+import { Menucategories } from "../data/menuCategoriesData";
 
 const HeaderLayouts: React.FC = () => {
   return (
     <>
       <Header />
 
-      <CategoryMenu categories={categories} />
+      <CategoryMenu categories={Menucategories} />
     </>
   );
 };
