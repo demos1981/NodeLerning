@@ -4,35 +4,38 @@ import banner_small_1 from "../assets/banner_small_1.jpg";
 import banner_small_2 from "../assets/banner_small_2.jpg";
 import banner_small_3 from "../assets/banner_small_3.jpg";
 
-const Banner: React.FC = () => {
+const HeroSection: React.FC = () => {
   return (
-    <div className="flex flex-row gap-10 lg:gap-20 justify-center pt-1">
-      <div className="flex  items-center flex-shrink-0 box-border max-w-4xl max-h-fit ml-4">
+    <section className="flex flex-row items-center justify-center max-w-full max-h-fit  box-border ">
+      {/*block1*/}
+      <div className="flex  max-w-4xl max-h-fit ">
         <a href="/">
           <img src={banner_1} alt="banner_1" />
         </a>
       </div>
-      <div className="flex flex-col">
-        <div className="flex flex-row">
-          <div className="flex  items-center flex-shrink-0 box-border  max-w-48 max-h-fit mr-6">
+      {/*block2*/}
+      <div className="flex flex-col  max-w-screen-sm content-between ">
+        <div className="flex flex-row   justify-evenly  ">
+          <div className="flex   max-w-44 ">
             <a href="/">
               <img src={banner_small_1} alt="banner_small_1" />
             </a>
           </div>
-          <div className="flex items-center flex-shrink-0 box-border  max-w-48 max-h-fit mr-6">
+          <div className="flex  max-w-44  ">
             <a href="/">
               <img src={banner_small_2} alt="banner_small_2" />
             </a>
           </div>
         </div>
-        <div className="flex items-center flex-shrink-0 box-border  max-w-lg max-h-fit ">
+        {/*block3*/}
+        <div className="flex  pt-2 pl-2">
           <a href="/">
             <img src={banner_small_3} alt="banner_small_3" />
           </a>
         </div>
       </div>
-    </div>
+    </section>
   );
 };
 
-export default Banner;
+export default HeroSection;

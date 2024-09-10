@@ -1,28 +1,37 @@
-import React from "react";
 import Button from "./Button";
-import { SquareMenu } from "lucide-react";
+import { NavLink } from "react-router-dom";
+import CatalogCategory from "../components/CatalogCategory";
+import { catalogCategoriesData } from "../data/catalogCategoriesData";
 
 type CategoryMenuProps = {
   categories: string[];
 };
+
 export function CategoryMenu({ categories }: CategoryMenuProps) {
+  const handleSelectCategory = (category: string) => {
+    console.log("Selected category:", category);
+  };
   return (
-    <div className="flex items-center whitespace-nowrap gap-x-14 transition-transform w-[max-content] h-20">
+    <div className="flex items-center justify-center whitespace-nowrap gap-x-14 transition-transform max-w-screen-2xl h-20 bg-base-gray-dark text-base-gray-light font-semibold">
       <div className="flex flex-row items-center ">
-        Каталог
-        <Button variant="ghost" size="icon">
-          <SquareMenu className="cursor-pointer" />
-        </Button>
+        <CatalogCategory
+          categories={catalogCategoriesData}
+          onSelect={handleSelectCategory}
+        />
+        <Button variant="ghost" size="icon"></Button>
       </div>
       {categories.map((category) => (
-        <Button
-          className="flex justify-between "
-          variant="ghost"
-          key={category}
-        >
-          {category}
-        </Button>
+        <NavLink to={`/${category.toLowerCase()}`} key={category}>
+          <Button
+            className="flex justify-between "
+            variant="ghost"
+            key={category}
+          >
+            {category}
+          </Button>
+        </NavLink>
       ))}
+      <NavLink to="/">HOME</NavLink>
     </div>
   );
 }

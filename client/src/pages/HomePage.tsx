@@ -1,14 +1,13 @@
 import React from "react";
 import HeaderLayouts from "../layouts/HeaderLayouts";
-import MainLayouts from "../layouts/MainLayouts";
 import FooterLayouts from "../layouts/FooterLayouts";
+import { Outlet } from "react-router-dom";
+import MainLayouts from "../layouts/MainLayouts";
 
 const HomePage: React.FC = () => {
   return (
     <div>
-      <HeaderLayouts />
       <MainLayouts />
-      <FooterLayouts />
     </div>
   );
 };

@@ -15,8 +15,8 @@ const Login: React.FC = () => {
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gray-100">
-      <div className="bg-white p-8 rounded shadow-md w-full max-w-md">
+    <div className=" min-h-screen flex items-center justify-center max-w-md bg-base-gray text-base-gray-light ">
+      <div className=" p-8 rounded-md shadow-md  max-w-md bg-base-gray-dark text-base-gray-light">
         <h2 className="text-2xl font-bold mb-6 text-center">Login</h2>
         <form onSubmit={handleLogin}>
           <div className="mb-4">
@@ -25,7 +25,7 @@ const Login: React.FC = () => {
               type="email"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
-              className="mt-2 px-4 py-2 border rounded w-full"
+              className="mt-2 px-4 py-2 border rounded w-full text-base-gray-dark"
               required
             />
           </div>
@@ -35,13 +35,13 @@ const Login: React.FC = () => {
               type="password"
               value={password}
               onChange={(e) => setPassword(e.target.value)}
-              className="mt-2 px-4 py-2 border rounded w-full"
+              className="mt-2 px-4 py-2 border rounded w-full text-base-gray-dark"
               required
             />
           </div>
           <button
             type="submit"
-            className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded w-full"
+            className="bg-base-gray text-base-gray-dark hover:bg-base-blue text-white font-bold py-2 px-4 rounded w-full transition duration-300"
             disabled={loading}
           >
             {loading ? "Logging in..." : "Login"}

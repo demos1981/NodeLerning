@@ -4,7 +4,7 @@ import Login from "../components/Login";
 const AuthPage: React.FC = () => {
   return (
     <>
-      <div className=" flex items-center justify-center mt-90">
+      <div>
         <Login />
       </div>
     </>
