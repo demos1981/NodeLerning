@@ -1,7 +1,12 @@
 import React from "react";
+import Payments from "../components/Payments";
 
 const PaymentsPage: React.FC = () => {
-  return <div>Payments</div>;
+  return (
+    <>
+      <Payments />
+    </>
+  );
 };
 
 export default PaymentsPage;

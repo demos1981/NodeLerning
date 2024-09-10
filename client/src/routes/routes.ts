@@ -12,7 +12,6 @@ import DeliveryPage from "../pages/DeliveryPage";
 import PaymentsPage from "../pages/PaymentsPage";
 import ErrorPage from "../pages/ErrorPage";
 
-import Layout from "../layouts/Layout";
 import {
   ADMIN_ROUTE,
   BASKET_ROUTE,
@@ -28,6 +27,7 @@ import {
   PAYMENTS_ROUTE,
 } from "../utils/consts";
 import HeroSection from "../components/HeroSection";
+import { createBrowserRouter } from "react-router-dom";
 
 export const authRoutes = [
   {
@@ -39,14 +39,13 @@ export const authRoutes = [
 export const publicRoutes = [
   {
     path: HOME_ROUTE,
-    component: Layout,
+    component: HomePage,
     errorElement: ErrorPage,
-    children: [
-      {
-        component: HomePage,
-        index: true,
-      },
-    ],
+  },
+  // children: [
+  {
+    component: HomePage,
+    index: "true",
   },
   {
     path: LOGIN_ROUTE,
@@ -88,4 +87,5 @@ export const publicRoutes = [
     path: PAYMENTS_ROUTE,
     component: PaymentsPage,
   },
+  // ],
 ];
