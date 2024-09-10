@@ -63,3 +63,10 @@ export interface UserState {
   loading: boolean;
   error: string | null;
 }
+
+export interface Product {
+  id: number;
+  name: string;
+  price: string;
+  imageUrl: string;
+}

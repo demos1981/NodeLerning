@@ -25,7 +25,8 @@ const CatalogCategory: React.FC<CatalogCategoryProps> = ({
         className="inline-flex justify-between w-full px-4 py-2 text-sm font-semibold text-gray-700 bg-white border border-gray-300 rounded-md shadow-sm hover:bg-gray-50 focus:outline-none"
         onClick={() => setIsOpen(!isOpen)}
       >
-        {selectedCategory ? selectedCategory : "Catalogue"}
+        {"CATALOGUE"}
+        {/* {selectedCategory ? selectedCategory : "Catalogue"} */}
         <SquareMenu className="cursor-pointer ml-2" />
       </button>
 
