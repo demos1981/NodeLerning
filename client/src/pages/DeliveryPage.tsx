@@ -1,7 +1,12 @@
 import React from "react";
+import Delivery from "../components/Delivery";
 
 const DeliveryPage: React.FC = () => {
-  return <div>Delivery</div>;
+  return (
+    <>
+      <Delivery />
+    </>
+  );
 };
 
 export default DeliveryPage;

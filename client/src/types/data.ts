@@ -6,7 +6,7 @@ export interface User {
   role: string;
 }
 
-export type Routes = {
+export type RoutesLink = {
   path: string;
   element: React.FC;
 };
@@ -62,4 +62,11 @@ export interface UserState {
   users: UserProps[];
   loading: boolean;
   error: string | null;
+}
+
+export interface Product {
+  id: number;
+  name: string;
+  price: string;
+  imageUrl: string;
 }
