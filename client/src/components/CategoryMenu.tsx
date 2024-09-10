@@ -1,5 +1,4 @@
 import Button from "./Button";
-import { SquareMenu } from "lucide-react";
 import { NavLink } from "react-router-dom";
 import CatalogCategory from "../components/CatalogCategory";
 import { catalogCategoriesData } from "../data/catalogCategoriesData";
