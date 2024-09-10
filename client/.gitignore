@@ -10,7 +10,10 @@
 
 # dependencies
 node_modules
-/node_modules
+/client/node_modules/
+/node_modules/
+node_modules/
+
 /uploads
 .env
 /.env
@@ -60,3 +63,5 @@ Thumbs.db
 .vscode/settings.json
 results/*
 node_modules
+/node_modules
+
