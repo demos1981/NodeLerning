@@ -3,14 +3,20 @@ import { Routes, Route } from "react-router-dom";
 import { authRoutes, publicRoutes } from "./routes";
 import {
   ABOUT_ROUTE,
+  ACCESSORIES_ROUTE,
   ADMIN_ROUTE,
+  ARRIVAL_ROUTE,
+  BAGS_ROUTE,
+  CHILDRENS_ROUTE,
   CONTACTS_ROUTE,
   DELIVERY_ROUTE,
   LOGIN_ROUTE,
+  MENS_ROUTE,
   PAYMENTS_ROUTE,
   PRODUCT_ADD,
   PRODUCT_LIST_ROUTE,
   REGISTRATION_ROUTE,
+  WOMENS_ROUTE,
 } from "../utils/consts";
 import { useAppSelector } from "../hook/hooks";
 import { RootState } from "../store/store";
@@ -25,6 +31,12 @@ import AuthPage from "../pages/AuthPage";
 import RegistrPage from "../pages/RegistrPage";
 import ProductListPage from "../pages/ProductListPage";
 import AddProduct from "../components/AddProduct";
+import MensProductPage from "../pages/MensProductPage";
+import WomensProductPage from "../pages/WomensProductPage";
+import ChildrensProductPage from "../pages/ChildrensProductPage";
+import ArrivalProductPage from "../pages/ArrivalProductPage";
+import AccessoriesProductPage from "../pages/AccessoriesProductPage";
+import BagsProductPage from "../pages/BagsProductPage";
 
 const AppRouter: React.FC = () => {
   const isAuthenticated = useAppSelector(
@@ -40,6 +52,12 @@ const AppRouter: React.FC = () => {
         <Route path={CONTACTS_ROUTE} element={<ContactPage />} />
         <Route path={DELIVERY_ROUTE} element={<DeliveryPage />} />
         <Route path={PAYMENTS_ROUTE} element={<PaymentsPage />} />
+        <Route path={MENS_ROUTE} element={<MensProductPage />} />
+        <Route path={WOMENS_ROUTE} element={<WomensProductPage />} />
+        <Route path={CHILDRENS_ROUTE} element={<ChildrensProductPage />} />
+        <Route path={ARRIVAL_ROUTE} element={<ArrivalProductPage />} />
+        <Route path={ACCESSORIES_ROUTE} element={<AccessoriesProductPage />} />
+        <Route path={BAGS_ROUTE} element={<BagsProductPage />} />
       </Route>
       <Route path={ADMIN_ROUTE} element={<AdminPage />} />
       <Route path={LOGIN_ROUTE} element={<AuthPage />} />
