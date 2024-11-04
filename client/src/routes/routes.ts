@@ -5,7 +5,7 @@ import HomePage from "../pages/HomePage";
 import ProductPage from "../pages/ProductPage";
 import RegistrPage from "../pages/RegistrPage";
 import ProductList from "../components/ProductList";
-import AddProduct from "../components/AddProduct";
+import AddProduct from "../components/addProduct";
 import AboutPage from "../pages/AboutPage";
 import ContactPage from "../pages/ContactPage";
 import DeliveryPage from "../pages/DeliveryPage";
@@ -26,7 +26,7 @@ import {
   DELIVERY_ROUTE,
   PAYMENTS_ROUTE,
 } from "../utils/consts";
-import HeroSection from "../components/HeroSection";
+import HeroSection from "../components/heroSection/HeroSection";
 import { createBrowserRouter } from "react-router-dom";
 
 export const authRoutes = [

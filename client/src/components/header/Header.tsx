@@ -1,6 +1,6 @@
 import { Search, UsersRound, BarChart, ShoppingCart } from "lucide-react";
 import logo from "../assets/logo.png";
-import Button from "../components/Button";
+import Button from "../button";
 
 import React from "react";
 const Header: React.FC = () => {

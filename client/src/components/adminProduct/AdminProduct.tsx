@@ -1,6 +1,6 @@
 import React from "react";
 import { Shirt } from "lucide-react";
-import { PRODUCT_ADD, PRODUCT_LIST_ROUTE } from "../utils/consts";
+import { PRODUCT_ADD, PRODUCT_LIST_ROUTE } from "../../utils/consts";
 import { NavLink } from "react-router-dom";
 
 const AdminProduct: React.FC = () => {

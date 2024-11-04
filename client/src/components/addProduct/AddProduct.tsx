@@ -1,6 +1,6 @@
 import React, { useState } from "react";
-import { useAppDispatch } from "../hook/hooks";
-import { addProduct } from "../store/slices/productSlice";
+import { useAppDispatch } from "../../hook/hooks";
+import { addProduct } from "../../store/slices/productSlice";
 
 const AddProduct: React.FC = () => {
   const [name, setName] = useState<string>("");

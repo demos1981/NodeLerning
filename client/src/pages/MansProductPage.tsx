@@ -1,8 +1,8 @@
 import React from "react";
-import MensProduct from "../components/MensProduct";
+import MansProduct from "../components/mansProduct";
 
-const MensProductPage: React.FC = () => {
-  const mensProducts = [
+const MansProductPage: React.FC = () => {
+  const mansProducts = [
     {
       id: 1,
       name: "Men's Jacket",
@@ -55,9 +55,9 @@ const MensProductPage: React.FC = () => {
 
   return (
     <div>
-      <MensProduct products={mensProducts} />
+      <MansProduct products={mansProducts} />
     </div>
   );
 };
 
-export default MensProductPage;
+export default MansProductPage;
