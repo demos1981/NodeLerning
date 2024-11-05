@@ -1,7 +1,7 @@
 import React from "react";
-import minBanner1 from "../assets/minBanner1.jpg";
-import minBanner2 from "../assets/minBanner2.jpg";
-import minBanner3 from "../assets/minBanner3.jpg";
+import minBanner1 from "../../assets/minBanner1.jpg";
+import minBanner2 from "../../assets/minBanner2.jpg";
+import minBanner3 from "../../assets/minBanner3.jpg";
 
 const NewCategoryBlock: React.FC = () => {
   return (

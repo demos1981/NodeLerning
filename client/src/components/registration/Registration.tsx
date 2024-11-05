@@ -1,5 +1,5 @@
 import React, { useState, ChangeEvent } from "react";
-import { RegistrationUser } from "../types/data";
+import { RegistrationUser } from "../../types/data";
 import axios from "axios";
 
 const Registration: React.FC<RegistrationUser> = ({ title, handleClick }) => {

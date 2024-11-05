@@ -1,7 +1,7 @@
 import React, { useState } from "react";
-import { useAppDispatch, useAppSelector } from "../hook/hooks";
-import { RootState } from "../store/store";
-import { login } from "../store/slices/authSlice";
+import { useAppDispatch, useAppSelector } from "../../hook/hooks";
+import { RootState } from "../../store/store";
+import { login } from "../../store/slices/authSlice";
 
 const Login: React.FC = () => {
   const [email, setEmail] = useState("");

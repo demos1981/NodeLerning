@@ -1,8 +1,8 @@
 import React from "react";
-import banner_1 from "../assets/banner_1.jpg";
-import banner_small_1 from "../assets/banner_small_1.jpg";
-import banner_small_2 from "../assets/banner_small_2.jpg";
-import banner_small_3 from "../assets/banner_small_3.jpg";
+import banner_1 from "../../assets/banner_1.jpg";
+import banner_small_1 from "../../assets/banner_small_1.jpg";
+import banner_small_2 from "../../assets/banner_small_2.jpg";
+import banner_small_3 from "../../assets/banner_small_3.jpg";
 
 const HeroSection: React.FC = () => {
   return (

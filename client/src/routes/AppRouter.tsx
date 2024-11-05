@@ -1,6 +1,5 @@
 import React from "react";
 import { Routes, Route } from "react-router-dom";
-import { authRoutes, publicRoutes } from "./routes";
 import {
   ABOUT_ROUTE,
   ACCESSORIES_ROUTE,
