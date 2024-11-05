@@ -1,6 +1,6 @@
 import React from "react";
 
-const BasketPage = () => {
+const BasketPage: React.FC = () => {
   return (
     <div>
       <h1>Basket</h1>

@@ -1,5 +1,5 @@
 import React from "react";
-import { Product } from "../../types/data";
+import { Product } from "types/data";
 
 interface BagsProductProps {
   products: Product[];

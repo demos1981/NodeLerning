@@ -1,5 +1,5 @@
 import React from "react";
-import MansProduct from "../components/mansProduct";
+import MansProduct from "components/mansProduct";
 
 const MansProductPage: React.FC = () => {
   const mansProducts = [

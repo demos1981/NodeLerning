@@ -1,5 +1,5 @@
 import React from "react";
-import WomensProduct from "../components/womansProduct";
+import WomensProduct from "components/womansProduct";
 
 const WomensProductPage: React.FC = () => {
   const womensProducts = [

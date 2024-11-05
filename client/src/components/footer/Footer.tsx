@@ -1,13 +1,13 @@
 import React from "react";
 
-import minBanner1 from "../../assets/minBanner1.jpg";
-import minBanner2 from "../../assets/minBanner2.jpg";
-import minBanner3 from "../../assets/minBanner3.jpg";
+import minBanner1 from "assets/minBanner1.jpg";
+import minBanner2 from "assets/minBanner2.jpg";
+import minBanner3 from "assets/minBanner3.jpg";
 import { Link } from "react-router-dom";
 import { NavLink } from "react-router-dom";
-import { WOMENS_ROUTE } from "../../utils/consts";
-import { MENS_ROUTE } from "../../utils/consts";
-import { CHILDRENS_ROUTE } from "../../utils/consts";
+import { WOMENS_ROUTE } from "utils/consts";
+import { MENS_ROUTE } from "utils/consts";
+import { CHILDRENS_ROUTE } from "utils/consts";
 
 const Footer: React.FC = () => {
   return (

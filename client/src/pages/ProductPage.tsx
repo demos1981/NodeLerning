@@ -1,6 +1,6 @@
 import React from "react";
-import HeaderLayouts from "../layouts/HeaderLayouts";
-import ProductDisplay from "../components/productDisplay";
+import HeaderLayouts from "layouts/HeaderLayouts";
+import ProductDisplay from "components/productDisplay";
 
 const ProductPage: React.FC = () => {
   const product = {

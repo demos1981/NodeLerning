@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import { useAppSelector, useAppDispatch } from "../../hook/hooks";
+import { useAppSelector, useAppDispatch } from "hook/hooks";
 import {
   fetchProducts,
   deleteProduct,

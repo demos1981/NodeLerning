@@ -1,6 +1,6 @@
 import React from "react";
-import AdminProduct from "../components/adminProduct";
-import AdminUser from "../components/adminUser";
+import AdminProduct from "components/adminProduct";
+import AdminUser from "components/adminUser";
 
 const AdminPage: React.FC = () => {
   return (

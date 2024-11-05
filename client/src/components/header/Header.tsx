@@ -1,5 +1,5 @@
 import { Search, UsersRound, BarChart, ShoppingCart } from "lucide-react";
-import logo from "../assets/logo.png";
+import logo from "assets/logo.png";
 import Button from "../button";
 
 import React from "react";

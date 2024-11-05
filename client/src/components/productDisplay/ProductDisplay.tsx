@@ -1,5 +1,5 @@
 import React from "react";
-import { ProductProps } from "../../types/data";
+import { ProductProps } from "types/data";
 
 const ProductDysplay: React.FC<ProductProps> = ({ id, name, color }) => {
   return (

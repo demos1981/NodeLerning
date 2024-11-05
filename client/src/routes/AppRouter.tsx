@@ -20,7 +20,7 @@ import {
 import { useAppSelector } from "../hook/hooks";
 import { RootState } from "../app/store/store";
 import HomePage from "../pages/HomePage";
-import AboutPage from "../pages/AboutPage";
+import AboutPage from "../pages/about";
 import Layouts from "../layouts/Layouts";
 import ContactPage from "../pages/ContactPage";
 import DeliveryPage from "../pages/DeliveryPage";
