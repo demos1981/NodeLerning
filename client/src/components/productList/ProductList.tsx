@@ -1,6 +1,9 @@
 import React, { useEffect } from "react";
 import { useAppSelector, useAppDispatch } from "../../hook/hooks";
-import { fetchProducts, deleteProduct } from "../../store/slices/productSlice"; // Import the thunk
+import {
+  fetchProducts,
+  deleteProduct,
+} from "../../features/product/productSlice"; // Import the thunk
 
 const ProductsList: React.FC = () => {
   const dispatch = useAppDispatch();

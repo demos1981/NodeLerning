@@ -18,7 +18,7 @@ import {
   WOMENS_ROUTE,
 } from "../utils/consts";
 import { useAppSelector } from "../hook/hooks";
-import { RootState } from "../store/store";
+import { RootState } from "../app/store";
 import HomePage from "../pages/HomePage";
 import AboutPage from "../pages/AboutPage";
 import Layouts from "../layouts/Layouts";
