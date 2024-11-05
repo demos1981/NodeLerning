@@ -1,6 +1,5 @@
 import React from "react";
 import { Routes, Route } from "react-router-dom";
-import { authRoutes, publicRoutes } from "./routes";
 import {
   ABOUT_ROUTE,
   ACCESSORIES_ROUTE,
@@ -30,8 +29,8 @@ import AdminPage from "../pages/AdminPage";
 import AuthPage from "../pages/AuthPage";
 import RegistrPage from "../pages/RegistrPage";
 import ProductListPage from "../pages/ProductListPage";
-import AddProduct from "../components/AddProduct";
-import MensProductPage from "../pages/MensProductPage";
+import AddProduct from "../components/addProduct";
+import MensProductPage from "../pages/MansProductPage";
 import WomensProductPage from "../pages/WomensProductPage";
 import ChildrensProductPage from "../pages/ChildrensProductPage";
 import ArrivalProductPage from "../pages/ArrivalProductPage";

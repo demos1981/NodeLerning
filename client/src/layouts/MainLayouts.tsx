@@ -1,8 +1,8 @@
 import React from "react";
-import HeroSection from "../components/HeroSection";
-import NewProductBlockMan from "../components/NewProductBlockMan";
-import NewCategoryBlock from "../components/NewCategoryBlock";
-import NewProductBlockWoman from "../components/NewProductBlockWoman";
+import HeroSection from "../components/heroSection";
+import NewProductBlockMan from "../components/newProductBlockMan/NewProductBlockMan";
+import NewCategoryBlock from "../components/newCategoryBlock/NewCategoryBlock";
+import NewProductBlockWoman from "../components/newProductBlockWoman/NewProductBlockWoman";
 
 const MainLayouts: React.FC = () => {
   return (

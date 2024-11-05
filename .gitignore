@@ -60,3 +60,4 @@ Thumbs.db
 .vscode/settings.json
 results/*
 node_modules
+/node_modules
