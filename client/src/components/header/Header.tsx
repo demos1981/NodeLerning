@@ -1,9 +1,9 @@
 import { Search, UsersRound, BarChart, ShoppingCart } from "lucide-react";
 import logo from "assets/logo.png";
-import Button from "../button";
+import { Button } from "../index";
 
 import React from "react";
-const Header: React.FC = () => {
+export const Header: React.FC = () => {
   return (
     <header className="flex flex-col gap-10 lg:gap-20 justify-between pt-2  mx-4  text-base-gray-dark h-20">
       <div className="flex flex-row">
@@ -39,5 +39,3 @@ const Header: React.FC = () => {
     </header>
   );
 };
-
-export default Header;

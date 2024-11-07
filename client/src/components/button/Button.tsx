@@ -46,5 +46,3 @@ export function Button({ variant, size, className, ...props }: ButtonProps) {
     />
   );
 }
-
-export default Button;

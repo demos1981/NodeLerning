@@ -4,7 +4,7 @@ interface ArrivalProductProps {
   products: Product[];
 }
 
-const ArrivalProduct: React.FC<ArrivalProductProps> = ({ products }) => {
+export const ArrivalProduct: React.FC<ArrivalProductProps> = ({ products }) => {
   return (
     <div className="container mx-auto py-8">
       <h1 className="text-3xl font-bold mb-6 text-gray-800">New Arrivals</h1>
@@ -34,5 +34,3 @@ const ArrivalProduct: React.FC<ArrivalProductProps> = ({ products }) => {
     </div>
   );
 };
-
-export default ArrivalProduct;

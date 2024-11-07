@@ -5,7 +5,9 @@ interface ChildrensProductProps {
   products: Product[];
 }
 
-const ChildrensProduct: React.FC<ChildrensProductProps> = ({ products }) => {
+export const ChildrensProduct: React.FC<ChildrensProductProps> = ({
+  products,
+}) => {
   return (
     <div className="container mx-auto py-8">
       <h1 className="text-3xl font-bold mb-6 text-gray-800">
@@ -37,5 +39,3 @@ const ChildrensProduct: React.FC<ChildrensProductProps> = ({ products }) => {
     </div>
   );
 };
-
-export default ChildrensProduct;

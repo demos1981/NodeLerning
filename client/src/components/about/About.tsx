@@ -1,6 +1,6 @@
 import React from "react";
 
-const About: React.FC = () => {
+export const About: React.FC = () => {
   return (
     <div className="container mx-auto px-4 py-8 h-fit">
       <h1 className="text-4xl font-bold text-center mb-6">About Us</h1>
@@ -57,5 +57,3 @@ const About: React.FC = () => {
     </div>
   );
 };
-
-export default About;

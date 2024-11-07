@@ -1,7 +1,7 @@
 import React from "react";
 import { Baby } from "lucide-react";
 
-const AdminUser: React.FC = () => {
+export const AdminUser: React.FC = () => {
   return (
     <div>
       <div className="flex justify-start flex-col  max-w-fit bg-base-gray-dark rounded-br-lg">
@@ -31,4 +31,3 @@ const AdminUser: React.FC = () => {
   );
 };
 
-export default AdminUser;

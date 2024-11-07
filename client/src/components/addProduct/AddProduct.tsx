@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { useAppDispatch } from "hook/hooks";
 import { addProduct } from "features/product/productSlice";
 
-const AddProduct: React.FC = () => {
+export const AddProduct: React.FC = () => {
   const [name, setName] = useState<string>("");
   const [color, setColor] = useState<string>("");
   const dispatch = useAppDispatch();
@@ -51,5 +51,3 @@ const AddProduct: React.FC = () => {
     </div>
   );
 };
-
-export default AddProduct;

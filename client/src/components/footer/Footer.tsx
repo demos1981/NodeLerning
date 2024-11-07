@@ -9,7 +9,7 @@ import { WOMENS_ROUTE } from "utils/consts";
 import { MENS_ROUTE } from "utils/consts";
 import { CHILDRENS_ROUTE } from "utils/consts";
 
-const Footer: React.FC = () => {
+export const Footer: React.FC = () => {
   return (
     <>
       <div className="flex flex-row bg-base-gray-dark justify-evenly">
@@ -51,5 +51,3 @@ const Footer: React.FC = () => {
     </>
   );
 };
-
-export default Footer;

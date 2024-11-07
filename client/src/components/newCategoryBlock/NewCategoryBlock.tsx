@@ -3,7 +3,7 @@ import minBanner1 from "assets/minBanner1.jpg";
 import minBanner2 from "assets/minBanner2.jpg";
 import minBanner3 from "assets/minBanner3.jpg";
 
-const NewCategoryBlock: React.FC = () => {
+export const NewCategoryBlock: React.FC = () => {
   return (
     <section className="flex flex-row     pt-6 pb-6 justify-evenly">
       <div className="mr-2">
@@ -21,5 +21,3 @@ const NewCategoryBlock: React.FC = () => {
     </section>
   );
 };
-
-export default NewCategoryBlock;

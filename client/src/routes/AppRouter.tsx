@@ -17,25 +17,25 @@ import {
   REGISTRATION_ROUTE,
   WOMENS_ROUTE,
 } from "../utils/consts";
-import { useAppSelector } from "../hook/hooks";
-import { RootState } from "../app/store/store";
-import HomePage from "../pages/HomePage";
-import AboutPage from "../pages/about";
-import Layouts from "../layouts/Layouts";
-import ContactPage from "../pages/ContactPage";
-import DeliveryPage from "../pages/DeliveryPage";
-import PaymentsPage from "../pages/PaymentsPage";
-import AdminPage from "../pages/AdminPage";
-import AuthPage from "../pages/AuthPage";
-import RegistrPage from "../pages/RegistrPage";
-import ProductListPage from "../pages/ProductListPage";
-import AddProduct from "../components/addProduct";
-import MensProductPage from "../pages/MansProductPage";
-import WomensProductPage from "../pages/WomensProductPage";
-import ChildrensProductPage from "../pages/ChildrensProductPage";
-import ArrivalProductPage from "../pages/ArrivalProductPage";
-import AccessoriesProductPage from "../pages/AccessoriesProductPage";
-import BagsProductPage from "../pages/BagsProductPage";
+import { useAppSelector } from "hook/hooks";
+import { RootState } from "app/store/store";
+import { HomePage } from "pages";
+import { AboutPage } from "pages";
+import Layouts from "layouts/Layouts";
+import { ContactPage } from "pages";
+import { DeliveryPage } from "pages";
+import { PaymentsPage } from "pages";
+import { AdminPage } from "pages";
+import { AuthPage } from "pages";
+import { RegistrPage } from "pages";
+import { ProductsListPage } from "pages";
+import { AddProduct } from "components";
+import { MansProductPage } from "pages";
+import { WomansProductPage } from "pages";
+import { ChildrensProductPage } from "pages";
+import { ArrivalProductPage } from "pages";
+import { AccessoriesProductPage } from "pages";
+import { BagsProductPage } from "pages";
 
 const AppRouter: React.FC = () => {
   const isAuthenticated = useAppSelector(
@@ -51,8 +51,8 @@ const AppRouter: React.FC = () => {
         <Route path={CONTACTS_ROUTE} element={<ContactPage />} />
         <Route path={DELIVERY_ROUTE} element={<DeliveryPage />} />
         <Route path={PAYMENTS_ROUTE} element={<PaymentsPage />} />
-        <Route path={MENS_ROUTE} element={<MensProductPage />} />
-        <Route path={WOMENS_ROUTE} element={<WomensProductPage />} />
+        <Route path={MENS_ROUTE} element={<MansProductPage />} />
+        <Route path={WOMENS_ROUTE} element={<WomansProductPage />} />
         <Route path={CHILDRENS_ROUTE} element={<ChildrensProductPage />} />
         <Route path={ARRIVAL_ROUTE} element={<ArrivalProductPage />} />
         <Route path={ACCESSORIES_ROUTE} element={<AccessoriesProductPage />} />
@@ -62,7 +62,7 @@ const AppRouter: React.FC = () => {
       <Route path={LOGIN_ROUTE} element={<AuthPage />} />
       <Route path={REGISTRATION_ROUTE} element={<RegistrPage />} />
       <Route path={LOGIN_ROUTE} element={<AuthPage />} />
-      <Route path={PRODUCT_LIST_ROUTE} element={<ProductListPage />} />
+      <Route path={PRODUCT_LIST_ROUTE} element={<ProductsListPage />} />
       <Route path={PRODUCT_ADD} element={<AddProduct />} />
     </Routes>
     // </Router>

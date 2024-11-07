@@ -1,7 +1,7 @@
 import React from "react";
-import Header from "../components/header";
-import CategoryMenu from "../components/categoryMenu";
-import { menuCategories } from "../data/menuCategoriesData";
+import { Header } from "components";
+import { CategoryMenu } from "components";
+import { menuCategories } from "data/menuCategoriesData";
 
 const HeaderLayouts: React.FC = () => {
   return (

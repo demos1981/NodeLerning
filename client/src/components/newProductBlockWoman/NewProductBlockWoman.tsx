@@ -5,7 +5,7 @@ import picture3 from "assets/picture3.jpg";
 import picture4 from "assets/picture4.jpg";
 import picture5 from "assets/picture5.jpg";
 
-const NewProductBlockWoman: React.FC = () => {
+export const NewProductBlockWoman: React.FC = () => {
   return (
     <section className="flex flex-col  max-w-full max-h-fit  box-border  ">
       <div className="flex justify-center">
@@ -33,5 +33,3 @@ const NewProductBlockWoman: React.FC = () => {
     </section>
   );
 };
-
-export default NewProductBlockWoman;

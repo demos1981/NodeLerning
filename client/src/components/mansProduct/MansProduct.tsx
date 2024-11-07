@@ -1,10 +1,10 @@
 import React from "react";
 import { Product } from "types/data";
 
-interface MensProductProps {
+interface MansProductProps {
   products: Product[];
 }
-const MensProduct: React.FC<MensProductProps> = ({ products }) => {
+export const MansProduct: React.FC<MansProductProps> = ({ products }) => {
   return (
     <div className="container mx-auto py-8">
       <h1 className="text-3xl font-bold mb-6 text-gray-800">Men's Products</h1>
@@ -34,5 +34,3 @@ const MensProduct: React.FC<MensProductProps> = ({ products }) => {
     </div>
   );
 };
-
-export default MensProduct;

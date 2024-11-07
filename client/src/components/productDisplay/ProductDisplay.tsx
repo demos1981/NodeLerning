@@ -1,7 +1,7 @@
 import React from "react";
 import { ProductProps } from "types/data";
 
-const ProductDysplay: React.FC<ProductProps> = ({ id, name, color }) => {
+export const ProductDisplay: React.FC<ProductProps> = ({ id, name, color }) => {
   return (
     <>
       <div className="max-w-sm rounded overflow-hidden shadow-lg p-4">
@@ -13,5 +13,3 @@ const ProductDysplay: React.FC<ProductProps> = ({ id, name, color }) => {
     </>
   );
 };
-
-export default ProductDysplay;
