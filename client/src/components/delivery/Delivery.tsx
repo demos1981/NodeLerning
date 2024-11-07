@@ -8,7 +8,7 @@ export const Delivery: React.FC = () => {
       </h1>
       <p className="text-lg text-gray-700 text-center mb-8">
         We are committed to delivering your orders quickly and efficiently.
-        Here’s what you need to know about our delivery process.
+        Heres what you need to know about our delivery process.
       </p>
 
       <div className="flex flex-col md:flex-row items-start justify-center gap-8">

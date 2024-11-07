@@ -16,9 +16,9 @@ import {
   PRODUCT_LIST_ROUTE,
   REGISTRATION_ROUTE,
   WOMENS_ROUTE,
-} from "../utils/consts";
-import { useAppSelector } from "hook/hooks";
-import { RootState } from "app/store/store";
+} from "utils/consts";
+// import { useAppSelector } from "hook/hooks";
+// import { RootState } from "app/store/store";
 import { HomePage } from "pages";
 import { AboutPage } from "pages";
 import Layouts from "layouts/Layouts";
@@ -38,10 +38,10 @@ import { AccessoriesProductPage } from "pages";
 import { BagsProductPage } from "pages";
 
 const AppRouter: React.FC = () => {
-  const isAuthenticated = useAppSelector(
-    (state: RootState) => !!state.auth.token
-  );
-  const isAuth = false;
+  // const isAuthenticated = useAppSelector(
+  //   (state: RootState) => !!state.auth.token
+  // );
+  // const isAuth = false;
   return (
     // <Router>
     <Routes>
