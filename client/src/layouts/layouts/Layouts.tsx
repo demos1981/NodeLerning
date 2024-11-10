@@ -1,9 +1,9 @@
 import React from "react";
-import HeaderLayouts from "./HeaderLayouts";
-import FooterLayouts from "./FooterLayouts";
+import { HeaderLayouts } from "layouts";
+import { FooterLayouts } from "layouts";
 import { Outlet } from "react-router-dom";
 
-const Layouts: React.FC = () => {
+export const Layouts: React.FC = () => {
   return (
     <>
       <header>
@@ -18,5 +18,3 @@ const Layouts: React.FC = () => {
     </>
   );
 };
-
-export default Layouts;

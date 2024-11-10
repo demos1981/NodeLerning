@@ -3,7 +3,7 @@ import { Header } from "components";
 import { CategoryMenu } from "components";
 import { menuCategories } from "data/menuCategoriesData";
 
-const HeaderLayouts: React.FC = () => {
+export const HeaderLayouts: React.FC = () => {
   return (
     <>
       <Header />
@@ -12,5 +12,3 @@ const HeaderLayouts: React.FC = () => {
     </>
   );
 };
-
-export default HeaderLayouts;

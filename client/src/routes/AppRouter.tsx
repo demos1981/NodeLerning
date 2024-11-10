@@ -21,7 +21,7 @@ import {
 // import { RootState } from "app/store/store";
 import { HomePage } from "pages";
 import { AboutPage } from "pages";
-import Layouts from "layouts/Layouts";
+import { Layouts } from "layouts";
 import { ContactPage } from "pages";
 import { DeliveryPage } from "pages";
 import { PaymentsPage } from "pages";
