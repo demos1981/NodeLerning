@@ -1,5 +1,5 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
-import { UserProps, UserState } from "../../types/data";
+import { UserProps, UserState } from "types/data";
 import axios from "axios";
 
 const initialState: UserState = {

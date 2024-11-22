@@ -1,17 +1,12 @@
 import React from "react";
 import { useState } from "react";
 import { ChevronLeft, ChevronRight } from "lucide-react";
+import { slides } from "data";
 
 export const HeroSection: React.FC = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
 
   // Sample slides data - replace with your own images/content
-  const slides = [
-    { id: 1, content: "Slide 1", bgColor: "bg-blue-500" },
-    { id: 2, content: "Slide 2", bgColor: "bg-green-500" },
-    { id: 3, content: "Slide 3", bgColor: "bg-red-500" },
-    { id: 4, content: "Slide 4", bgColor: "bg-purple-500" },
-  ];
 
   const nextSlide = () => {
     setCurrentSlide((prev) => (prev === slides.length - 1 ? 0 : prev + 1));
