@@ -7,9 +7,9 @@ import picture5 from "assets/picture5.jpg";
 
 export const NewProductBlockMan: React.FC = () => {
   return (
-    <section className="flex flex-col   max-h-fit  box-border  ">
-      <div className="flex justify-center">
-        <p className="flex ml-4 mt-6 mb-2 justify-center w-48 h-12 items-center bg-base-gray-dark text-base-gray-light font-semibold rounded-lg">
+    <section className=" flex flex-col   max-h-fit  box-border   max-w-full">
+      <div className="flex ml-14">
+        <p className="flex  ml-4 mt-6 mb-2 justify-center w-48 h-12 items-center bg-base-gray-dark text-base-gray-light font-semibold rounded-lg">
           NEW ARRIVAL MAN
         </p>
       </div>

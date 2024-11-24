@@ -21,9 +21,9 @@ export const HeroSection: React.FC = () => {
   };
 
   return (
-    <div className="relative w-full max-w-4xl mx-auto">
+    <div className="relative   mx-auto">
       {/* Slider container */}
-      <div className="relative h-144 overflow-hidden rounded-lg">
+      <div className="relative h-144 overflow-hidden ">
         {/* Slides */}
         <div
           className="flex transition-transform duration-500 ease-out h-full"

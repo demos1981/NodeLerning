@@ -7,8 +7,8 @@ import picture5 from "assets/picture5.jpg";
 
 export const NewProductBlockWoman: React.FC = () => {
   return (
-    <section className="flex flex-col  max-w-full max-h-fit  box-border  ">
-      <div className="flex justify-center">
+    <section className="flex flex-col    max-h-fit max-w-full box-border  justify-center">
+      <div className="flex ml-14">
         <p className="flex ml-4 mt-6 mb-2 justify-center w-52 h-12 items-center bg-base-gray-dark text-base-gray-light font-semibold rounded-lg">
           NEW ARRIVAL WOMAN
         </p>

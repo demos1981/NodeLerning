@@ -9,7 +9,10 @@ export const Layouts: React.FC = () => {
       <header>
         <HeaderLayouts />
       </header>
-      <main style={{ minHeight: "65vh" }}>
+      <main
+        style={{ minHeight: "65vh" }}
+        className=" max-w-full flex flex-col justify-center "
+      >
         <Outlet />
       </main>
       <footer>
