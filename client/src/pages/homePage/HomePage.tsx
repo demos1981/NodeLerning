@@ -1,17 +1,23 @@
 import React from "react";
 
-import { HeroSection } from "components";
-import { NewProductBlockMan } from "components";
-import { NewProductBlockWoman } from "components";
-import { NewCategoryBlock } from "components";
+import {
+  DealsOfTheMonth,
+  HeroSection,
+  ShopByCategories,
+  OurBestseller,
+  WhatOurCustomerSays,
+  OurInstagramStories,
+} from "components";
 
 export const HomePage: React.FC = () => {
   return (
     <div>
       <HeroSection />
-      <NewProductBlockMan />
-      <NewProductBlockWoman />
-      <NewCategoryBlock />
+      <ShopByCategories />
+      <OurBestseller />
+      <DealsOfTheMonth />
+      <WhatOurCustomerSays />
+      <OurInstagramStories />
     </div>
   );
 };

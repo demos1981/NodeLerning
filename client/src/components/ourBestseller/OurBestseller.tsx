@@ -5,13 +5,11 @@ import picture3 from "assets/picture3.jpg";
 import picture4 from "assets/picture4.jpg";
 import picture5 from "assets/picture5.jpg";
 
-export const NewProductBlockWoman: React.FC = () => {
+export const OurBestseller: React.FC = () => {
   return (
-    <section className="flex flex-col    max-h-fit max-w-full box-border  justify-center">
-      <div className="flex ml-14">
-        <p className="flex ml-4 mt-6 mb-2 justify-center w-52 h-12 items-center bg-base-gray-dark text-base-gray-light font-semibold rounded-lg">
-          NEW ARRIVAL WOMAN
-        </p>
+    <section className="relative   mx-auto max-w-7xl">
+      <div className="flex mt-6 mb-6 justify-center items-center">
+        <p className=" text-base-gray-dark">Our Bestseller</p>
       </div>
       <div className="flex flex-row justify-evenly">
         <div className="max-w-52 max-h-fit border-2 rounded-lg border-base-gray-dark">
