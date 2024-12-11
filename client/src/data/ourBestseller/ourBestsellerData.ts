@@ -1,4 +1,6 @@
-export const ourBestsellerData = [
+import { ourBestsellerType } from "../../types/data";
+
+export const ourBestsellerData: ourBestsellerType[] = [
   {
     id: 1,
     name: "Product 1",
