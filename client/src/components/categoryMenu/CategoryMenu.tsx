@@ -1,7 +1,7 @@
 import { Button } from "../index";
 import { NavLink } from "react-router-dom";
 import { CatalogCategory } from "../index";
-import { catalogCategoriesData } from "data/catalogCategories/catalogCategoriesData";
+import { catalogCategoriesData } from "data";
 
 type CategoryMenuProps = {
   categories: string[];

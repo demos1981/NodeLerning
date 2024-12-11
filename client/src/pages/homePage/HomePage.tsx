@@ -7,6 +7,7 @@ import {
   OurBestseller,
   WhatOurCustomerSays,
   OurInstagramStories,
+  OurBenefits,
 } from "components";
 
 export const HomePage: React.FC = () => {
@@ -18,6 +19,7 @@ export const HomePage: React.FC = () => {
       <DealsOfTheMonth />
       <WhatOurCustomerSays />
       <OurInstagramStories />
+      <OurBenefits />
     </div>
   );
 };

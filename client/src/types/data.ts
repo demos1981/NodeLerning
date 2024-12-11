@@ -70,3 +70,17 @@ export interface Product {
   price: string;
   imageUrl: string;
 }
+
+export type shopByCategoriesType = {
+  id: number;
+  name: string;
+  description: string;
+  image: string;
+};
+
+export type ourBestsellerType = {
+  id: number;
+  name: string;
+  price: number;
+  image: string;
+};
