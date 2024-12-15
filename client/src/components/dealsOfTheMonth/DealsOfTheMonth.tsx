@@ -11,7 +11,9 @@ export const DealsOfTheMonth: React.FC = () => {
             className="max-w-52 max-h-fit border-2 rounded-lg border-base-gray-dark"
           >
             <p>{deals.title}</p>
+            <p>{deals.description}</p>
             <img src={deals.image} alt={deals.title} />
+            <p>{deals.linkTitle}</p>
           </div>
         ))}
       </div>

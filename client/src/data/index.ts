@@ -4,3 +4,4 @@ export { slides } from "./heroSectionSlider/heroSectionSliderData";
 export { shopByCategoriesData } from "./shopByCategories/shopByCategoriesData";
 export { ourBestsellerData } from "./ourBestseller/ourBestsellerData";
 export { dealsOfTheMonthData } from "./dealsOfTheMonth/dealsOfTheMonthData";
+export { whatCustomerSaysData } from "./whatCustomerSays/whatCustomerSaysData";
