@@ -1,4 +1,6 @@
-export const dealsOfTheMonthData = [
+import { dealsOfTheMonthType } from "types/data";
+
+export const dealsOfTheMonthData: dealsOfTheMonthType[] = [
   {
     id: 1,
     title: "Deals of the month",

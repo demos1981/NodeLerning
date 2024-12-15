@@ -1,4 +1,6 @@
-export const whatCustomerSaysData = [
+import { whatCustomerSaysType } from "types/data";
+
+export const whatCustomerSaysData: whatCustomerSaysType[] = [
   {
     id: 1,
     name: "John Doe",
