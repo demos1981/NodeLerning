@@ -105,3 +105,10 @@ export type ourInstagramStoriesType = {
   name: string;
   image: string;
 };
+
+export type ourBenefitsType = {
+  id: number;
+  image: string;
+  title: string;
+  description: string;
+};

@@ -6,3 +6,4 @@ export { ourBestsellerData } from "./ourBestseller/ourBestsellerData";
 export { dealsOfTheMonthData } from "./dealsOfTheMonth/dealsOfTheMonthData";
 export { whatCustomerSaysData } from "./whatCustomerSays/whatCustomerSaysData";
 export { ourInstagramStoriesData } from "./ourInstagramStories/ourInstagramStoriesData";
+export { ourBenefitsData } from "./ourBenefits/ourBenefitsData";
