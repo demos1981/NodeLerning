@@ -1,5 +1,3 @@
-import { dealsOfTheMonthData } from "data";
-
 export interface User {
   id: number;
   name: string;
@@ -99,5 +97,11 @@ export type whatCustomerSaysType = {
   id: number;
   name: string;
   comment: string;
+  image: string;
+};
+
+export type ourInstagramStoriesType = {
+  id: number;
+  name: string;
   image: string;
 };
