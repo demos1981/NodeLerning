@@ -1,7 +1,8 @@
 import React from "react";
 import { useState } from "react";
-import { ChevronLeft, ChevronRight } from "lucide-react";
+import { ChevronLeft, ChevronRight, MoveRight } from "lucide-react";
 import { slides } from "data";
+import { Link } from "react-router-dom";
 
 export const HeroSection: React.FC = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
@@ -32,9 +33,27 @@ export const HeroSection: React.FC = () => {
           {slides.map((slide) => (
             <div
               key={slide.id}
-              className={`flex-shrink-0 w-full h-full ${slide.bgColor} flex items-center justify-center text-white text-2xl font-bold`}
+              className={`flex-shrink-0 w-full h-full flex items-center justify-center text-white text-2xl font-bold`}
             >
-              {slide.content}
+              <div>
+                <p className="text-lg font-extralight">{slide.title}</p>
+                <p className="mt-5 text-4xl">{slide.description}</p>
+                <p className=" mt-5 text-lg font-extralight">{slide.sale}</p>
+                <div className=" flex flex-row justify-center h-10 w-32  bg-base-gray-dark text-secondary rounded-md items-center text-sm mt-14">
+                  <div>
+                    <Link
+                      to={slide.link}
+                      className="flex flex-row items-center "
+                    >
+                      Shop Now
+                      <MoveRight className="ml-2" />
+                    </Link>
+                  </div>
+                </div>
+              </div>
+              <div>
+                <img src={slide.image} alt={slide.name} />
+              </div>
             </div>
           ))}
         </div>

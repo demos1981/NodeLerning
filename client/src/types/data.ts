@@ -81,6 +81,7 @@ export type shopByCategoriesType = {
 export type ourBestsellerType = {
   id: number;
   name: string;
+  description: string;
   price: number;
   image: string;
 };
