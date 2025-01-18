@@ -2,6 +2,7 @@ import { dealsOfTheMonthData } from "data";
 import React from "react";
 import { MoveRight } from "lucide-react";
 import { Link } from "react-router-dom";
+import { TimeLine } from "components/timeline/TimeLine";
 
 export const DealsOfTheMonth: React.FC = () => {
   return (
@@ -15,6 +16,7 @@ export const DealsOfTheMonth: React.FC = () => {
             <div className="max-w-fit h-52 ">
               <p className="text-5xl font-normal">{deals.title}</p>
               <p className="mr-10">{deals.description}</p>
+              <TimeLine deadline="December 31 2025 23:59:59 GMT+02:00" />
               <div className="mt-10">
                 <div className=" flex w-40 h-10 bg-base-gray-dark text-secondary rounded-md justify-center text-sm">
                   <Link to={deals.link} className="flex flex-row items-center ">
