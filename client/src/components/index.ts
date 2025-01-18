@@ -29,3 +29,4 @@ export { WomansProduct } from "components/womansProduct/WomansProduct";
 export { DealsOfTheMonth } from "components/dealsOfTheMonth/DealsOfTheMonth";
 export { WhatOurCustomerSays } from "components/whatOurCustomerSays/WhatOurCustomerSays";
 export { OurBenefits } from "components/ourBenefits/OurBenefits";
+export { TimeLine } from "components/timeline/TimeLine";

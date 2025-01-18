@@ -83,6 +83,7 @@ export type ourBestsellerType = {
   name: string;
   description: string;
   price: number;
+  currency: string;
   image: string;
 };
 
@@ -91,6 +92,7 @@ export type dealsOfTheMonthType = {
   title: string;
   description: string;
   linkTitle: string;
+  link: string;
   image: string;
 };
 
@@ -112,4 +114,8 @@ export type ourBenefitsType = {
   image: string;
   title: string;
   description: string;
+};
+
+export type TimeLineType = {
+  deadline: string;
 };

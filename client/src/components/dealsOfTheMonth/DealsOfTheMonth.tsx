@@ -1,5 +1,7 @@
 import { dealsOfTheMonthData } from "data";
 import React from "react";
+import { MoveRight } from "lucide-react";
+import { Link } from "react-router-dom";
 
 export const DealsOfTheMonth: React.FC = () => {
   return (
@@ -8,12 +10,23 @@ export const DealsOfTheMonth: React.FC = () => {
         {dealsOfTheMonthData.map((deals) => (
           <div
             key={deals.id}
-            className="max-w-52 max-h-fit border-2 rounded-lg border-base-gray-dark"
+            className="flex flex-row max-w-fit max-h-fit  mt-10 items-center"
           >
-            <p>{deals.title}</p>
-            <p>{deals.description}</p>
-            <img src={deals.image} alt={deals.title} />
-            <p>{deals.linkTitle}</p>
+            <div className="max-w-fit h-52 ">
+              <p className="text-5xl font-normal">{deals.title}</p>
+              <p className="mr-10">{deals.description}</p>
+              <div className="mt-10">
+                <div className=" flex w-40 h-10 bg-base-gray-dark text-secondary rounded-md justify-center text-sm">
+                  <Link to={deals.link} className="flex flex-row items-center ">
+                    {deals.linkTitle}
+                    <MoveRight className="ml-2" />
+                  </Link>
+                </div>
+              </div>
+            </div>
+            <div>
+              <img src={deals.image} alt={deals.title} />
+            </div>
           </div>
         ))}
       </div>

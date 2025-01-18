@@ -15,7 +15,10 @@ export const OurBestseller: React.FC = () => {
             <img src={category.image} alt={category.name} />
             <p>{category.name}</p>
             <p>{category.description}</p>
-            <p>{category.price}</p>
+            <p>
+              {category.price}
+              <span> {category.currency}</span>
+            </p>
           </div>
         ))}
       </div>
