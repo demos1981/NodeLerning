@@ -3,23 +3,26 @@ import { whatCustomerSaysType } from "types/data";
 export const whatCustomerSaysData: whatCustomerSaysType[] = [
   {
     id: 1,
-    name: "John Doe",
+    stars: "/assets/starsSocial.png",
+    name: "Nata Trichin ",
     comment:
       "I had a great experience with this company. Their service was top-notch and they were very responsive to my needs.",
-    image: "/assets/banner_small_1.jpg",
+    image: "/assets/socialPhoto1.png",
   },
   {
     id: 2,
+    stars: "/assets/starsSocial.png",
     name: "Jane Smith",
     comment:
       "I was very impressed with the quality of the product I received. It exceeded my expectations and I would definitely recommend this company to others.",
-    image: "/assets/banner_small_2.jpg",
+    image: "/assets/socialPhoto2.jpg",
   },
   {
     id: 3,
-    name: "Bob Johnson",
+    stars: "/assets/starsSocial.png",
+    name: "Any Walker",
     comment:
       "I had a great experience with this company. Their service was top-notch and they were very responsive to my needs.",
-    image: "/assets/banner_small_3.jpg",
+    image: "/assets/socialPhoto3.jpg",
   },
 ];

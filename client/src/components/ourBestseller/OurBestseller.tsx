@@ -5,7 +5,7 @@ export const OurBestseller: React.FC = () => {
   return (
     <section className="relative   mx-auto max-w-7xl">
       <div className="flex mt-6 mb-6 justify-center items-center">
-        <p className=" text-base-gray-dark  text-lg font-extralight">
+        <p className=" text-base-gray-dark font-semibold text-xl">
           Our Bestseller
         </p>
       </div>

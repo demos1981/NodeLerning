@@ -5,7 +5,7 @@ export const ShopByCategories: React.FC = () => {
   return (
     <section className="relative mx-auto max-w-7xl">
       <div className="flex">
-        <p className="flex mt-6 mb-2 justify-center w-72 h-20 items-center text-base-gray-dark text-lg font-extralight">
+        <p className="flex mt-6 mb-2 justify-center w-72 h-20 items-center text-base-gray-dark font-semibold text-xl ">
           Shop by Categories
         </p>
       </div>

@@ -15,7 +15,7 @@ export const DealsOfTheMonth: React.FC = () => {
           >
             <div className="max-w-fit h-52 ">
               <p className="text-5xl font-normal">{deals.title}</p>
-              <p className="mr-10">{deals.description}</p>
+              <p className="mr-10 w-128">{deals.description}</p>
               <TimeLine deadline="December 31 2025 23:59:59 GMT+02:00" />
               <div className="mt-10">
                 <div className=" flex w-40 h-10 bg-base-gray-dark text-secondary rounded-md justify-center text-sm">
