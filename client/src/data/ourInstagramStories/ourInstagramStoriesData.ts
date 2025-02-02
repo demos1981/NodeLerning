@@ -4,26 +4,26 @@ export const ourInstagramStoriesData: ourInstagramStoriesType[] = [
   {
     id: 1,
     name: "Kate Yanosh",
-    image: "/assets/minBanner1.jpg",
+    image: "/assets/insta1.jpg",
   },
   {
     id: 2,
     name: "Serge Vard",
-    image: "/assets/minBanner2.jpg",
+    image: "/assets/insta2.jpg",
   },
   {
     id: 3,
     name: "Michail Kern",
-    image: "/assets/minBanner3.jpg",
+    image: "/assets/insta3.jpg",
   },
   {
     id: 4,
     name: "Stas Saynov",
-    image: "/assets/minBanner4.jpg",
+    image: "/assets/insta4.jpg",
   },
   {
     id: 5,
     name: "Anna Kraft",
-    image: "/assets/minBanner1.jpg",
+    image: "/assets/insta5.jpg",
   },
 ];
