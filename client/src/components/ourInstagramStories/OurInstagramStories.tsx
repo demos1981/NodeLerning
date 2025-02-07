@@ -9,7 +9,7 @@ export const OurInstagramStories: React.FC = () => {
           Our Instagram Stories
         </p>
       </div>
-      <div className="flex flex-row justify-evenly">
+      <div className="flex flex-row justify-evenly mb-6">
         {ourInstagramStoriesData.map((stories) => (
           <div key={stories.id} className="">
             <img src={stories.image} alt={stories.name} />
