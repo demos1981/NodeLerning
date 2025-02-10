@@ -20,10 +20,10 @@ export const AppDataSource = new DataSource({
 //   type: "postgres",
 //   url:
 //     process.env.DATABASE_URL ||
-//     "postgres://default:Va2puz0nEvTt@ep-broad-water-a4fhh14t.us-east-1.aws.neon.tech:5432/verceldb?sslmode=require",
+//     "postgres://neondb_owner:npg_5ys8WEDgqiOL@ep-aged-cloud-a2ax2cul-pooler.eu-central-1.aws.neon.tech/neondb?sslmode=require",
 //   synchronize: true,
 //   logging: false,
 //   entities: [User, RefreshToken, Product],
 // });
 
-//"postgres://default:Va2puz0nEvTt@ep-broad-water-a4fhh14t.us-east-1.aws.neon.tech:5432/verceldb?sslmode=require"
+//("postgres://neondb_owner:npg_5ys8WEDgqiOL@ep-aged-cloud-a2ax2cul-pooler.eu-central-1.aws.neon.tech/neondb?sslmode=require");
