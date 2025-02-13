@@ -4,7 +4,9 @@ import { Contacts } from "components";
 export const ContactPage: React.FC = () => {
   return (
     <>
-      <Contacts />
+      <div className="h-svh">
+        <Contacts />
+      </div>
     </>
   );
 };

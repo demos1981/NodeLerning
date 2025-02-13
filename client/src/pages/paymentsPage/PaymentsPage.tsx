@@ -4,7 +4,9 @@ import { Payments } from "components";
 export const PaymentsPage: React.FC = () => {
   return (
     <>
-      <Payments />
+      <div className="h-svh">
+        <Payments />
+      </div>
     </>
   );
 };

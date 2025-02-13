@@ -4,7 +4,9 @@ import { About } from "components";
 export const AboutPage: React.FC = () => {
   return (
     <>
-      <About />
+      <div className="h-svh">
+        <About />
+      </div>
     </>
   );
 };
