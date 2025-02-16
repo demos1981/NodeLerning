@@ -3,32 +3,32 @@ import { shopByCategoriesType } from "types/data";
 export const shopByCategoriesData: shopByCategoriesType[] = [
   {
     id: 1,
-    name: "Casual Wear",
+    name: "Casual Bag",
     description: "Casual",
-    image: "/assets/picture1.png",
+    image: "/assets/casual1.jpg",
   },
   {
     id: 2,
-    name: "Westarn Wear",
+    name: "Formal Bag",
     description: "Formal",
-    image: "/assets/picture2.png",
+    image: "/assets/formal2.jpg",
   },
   {
     id: 3,
-    name: "Sports Wear",
+    name: "Sports Bag",
     description: "Sports",
-    image: "/assets/picture3.png",
+    image: "/assets/sports3.jpg",
   },
   {
     id: 4,
-    name: "Winter Wear",
-    description: "Winter",
-    image: "/assets/picture4.png",
+    name: "Rucksack",
+    description: "Rucksack",
+    image: "/assets/rucksack4.jpg",
   },
   {
     id: 5,
-    name: "Summer Wear",
+    name: "Summer Bag",
     description: "Summer",
-    image: "/assets/picture5.png",
+    image: "/assets/summer5.jpg",
   },
 ];
