@@ -1,0 +1,38 @@
+export const slides = [
+  {
+    id: 1,
+    name: "first slide",
+    link: "/women's",
+    title: "Classic Exclusive",
+    description: "Women's collection",
+    sale: "Up to 40% OFF",
+    image: "/assets/heroes_section1.png",
+  },
+  {
+    id: 2,
+    name: "second slide",
+    link: "/men's",
+    title: "Classic Exclusive",
+    description: "Man's collection",
+    sale: "Up to 20% OFF",
+    image: "/assets/heroes_section2.png",
+  },
+  {
+    id: 3,
+    name: "thirst slide",
+    link: "/children's",
+    title: "Casual collection",
+    description: "Children's collection",
+    sale: "Up to 30% OFF",
+    image: "/assets/heroes_section3.png",
+  },
+  {
+    id: 4,
+    name: "four slide",
+    link: "/accessories",
+    title: "Chancery",
+    description: "New Collection",
+    sale: "Up to 25% OFF",
+    image: "/assets/heroes_section4.png",
+  },
+];

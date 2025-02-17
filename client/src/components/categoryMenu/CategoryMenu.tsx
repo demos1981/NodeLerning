@@ -1,13 +1,13 @@
-import Button from "../button";
+import { Button } from "../index";
 import { NavLink } from "react-router-dom";
-import CatalogCategory from "../catalogCategory";
-import { catalogCategoriesData } from "../../data/catalogCategoriesData";
+import { CatalogCategory } from "../index";
+import { catalogCategoriesData } from "data";
 
 type CategoryMenuProps = {
   categories: string[];
 };
 
-function CategoryMenu({ categories }: CategoryMenuProps) {
+export function CategoryMenu({ categories }: CategoryMenuProps) {
   const handleSelectCategory = (category: string) => {
     console.log("Selected category:", category);
   };
@@ -35,5 +35,3 @@ function CategoryMenu({ categories }: CategoryMenuProps) {
     </div>
   );
 }
-
-export default CategoryMenu;

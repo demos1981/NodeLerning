@@ -1,9 +1,9 @@
 import React from "react";
 import { Shirt } from "lucide-react";
-import { PRODUCT_ADD, PRODUCT_LIST_ROUTE } from "../../utils/consts";
+import { PRODUCT_ADD, PRODUCT_LIST_ROUTE } from "utils/consts";
 import { NavLink } from "react-router-dom";
 
-const AdminProduct: React.FC = () => {
+export const AdminProduct: React.FC = () => {
   return (
     <div>
       <div className="flex justify-start flex-col  max-w-fit bg-base-gray-dark rounded-tr-lg mt-10">
@@ -36,5 +36,3 @@ const AdminProduct: React.FC = () => {
     </div>
   );
 };
-
-export default AdminProduct;

@@ -1,0 +1,9 @@
+export { catalogCategoriesData } from "./catalogCategories/catalogCategoriesData";
+export { menuCategories } from "./menuCategories/menuCategoriesData";
+export { slides } from "./heroSectionSlider/heroSectionSliderData";
+export { shopByCategoriesData } from "./shopByCategories/shopByCategoriesData";
+export { ourBestsellerData } from "./ourBestseller/ourBestsellerData";
+export { dealsOfTheMonthData } from "./dealsOfTheMonth/dealsOfTheMonthData";
+export { whatCustomerSaysData } from "./whatCustomerSays/whatCustomerSaysData";
+export { ourInstagramStoriesData } from "./ourInstagramStories/ourInstagramStoriesData";
+export { ourBenefitsData } from "./ourBenefits/ourBenefitsData";

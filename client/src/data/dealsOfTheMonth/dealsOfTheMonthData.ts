@@ -1,0 +1,13 @@
+import { dealsOfTheMonthType } from "types/data";
+
+export const dealsOfTheMonthData: dealsOfTheMonthType[] = [
+  {
+    id: 1,
+    title: "Deals of the month",
+    description:
+      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus malesuada nisi tellus, non imperdiet nisi tempor at.",
+    linkTitle: "View All Products",
+    link: "/",
+    image: "/assets/woman1.jpg",
+  },
+];

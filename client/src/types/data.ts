@@ -70,3 +70,53 @@ export interface Product {
   price: string;
   imageUrl: string;
 }
+
+export type shopByCategoriesType = {
+  id: number;
+  name: string;
+  description: string;
+  image: string;
+};
+
+export type ourBestsellerType = {
+  id: number;
+  name: string;
+  description: string;
+  price: number;
+  currency: string;
+  image: string;
+};
+
+export type dealsOfTheMonthType = {
+  id: number;
+  title: string;
+  description: string;
+  linkTitle: string;
+  link: string;
+  image: string;
+};
+
+export type whatCustomerSaysType = {
+  id: number;
+  stars: string;
+  name: string;
+  comment: string;
+  image: string;
+};
+
+export type ourInstagramStoriesType = {
+  id: number;
+  name: string;
+  image: string;
+};
+
+export type ourBenefitsType = {
+  id: number;
+  image: string;
+  title: string;
+  description: string;
+};
+
+export type TimeLineType = {
+  deadline: string;
+};

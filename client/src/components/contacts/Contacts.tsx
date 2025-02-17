@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-const Contacts: React.FC = () => {
+export const Contacts: React.FC = () => {
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -93,5 +93,3 @@ const Contacts: React.FC = () => {
     </div>
   );
 };
-
-export default Contacts;

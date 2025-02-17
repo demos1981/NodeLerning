@@ -1,41 +1,90 @@
 import React from "react";
-import banner_1 from "../../assets/banner_1.jpg";
-import banner_small_1 from "../../assets/banner_small_1.jpg";
-import banner_small_2 from "../../assets/banner_small_2.jpg";
-import banner_small_3 from "../../assets/banner_small_3.jpg";
+import { useState } from "react";
+import { ChevronLeft, ChevronRight, MoveRight } from "lucide-react";
+import { slides } from "data";
+import { Link } from "react-router-dom";
 
-const HeroSection: React.FC = () => {
+export const HeroSection: React.FC = () => {
+  const [currentSlide, setCurrentSlide] = useState(0);
+
+  // Sample slides data - replace with your own images/content
+
+  const nextSlide = () => {
+    setCurrentSlide((prev) => (prev === slides.length - 1 ? 0 : prev + 1));
+  };
+
+  const prevSlide = () => {
+    setCurrentSlide((prev) => (prev === 0 ? slides.length - 1 : prev - 1));
+  };
+
+  const goToSlide = (index: number) => {
+    setCurrentSlide(index);
+  };
+
   return (
-    <section className="flex flex-row items-center justify-center max-w-full max-h-fit  box-border ">
-      {/*block1*/}
-      <div className="flex  max-w-4xl max-h-fit ">
-        <a href="/">
-          <img src={banner_1} alt="banner_1" />
-        </a>
-      </div>
-      {/*block2*/}
-      <div className="flex flex-col  max-w-screen-sm content-between ">
-        <div className="flex flex-row   justify-evenly  ">
-          <div className="flex   max-w-44 ">
-            <a href="/">
-              <img src={banner_small_1} alt="banner_small_1" />
-            </a>
-          </div>
-          <div className="flex  max-w-44  ">
-            <a href="/">
-              <img src={banner_small_2} alt="banner_small_2" />
-            </a>
-          </div>
+    <div className="relative   mx-auto max-w-7xl">
+      {/* Slider container */}
+      <div className="relative h-144 overflow-hidden ">
+        {/* Slides */}
+        <div
+          className="flex transition-transform duration-500 ease-out h-full"
+          style={{ transform: `translateX(-${currentSlide * 100}%)` }}
+        >
+          {slides.map((slide) => (
+            <div
+              key={slide.id}
+              className={`flex-shrink-0 w-full h-full flex items-center justify-center text-white text-2xl font-bold`}
+            >
+              <div>
+                <p className="text-lg font-extralight">{slide.title}</p>
+                <p className="mt-5 text-4xl">{slide.description}</p>
+                <p className=" mt-5 text-lg font-extralight">{slide.sale}</p>
+                <div className=" flex flex-row justify-center h-10 w-32  bg-base-gray-dark text-secondary rounded-md items-center text-sm mt-14">
+                  <div>
+                    <Link
+                      to={slide.link}
+                      className="flex flex-row items-center "
+                    >
+                      Shop Now
+                      <MoveRight className="ml-2" />
+                    </Link>
+                  </div>
+                </div>
+              </div>
+              <div>
+                <img src={slide.image} alt={slide.name} />
+              </div>
+            </div>
+          ))}
         </div>
-        {/*block3*/}
-        <div className="flex  pt-2 pl-2">
-          <a href="/">
-            <img src={banner_small_3} alt="banner_small_3" />
-          </a>
-        </div>
+
+        {/* Navigation buttons */}
+        <button
+          onClick={prevSlide}
+          className="absolute left-2 top-1/2 -translate-y-1/2 p-2 rounded-full bg-white/80 hover:bg-white text-primary-hover transition-colors"
+        >
+          <ChevronLeft size={48} />
+        </button>
+        <button
+          onClick={nextSlide}
+          className="absolute right-2 top-1/2 -translate-y-1/2 p-2 rounded-full bg-white/80 hover:bg-white text-primary-hover  transition-colors"
+        >
+          <ChevronRight size={48} />
+        </button>
       </div>
-    </section>
+
+      {/* Dots navigation */}
+      <div className="flex justify-center gap-2 mt-4">
+        {slides.map((_, index) => (
+          <button
+            key={index}
+            onClick={() => goToSlide(index)}
+            className={`w-3 h-3 rounded-full transition-colors ${
+              currentSlide === index ? "bg-blue-600" : "bg-gray-300"
+            }`}
+          />
+        ))}
+      </div>
+    </div>
   );
 };
-
-export default HeroSection;

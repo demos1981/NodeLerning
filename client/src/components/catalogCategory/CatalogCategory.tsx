@@ -5,7 +5,7 @@ type CatalogCategoryProps = {
   categories: string[];
   onSelect: (category: string) => void;
 };
-const CatalogCategory: React.FC<CatalogCategoryProps> = ({
+export const CatalogCategory: React.FC<CatalogCategoryProps> = ({
   categories,
   onSelect,
 }) => {
@@ -50,4 +50,4 @@ const CatalogCategory: React.FC<CatalogCategoryProps> = ({
     </div>
   );
 };
-export default CatalogCategory;
+

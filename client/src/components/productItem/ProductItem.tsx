@@ -1,5 +1,5 @@
 import React from "react";
-import { ProductProps } from "../../types/data";
+import { ProductProps } from "types/data";
 
 interface ProductItemProps {
   product: ProductProps;
@@ -11,7 +11,7 @@ interface ProductItemProps {
 //   dispatch(deleteProduct(id));
 // };
 
-const ProductItem: React.FC<ProductItemProps> = ({ product }) => {
+export const ProductItem: React.FC<ProductItemProps> = ({ product }) => {
   console.log(product);
   return (
     <div className="product-item border p-4 rounded mb-4">
@@ -21,5 +21,3 @@ const ProductItem: React.FC<ProductItemProps> = ({ product }) => {
     </div>
   );
 };
-
-export default ProductItem;

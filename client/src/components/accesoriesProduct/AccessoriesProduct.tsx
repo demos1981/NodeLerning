@@ -1,11 +1,11 @@
 import React from "react";
-import { Product } from "../../types/data";
+import { Product } from "types/data";
 
 interface AccessoriesProductProps {
   products: Product[];
 }
 
-const AccessoriesProduct: React.FC<AccessoriesProductProps> = ({
+export const AccessoriesProduct: React.FC<AccessoriesProductProps> = ({
   products,
 }) => {
   return (
@@ -37,5 +37,3 @@ const AccessoriesProduct: React.FC<AccessoriesProductProps> = ({
     </div>
   );
 };
-
-export default AccessoriesProduct;
