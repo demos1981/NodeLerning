@@ -16,7 +16,7 @@
     "noFallthroughCasesInSwitch": true,
     "module": "esnext",
     // "module": "commonjs",
-    // "types": ["node"],
+    "types": ["node"],
 
     "moduleResolution": "node",
     "resolveJsonModule": true,
