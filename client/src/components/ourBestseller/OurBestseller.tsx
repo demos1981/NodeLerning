@@ -16,7 +16,12 @@ export const OurBestseller: React.FC = () => {
             <p>{category.name}</p>
             <p>{category.description}</p>
             <p>
-              <span className="text-base-darkGreen">{category.price}</span>
+              <span
+                className="text-base-darkGreen
+              "
+              >
+                {category.price}
+              </span>
               <span> {category.currency}</span>
             </p>
           </div>
