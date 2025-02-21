@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import { useAppSelector, useAppDispatch } from "hook/hooks";
+import { useAppSelector, useAppDispatch } from "hooks/hooks";
 import { fetchProducts, deleteProduct } from "features/product/productSlice"; // Import the thunk
 
 export const ProductsList: React.FC = () => {

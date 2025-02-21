@@ -10,10 +10,10 @@ export const CatalogCategory: React.FC<CatalogCategoryProps> = ({
   onSelect,
 }) => {
   const [isOpen, setIsOpen] = useState(false);
-  const [selectedCategory, setSelectedCategory] = useState<string | null>(null);
+  // const [selectedCategory, setSelectedCategory] = useState<string | null>(null);
 
   const handleCategorySelect = (category: string) => {
-    setSelectedCategory(category);
+    // setSelectedCategory(category);
     onSelect(category);
     setIsOpen(false);
   };
@@ -50,4 +50,3 @@ export const CatalogCategory: React.FC<CatalogCategoryProps> = ({
     </div>
   );
 };
-

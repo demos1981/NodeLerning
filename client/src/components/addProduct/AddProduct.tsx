@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { useAppDispatch } from "hook/hooks";
+import { useAppDispatch } from "hooks/hooks";
 import { addProduct } from "features/product/productSlice";
 
 export const AddProduct: React.FC = () => {

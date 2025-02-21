@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { useAppDispatch, useAppSelector } from "hook/hooks";
+import { useAppDispatch, useAppSelector } from "hooks/hooks";
 import { RootState } from "app/store/store";
 import { login } from "features/auth/authSlice";
 
