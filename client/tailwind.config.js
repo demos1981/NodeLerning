@@ -13,6 +13,7 @@ module.exports = {
     colors: {
       base: {
         blue: "#1fb6ff",
+        white: "#ffffff",
         purple: "#7e5bef",
         pink: "#ff49db",
         orange: "#ff7849",

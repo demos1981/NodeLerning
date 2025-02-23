@@ -6,7 +6,7 @@ export const dealsOfTheMonthData: dealsOfTheMonthType[] = [
     title: "Deals of the month",
     description:
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus malesuada nisi tellus, non imperdiet nisi tempor at.",
-    linkTitle: "View All Products",
+    linkTitle: "VIEW PRODUCTS",
     link: "/",
     image: "/assets/woman1.jpg",
   },

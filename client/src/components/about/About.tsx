@@ -1,59 +1,64 @@
 import React from "react";
+import { NavLink } from "react-router-dom";
 
 export const About: React.FC = () => {
   return (
-    <div className="container mx-auto px-4 py-8 h-fit">
-      <h1 className="text-4xl font-bold text-center mb-6">About Us</h1>
-      <p className="text-lg text-gray-700 text-center mb-4">
-        Welcome to our website! We are a passionate team dedicated to providing
-        the best service possible.
-      </p>
-      <div className="flex flex-col md:flex-row items-center justify-center gap-8 mt-8">
-        <div className="max-w-xs p-6 bg-white border border-gray-200 rounded-lg shadow-md">
-          <h2 className="text-2xl font-semibold mb-4">Our Mission</h2>
-          <p className="text-gray-600">
-            Our mission is to deliver quality products and services that exceed
-            our customers' expectations.
+    <>
+      <section className=" flex flex-row relative justify-center  mx-auto max-w-7xl">
+        <div className=" w-96 mr-11">
+          <h1 className="text-4xl font-bold mb-10 mt-36">ABOUT US</h1>
+          <p>
+            We are a company that creates style and comfort in every detail. Our
+            mission is to help people express themselves through high-quality,
+            functional and stylish bags.
           </p>
-        </div>
-        <div className="max-w-xs p-6 bg-white border border-gray-200 rounded-lg shadow-md">
-          <h2 className="text-2xl font-semibold mb-4">Our Vision</h2>
-          <p className="text-gray-600">
-            We envision a world where our innovations help improve the lives of
-            our customers.
+          <p>
+            Our assortment includes bags for any occasion: classic and casual
+            models, backpacks, travel bags, clutches, and much more. We
+            carefully select materials and pay attention to every seam so that
+            you get only the best.
           </p>
-        </div>
-        <div className="max-w-xs p-6 bg-white border border-gray-200 rounded-lg shadow-md">
-          <h2 className="text-2xl font-semibold mb-4">Our Values</h2>
-          <p className="text-gray-600">
-            Integrity, innovation, and customer focus are at the core of
-            everything we do.
+          <p>
+            We believe that a bag is not just an accessory, but a part of your
+            image and a reflection of your style. That is why we always follow
+            the trends, offering you modern design, ergonomics and durability.
           </p>
-        </div>
-      </div>
-      <div className="flex flex-col md:flex-row items-center justify-center gap-8 mt-8">
-        <div className="max-w-xs p-6 bg-white border border-gray-200 rounded-lg shadow-md">
-          <h2 className="text-2xl font-semibold mb-4">Our Mission</h2>
-          <p className="text-gray-600">
-            Our mission is to deliver quality products and services that exceed
-            our customers' expectations.
+          <p>
+            Choosing us, you get not just a bag - you get a reliable companion
+            in your everyday life!
           </p>
+          <button
+            type="button"
+            className="mt-10 w-32 h-10 bg-base-darkGreen text-base-white rounded-lg shadow-lg shadow-base-gray-dark hover:shadow-md"
+          >
+            <NavLink to="/">Back to Shop</NavLink>
+          </button>
         </div>
-        <div className="max-w-xs p-6 bg-white border border-gray-200 rounded-lg shadow-md">
-          <h2 className="text-2xl font-semibold mb-4">Our Vision</h2>
-          <p className="text-gray-600">
-            We envision a world where our innovations help improve the lives of
-            our customers.
-          </p>
+        <div className="flex flex-col">
+          <div className="mt-10 mb-10 ">
+            <img
+              className="rounded-xl"
+              alt="photo_bag1"
+              src="/assets/about_photo1.jpg"
+            ></img>
+          </div>
+          <div>
+            <img
+              className="rounded-xl"
+              alt="photo_bag2"
+              src="/assets/about_photo2.jpg"
+            ></img>
+          </div>
+          <div className="absolute w-52 h-52  rounded-xl top-56 right-20 bg-base-white"></div>
+          <div className="absolute w-52 h-52 rounded-xl top-60 right-16">
+            <img
+              className="rounded-xl"
+              alt="photo_bag4"
+              src="/assets/about_photo3.jpg"
+            ></img>
+          </div>
         </div>
-        <div className="max-w-xs p-6 bg-white border border-gray-200 rounded-lg shadow-md">
-          <h2 className="text-2xl font-semibold mb-4">Our Values</h2>
-          <p className="text-gray-600">
-            Integrity, innovation, and customer focus are at the core of
-            everything we do.
-          </p>
-        </div>
-      </div>
-    </div>
+      </section>
+    </>
   );
 };
