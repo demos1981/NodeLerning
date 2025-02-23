@@ -19,7 +19,7 @@ export const ShopByCategories: React.FC = () => {
               <img src={category.image} alt={category.name} />
             </div>
 
-            <div className="w-28 bg-secondary relative left-2 rounded-md bottom-14">
+            <div className="w-28 bg-base-darkGreen text-base-white relative left-2 rounded-md bottom-14 shadow-lg shadow-base-darkGreen hover:shadow-md">
               <p className="ml-1">{category.description}</p>
             </div>
           </div>
