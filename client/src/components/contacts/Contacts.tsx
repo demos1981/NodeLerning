@@ -23,7 +23,10 @@ export const Contacts: React.FC = () => {
   };
 
   return (
-    <div className="container mx-auto px-4 py-8">
+    <section className="container mx-auto px-4 ">
+      <div>
+        <img src="/assets/page_contact.jpg" alt="page_contact"></img>
+      </div>
       <h1 className="text-4xl font-bold text-center mb-6">Contact Us</h1>
       <form
         onSubmit={handleSubmit}
@@ -90,6 +93,6 @@ export const Contacts: React.FC = () => {
           Send Message
         </button>
       </form>
-    </div>
+    </section>
   );
 };

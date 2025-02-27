@@ -4,7 +4,7 @@ import { Contacts } from "components";
 export const ContactPage: React.FC = () => {
   return (
     <>
-      <div className="h-svh">
+      <div>
         <Contacts />
       </div>
     </>
