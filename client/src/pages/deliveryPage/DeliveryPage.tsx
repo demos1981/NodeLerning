@@ -4,7 +4,7 @@ import { Delivery } from "components";
 export const DeliveryPage: React.FC = () => {
   return (
     <>
-      <div className="h-svh">
+      <div>
         <Delivery />
       </div>
     </>

@@ -27,7 +27,9 @@ export const Contacts: React.FC = () => {
       <div>
         <img src="/assets/page_contact.jpg" alt="page_contact"></img>
       </div>
-      <h1 className="text-4xl font-bold text-center mb-6">Contact Us</h1>
+      <h2 className="text-2xl font-semibold text-center mb-6 mt-10">
+        GET IN TOUCH WITH US
+      </h2>
       <form
         onSubmit={handleSubmit}
         className="max-w-lg mx-auto bg-white p-6 rounded-lg shadow-md"
@@ -45,7 +47,7 @@ export const Contacts: React.FC = () => {
             name="name"
             value={formData.name}
             onChange={handleChange}
-            className="w-full px-3 py-2 border rounded-lg text-gray-700 focus:outline-none focus:border-blue-500"
+            className="w-full px-3 py-2 border text-gray-700 focus:outline-none focus:border-blue-500"
             placeholder="Your Name"
             required
           />
@@ -63,7 +65,7 @@ export const Contacts: React.FC = () => {
             name="email"
             value={formData.email}
             onChange={handleChange}
-            className="w-full px-3 py-2 border rounded-lg text-gray-700 focus:outline-none focus:border-blue-500"
+            className="w-full px-3 py-2 border text-gray-700 focus:outline-none focus:border-blue-500"
             placeholder="Your Email"
             required
           />
@@ -80,7 +82,7 @@ export const Contacts: React.FC = () => {
             name="message"
             value={formData.message}
             onChange={handleChange}
-            className="w-full px-3 py-2 border rounded-lg text-gray-700 focus:outline-none focus:border-blue-500"
+            className="w-full px-3 py-2 border text-gray-700 focus:outline-none focus:border-blue-500"
             placeholder="Your Message"
             rows={5}
             required
@@ -88,7 +90,7 @@ export const Contacts: React.FC = () => {
         </div>
         <button
           type="submit"
-          className="w-full bg-blue-500 text-white font-bold py-2 px-4 rounded-lg hover:bg-blue-600 transition duration-300"
+          className="w-full bg-base-gray-dark text-base-white font-bold py-2 px-4 hover:bg-blue-600 transition duration-300"
         >
           Send Message
         </button>
