@@ -2,7 +2,8 @@ import React from "react";
 
 export const Delivery: React.FC = () => {
   return (
-    <div className="container mx-auto px-4 py-8">
+    <div className="container mx-auto px-4">
+      <img src="/assets/delivery.jpg" alt="delivery" className="mb-6"></img>
       <h1 className="text-4xl font-bold text-center mb-6">
         Delivery Information
       </h1>

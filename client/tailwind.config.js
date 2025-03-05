@@ -13,6 +13,7 @@ module.exports = {
     colors: {
       base: {
         blue: "#1fb6ff",
+        white: "#ffffff",
         purple: "#7e5bef",
         pink: "#ff49db",
         orange: "#ff7849",
@@ -37,7 +38,7 @@ module.exports = {
         border: colors.gray[500],
         text: colors.gray[800],
         dark: colors.gray[900],
-        ["dark-hover"]: colors.blue[900],
+        //["dark-hover"]: colors.blue[900],
       },
     },
     fontFamily: {
