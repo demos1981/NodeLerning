@@ -3,6 +3,7 @@ import { useAppDispatch, useAppSelector } from "hooks/hooks";
 import { RootState } from "app/store/store";
 import { login } from "features/auth/authSlice";
 import { Link } from "react-router-dom";
+import { REGISTRATION_ROUTE } from "utils/consts";
 
 export const Login: React.FC = () => {
   const [email, setEmail] = useState("");
@@ -50,7 +51,9 @@ export const Login: React.FC = () => {
                 Remember Me
               </label>
             </div>
-            <span>Forgot Password?</span>
+            <Link to={REGISTRATION_ROUTE}>
+              <span>Forgot Password?</span>
+            </Link>
           </div>
           <button
             type="submit"
