@@ -1,6 +1,6 @@
 import { plainToInstance } from "class-transformer";
 import { validate, ValidationError } from "class-validator";
-import { Requesthandler } from "express";
+import { RequestHandler } from "express";
 
 export const getErrorMessage = (
   errors: ValidationError[],
@@ -25,7 +25,7 @@ export const validationMiddleware = (
   skipMissingProperties = false,
   whitelist = true,
   forbidNonWhitelisted = true
-): Requesthandler => {
+): RequestHandler => {
   return (req, res, next) => {
     validate(plainToInstance(type, req[value]), {
       skipMissingProperties,
