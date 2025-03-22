@@ -22,7 +22,7 @@ export const Login: React.FC = () => {
         <img src="/assets/Login.jpg" alt="login"></img>
       </div>
       <div className=" p-8 rounded-md   w-2/6  text-base-gray-dark">
-        <h2 className="text-2xl font-bold mb-6 text-center">Login</h2>
+        <h2 className="text-2xl font-bold mb-6 text-center">Welcome</h2>
         <form onSubmit={handleLogin}>
           <div className="mb-4">
             <label className="block text-gray-700">Email</label>
