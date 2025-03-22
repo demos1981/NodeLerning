@@ -1,4 +1,5 @@
 import dotenv from "dotenv";
+
 dotenv.config();
 
 import "reflect-metadata";
@@ -35,7 +36,7 @@ app.use("/api/users", routesUser);
 app.use("/api/products", routesProduct);
 app.use("/api/files", routesFile);
 
-app.get("/", (req, res) => {
+app.get("/", (_req, res) => {
   res.send("Hello, server is listen you");
 });
 
@@ -63,3 +64,5 @@ AppDataSource.initialize()
     });
   })
   .catch((error) => console.log("Error:", error));
+
+export default app;
