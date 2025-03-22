@@ -13,13 +13,13 @@ const initialState: ProductState = {
 export const fetchProducts = createAsyncThunk(
   "products/fetchProducts",
   async (_, { getState }) => {
-    const state = getState() as { auth: { token: string } };
+    // const state = getState() as { auth: { token: string } };
     // const response = await axios.get("http://localhost:3001/api/products", {
     const response = await axios.get(
-      "https://backend-six-rho-61.vercel.app/api/items",
-      {
-        headers: { Authorization: state.auth.token },
-      }
+      "https://backend-six-rho-61.vercel.app/api/items"
+      // {
+      //   headers: { Authorization: state.auth.token },
+      // }
     );
     console.log(response);
     return response.data.products;
