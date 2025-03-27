@@ -12,6 +12,16 @@ export interface ProductState {
 }
 export interface ProductProps {
   id: number;
+  articles: string;
+  brand: string;
   name: string;
+  description: string;
+  quantity: number;
+  price: number;
+  barcode: string;
   color: string;
+  size: string | number;
+  role: string;
+  sex: string;
+  category: string;
 }
