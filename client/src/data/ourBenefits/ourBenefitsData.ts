@@ -1,5 +1,4 @@
-import { ourBenefitsType } from "types/data";
-import { Truck } from "lucide-react";
+import { ourBenefitsType } from "types/ourBenefitsType";
 
 export const ourBenefitsData: ourBenefitsType[] = [
   {

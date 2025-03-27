@@ -1,7 +1,20 @@
 import React from "react";
-import { ProductProps } from "types/data";
+import { ProductProps } from "types/productTypes";
 
-export const ProductDisplay: React.FC<ProductProps> = ({ id, name, color }) => {
+export const ProductDisplay: React.FC<ProductProps> = ({
+  articles,
+  brand,
+  name,
+  description,
+  quantity,
+  price,
+  barcode,
+  color,
+  size,
+  role,
+  sex,
+  category,
+}) => {
   return (
     <>
       <div className="max-w-sm rounded overflow-hidden shadow-lg p-4">

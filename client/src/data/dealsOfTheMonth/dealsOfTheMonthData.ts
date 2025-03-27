@@ -1,4 +1,4 @@
-import { dealsOfTheMonthType } from "types/data";
+import { dealsOfTheMonthType } from "types/dealsOfTheMonthType";
 
 export const dealsOfTheMonthData: dealsOfTheMonthType[] = [
   {

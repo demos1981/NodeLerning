@@ -1,4 +1,4 @@
-import { ourInstagramStoriesType } from "types/data";
+import { ourInstagramStoriesType } from "types/ourInstagramStoriesType";
 
 export const ourInstagramStoriesData: ourInstagramStoriesType[] = [
   {
