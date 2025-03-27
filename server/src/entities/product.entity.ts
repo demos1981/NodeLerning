@@ -18,31 +18,37 @@ export class Product extends BaseEntity {
   @PrimaryGeneratedColumn()
   id!: number;
 
-  @Column()
+  @Column({ type: "varchar", nullable: false, default: "" })
   articles: string;
 
-  @Column()
+  @Column({ type: "varchar", nullable: false, default: "" })
   brand: string;
 
   @Column({ type: "varchar", length: 128, nullable: false })
   name!: string;
 
-  @Column()
+  @Column({ type: "varchar", nullable: false, default: "" })
   description: string;
 
-  @Column()
+  @Column({ type: "integer", nullable: false, default: 0 })
   quantity: number;
 
-  @Column("numeric", { precision: 10, scale: 2 })
+  @Column({
+    type: "numeric",
+    precision: 10,
+    scale: 2,
+    nullable: false,
+    default: 0,
+  })
   price: number;
 
-  @Column()
+  @Column({ type: "varchar", nullable: false, default: "" })
   barcode: string;
 
   @Column({ type: "varchar", length: 256, nullable: false })
   color!: string;
 
-  @Column()
+  @Column({ type: "varchar", nullable: false, default: "" })
   size: string;
 
   @Column({
@@ -59,7 +65,7 @@ export class Product extends BaseEntity {
   })
   sex: ItemSexEnum;
 
-  @Column()
+  @Column({ type: "varchar", nullable: false, default: "" })
   category: string;
 
   @Column({ nullable: true })
