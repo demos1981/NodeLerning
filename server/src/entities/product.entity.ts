@@ -11,17 +11,65 @@ import {
 } from "typeorm";
 
 import { User } from "./users.entity";
+import { ItemStatusEnum, ItemSexEnum } from "../interfaces/enums";
 
 @Entity({ name: "products" })
 export class Product extends BaseEntity {
   @PrimaryGeneratedColumn()
   id!: number;
 
+  @Column()
+  articles: string;
+
+  @Column()
+  brand: string;
+
   @Column({ type: "varchar", length: 128, nullable: false })
   name!: string;
 
+  @Column()
+  description: string;
+
+  @Column()
+  quantity: number;
+
+  @Column("numeric", { precision: 10, scale: 2 })
+  price: number;
+
+  @Column()
+  barcode: string;
+
   @Column({ type: "varchar", length: 256, nullable: false })
   color!: string;
+
+  @Column()
+  size: string;
+
+  @Column({
+    type: "enum",
+    enum: ItemStatusEnum,
+    default: ItemStatusEnum.NEW,
+  })
+  role: ItemStatusEnum;
+
+  @Column({
+    type: "enum",
+    enum: ItemSexEnum,
+    default: ItemSexEnum.UNISEX,
+  })
+  sex: ItemSexEnum;
+
+  @Column()
+  category: string;
+
+  @Column({ nullable: true })
+  photoUrl?: string;
+
+  @Column({ nullable: true })
+  videoUrl?: string;
+
+  @Column({ nullable: true })
+  documentUrl?: string;
 
   @ManyToMany(() => User, (user) => user.products)
   @JoinTable({
