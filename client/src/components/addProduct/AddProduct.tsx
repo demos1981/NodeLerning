@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { useAppDispatch } from "hooks/hooks";
 import { addProduct } from "features/product/productSlice";
+import AddProductMedia from "./AddProductMedia";
 
 export const AddProduct: React.FC = () => {
   const [articles, setArticles] = useState<string>("");
@@ -17,6 +18,11 @@ export const AddProduct: React.FC = () => {
   const [category, setCategory] = useState<string>("");
 
   const dispatch = useAppDispatch();
+  const handleUpload = (files: File[]) => {
+    // Implement your file upload logic here
+    console.log("Files to upload:", files);
+    // Example: You might want to upload files to a server or process them
+  };
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -174,6 +180,7 @@ export const AddProduct: React.FC = () => {
           </button>
         </form>
       </div>
+      <AddProductMedia onUpload={handleUpload} />;
     </div>
   );
 };
