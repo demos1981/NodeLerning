@@ -1,4 +1,4 @@
-import { whatCustomerSaysType } from "types/data";
+import { whatCustomerSaysType } from "types/whatCustomerSaysType";
 
 export const whatCustomerSaysData: whatCustomerSaysType[] = [
   {

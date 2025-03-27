@@ -1,6 +1,6 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
-import { ProductProps } from "types/data";
-import { ProductState } from "types/data";
+import { ProductProps } from "types/productTypes";
+import { ProductState } from "types/productTypes";
 import axios from "axios";
 
 const initialState: ProductState = {
@@ -13,14 +13,13 @@ const initialState: ProductState = {
 export const fetchProducts = createAsyncThunk(
   "products/fetchProducts",
   async (_, { getState }) => {
-    // const state = getState() as { auth: { token: string } };
-    // const response = await axios.get("http://localhost:3001/api/products", {
-    const response = await axios.get(
-      "https://backend-six-rho-61.vercel.app/api/items"
+    const state = getState() as { auth: { token: string } };
+    const response = await axios.get("http://localhost:3001/api/products", {
+      //const response = await axios.get(
+      //"https://backend-six-rho-61.vercel.app/api/items"
       // {
-      //   headers: { Authorization: state.auth.token },
-      // }
-    );
+      headers: { Authorization: state.auth.token },
+    });
     console.log(response);
     return response.data.products;
   }
@@ -31,8 +30,8 @@ export const addProduct = createAsyncThunk(
   async (product: Omit<ProductProps, "id">, { getState }) => {
     const state = getState() as { auth: { token: string } };
     const response = await axios.post(
-      //"http://localhost:3001/api/products",
-      "https://backend-six-rho-61.vercel.app/api/items",
+      "http://localhost:3001/api/products",
+      //"https://backend-six-rho-61.vercel.app/api/items",
       product,
       {
         headers: { Authorization: state.auth.token },
@@ -45,8 +44,8 @@ export const addProduct = createAsyncThunk(
 export const deleteProduct = createAsyncThunk(
   "products/deleteProduct",
   async (id: number) => {
-    //await axios.delete(`http://localhost:3001/api/products/${id}`);
-    await axios.delete(`https://backend-six-rho-61.vercel.app/api/items/${id}`);
+    await axios.delete(`http://localhost:3001/api/products/${id}`);
+    //await axios.delete(`https://backend-six-rho-61.vercel.app/api/items/${id}`);
     return id;
   }
 );

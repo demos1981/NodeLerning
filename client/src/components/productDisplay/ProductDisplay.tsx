@@ -1,5 +1,5 @@
 import React from "react";
-import { ProductProps } from "types/data";
+import { ProductProps } from "types/productTypes";
 
 export const ProductDisplay: React.FC<ProductProps> = ({ id, name, color }) => {
   return (

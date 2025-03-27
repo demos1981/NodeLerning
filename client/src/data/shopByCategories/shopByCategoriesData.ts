@@ -1,4 +1,4 @@
-import { shopByCategoriesType } from "types/data";
+import { shopByCategoriesType } from "types/shopByCategoriesTypes";
 
 export const shopByCategoriesData: shopByCategoriesType[] = [
   {

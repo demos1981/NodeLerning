@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { TimeLineType } from "types/data";
+import { TimeLineType } from "types/timeLineTypes";
 
 export const TimeLine: React.FC<TimeLineType> = ({ deadline }) => {
   const [timeLeft, setTimeLeft] = useState({

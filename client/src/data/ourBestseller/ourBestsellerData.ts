@@ -1,4 +1,4 @@
-import { ourBestsellerType } from "../../types/data";
+import { ourBestsellerType } from "types/ourBesstsellerType";
 
 export const ourBestsellerData: ourBestsellerType[] = [
   {
