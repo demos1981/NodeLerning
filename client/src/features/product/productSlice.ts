@@ -1,7 +1,6 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import { ProductProps } from "types/productTypes";
 import { ProductState } from "types/productTypes";
-import axios from "axios";
 
 const initialState: ProductState = {
   products: [],
@@ -14,14 +13,18 @@ export const fetchProducts = createAsyncThunk(
   "products/fetchProducts",
   async (_, { getState }) => {
     const state = getState() as { auth: { token: string } };
-    const response = await axios.get("http://localhost:3001/api/products", {
-      //const response = await axios.get(
-      //"https://backend-six-rho-61.vercel.app/api/items"
-      // {
-      headers: { Authorization: state.auth.token },
-    });
-    console.log(response);
-    return response.data.products;
+    const response = await fetch(
+      "https://backend-six-rho-61.vercel.app/api/items",
+      //http://localhost:3001/api/products
+      {
+        headers: { Authorization: state.auth.token },
+      }
+    );
+    if (!response.ok) {
+      throw new Error("Помилка при завантаженні продуктів");
+    }
+    const data = await response.json();
+    return data.products;
   }
 );
 
@@ -29,23 +32,37 @@ export const addProduct = createAsyncThunk(
   "products/addProduct",
   async (product: Omit<ProductProps, "id">, { getState }) => {
     const state = getState() as { auth: { token: string } };
-    const response = await axios.post(
-      "http://localhost:3001/api/products",
-      //"https://backend-six-rho-61.vercel.app/api/items",
-      product,
+    const response = await fetch(
+      "https://backend-six-rho-61.vercel.app/api/items",
       {
-        headers: { Authorization: state.auth.token },
+        //http://localhost:3001/api/products
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: state.auth.token,
+        },
+        body: JSON.stringify(product),
       }
     );
-    return response.data;
+    if (!response.ok) {
+      throw new Error("Помилка при додаванні продукту");
+    }
+    return await response.json();
   }
 );
-
 export const deleteProduct = createAsyncThunk(
   "products/deleteProduct",
   async (id: number) => {
-    await axios.delete(`http://localhost:3001/api/products/${id}`);
-    //await axios.delete(`https://backend-six-rho-61.vercel.app/api/items/${id}`);
+    const response = await fetch(
+      `https://backend-six-rho-61.vercel.app/api/items/${id}`,
+      {
+        //http://localhost:3001/api/products/
+        method: "DELETE",
+      }
+    );
+    if (!response.ok) {
+      throw new Error("Помилка при видаленні продукту");
+    }
     return id;
   }
 );

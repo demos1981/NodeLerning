@@ -1,6 +1,5 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import { AuthState } from "types/authTypes";
-import axios from "axios";
 
 const initialState: AuthState = {
   token: null,
@@ -12,11 +11,19 @@ const initialState: AuthState = {
 export const login = createAsyncThunk(
   "auth/login",
   async ({ email, password }: { email: string; password: string }) => {
-    const response = await axios.post("http://localhost:3001/api/auth/login", {
-      email,
-      password,
+    const response = await fetch("http://localhost:3001/api/auth/login", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ email, password }),
     });
-    return response.data;
+    if (!response.ok) {
+      throw new Error(
+        "Помилка входу. Невірні облікові дані або користувач не знайдений."
+      );
+    }
+    return await response.json();
   }
 );
 

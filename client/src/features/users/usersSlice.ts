@@ -1,6 +1,5 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import { UserProps, UserState } from "types/userTypes";
-import axios from "axios";
 
 const initialState: UserState = {
   users: [],
@@ -12,10 +11,13 @@ export const fetchUsers = createAsyncThunk(
   "users/fetchUsers",
   async (_, { getState }) => {
     const state = getState() as { auth: { token: string } };
-    const response = await axios.get("http://localhost:3001/api/users", {
+    const response = await fetch("http://localhost:3001/api/users", {
       headers: { Authorization: state.auth.token },
     });
-    return response.data;
+    if (!response.ok) {
+      throw new Error("Помилка при завантаженні користувачів");
+    }
+    return await response.json();
   }
 );
 
@@ -23,14 +25,18 @@ export const addUsers = createAsyncThunk(
   "users/addUsers",
   async (users: Omit<UserProps, "id">, { getState }) => {
     const state = getState() as { auth: { token: string } };
-    const response = await axios.post(
-      "http://localhost:3001/api/users",
-      users,
-      {
-        headers: { Authorization: state.auth.token },
-      }
-    );
-    return response.data;
+    const response = await fetch("http://localhost:3001/api/users", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: state.auth.token,
+      },
+      body: JSON.stringify(users),
+    });
+    if (!response.ok) {
+      throw new Error("Помилка при додаванні користувача");
+    }
+    return await response.json();
   }
 );
 
