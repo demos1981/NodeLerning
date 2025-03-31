@@ -13,9 +13,12 @@ export const fetchProducts = createAsyncThunk(
   "products/fetchProducts",
   async (_, { getState }) => {
     const state = getState() as { auth: { token: string } };
-    const response = await fetch("http://localhost:3001/api/products", {
-      headers: { Authorization: state.auth.token },
-    });
+    const response = await fetch(
+      "https://backend-six-rho-61.vercel.app/api/items",
+      {
+        headers: { Authorization: state.auth.token },
+      }
+    );
     if (!response.ok) {
       throw new Error("Помилка при завантаженні продуктів");
     }
@@ -28,14 +31,17 @@ export const addProduct = createAsyncThunk(
   "products/addProduct",
   async (product: Omit<ProductProps, "id">, { getState }) => {
     //const state = getState() as { auth: { token: string } };
-    const response = await fetch("http://localhost:3001/api/products", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-        //Authorization: state.auth.token,
-      },
-      body: JSON.stringify(product),
-    });
+    const response = await fetch(
+      "https://backend-six-rho-61.vercel.app/api/items",
+      {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          //Authorization: state.auth.token,
+        },
+        body: JSON.stringify(product),
+      }
+    );
     if (!response.ok) {
       throw new Error("Помилка при додаванні продукту");
     }
@@ -45,9 +51,12 @@ export const addProduct = createAsyncThunk(
 export const deleteProduct = createAsyncThunk(
   "products/deleteProduct",
   async (id: number) => {
-    const response = await fetch(`http://localhost:3001/api/products/${id}`, {
-      method: "DELETE",
-    });
+    const response = await fetch(
+      `https://backend-six-rho-61.vercel.app/api/items/${id}`,
+      {
+        method: "DELETE",
+      }
+    );
     if (!response.ok) {
       throw new Error("Помилка при видаленні продукту");
     }
