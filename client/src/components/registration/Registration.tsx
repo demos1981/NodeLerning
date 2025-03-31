@@ -1,6 +1,5 @@
 import React, { useState, ChangeEvent } from "react";
 import { RegistrationUser } from "types/registerType";
-import axios from "axios";
 
 export const Registration: React.FC<RegistrationUser> = ({
   title,
@@ -14,35 +13,30 @@ export const Registration: React.FC<RegistrationUser> = ({
   const handleNameChange = (e: ChangeEvent<HTMLInputElement>) => {
     setName(e.target.value);
   };
-
   const handleEmailChange = (e: ChangeEvent<HTMLInputElement>) => {
     setEmail(e.target.value);
   };
-
   const handlePasswordChange = (e: ChangeEvent<HTMLInputElement>) => {
     setPassword(e.target.value);
   };
-
   const handleRoleChange = (e: ChangeEvent<HTMLSelectElement>) => {
     setRole(e.target.value);
   };
-
-  // const handleSubmit = () => {
-  //   const formData = { name, email, password, role };
-  //   console.log(formData);
-  //   handleClick(formData);
-  // };
-
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     try {
-      const response = await axios.post("http://localhost:3001/api/users", {
-        name,
-        email,
-        password,
-        role,
+      const response = await fetch("http://localhost:3001/api/users", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ name, email, password, role }),
       });
-      console.log("Data saved:", response.data);
+
+      if (!response.ok) throw new Error("Failed to save data");
+
+      const data = await response.json();
+      console.log("Data saved:", data);
     } catch (error) {
       console.error("Error saving data:", error);
     }
