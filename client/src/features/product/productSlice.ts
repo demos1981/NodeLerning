@@ -12,18 +12,19 @@ const initialState: ProductState = {
 export const fetchProducts = createAsyncThunk(
   "products/fetchProducts",
   async (_, { getState }) => {
-    const state = getState() as { auth: { token: string } };
+    // const state = getState() as { auth: { token: string } };
     const response = await fetch(
-      "https://backend-six-rho-61.vercel.app/api/items",
-      {
-        headers: { Authorization: state.auth.token },
-      }
+      "https://backend-six-rho-61.vercel.app/api/items"
+      // {
+      //   headers: { Authorization: state.auth.token },
+      // }
     );
     if (!response.ok) {
       throw new Error("Помилка при завантаженні продуктів");
     }
     const data = await response.json();
-    return data.products;
+
+    return data;
   }
 );
 
