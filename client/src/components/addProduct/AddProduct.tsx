@@ -17,7 +17,7 @@ export const AddProduct: React.FC = () => {
   const [sex, setSex] = useState<string>("unisex");
   const [category, setCategory] = useState<string>("");
   const [errors, setErrors] = useState<Record<string, string>>({});
-
+  const [productId, setProductId] = useState<number | null>(null);
   const dispatch = useAppDispatch();
   const handleUpload = (files: File[]) => {
     // Implement your file upload logic here
@@ -38,6 +38,7 @@ export const AddProduct: React.FC = () => {
     if (!size) newErrors.size = "Add size";
     if (!role) newErrors.role = "Add role";
     if (!sex) newErrors.sex = "Add sex";
+
     if (!category) newErrors.category = "Add category";
 
     setErrors(newErrors);
@@ -54,22 +55,34 @@ export const AddProduct: React.FC = () => {
 
     if (!validateForm()) return;
 
-    await dispatch(
-      addProduct({
-        articles,
-        brand,
-        name,
-        description,
-        quantity,
-        price,
-        barcode,
-        color,
-        size,
-        role,
-        sex,
-        category,
-      })
-    );
+    try {
+      const resultAction = await dispatch(
+        addProduct({
+          articles,
+          brand,
+          name,
+          description,
+          quantity,
+          price,
+          barcode,
+          color,
+          size,
+          role,
+          sex,
+          category,
+        })
+      );
+      const newProduct = resultAction.payload;
+
+      if (newProduct?.id) {
+        setProductId(newProduct.id); // <-- Це те, що потрібно для медіа
+        alert("Продукт створено. Тепер завантаж медіафайли.");
+      }
+    } catch (errors) {
+      alert("Помилка при створенні продукту");
+      console.error(errors);
+    }
+
     setArticles("");
     setBrand("");
     setName("");
@@ -227,7 +240,7 @@ export const AddProduct: React.FC = () => {
           </button>
         </form>
       </div>
-      <AddProductMedia onUpload={handleUpload} />;
+      <AddProductMedia onUpload={handleUpload} productId={productId} />;
     </div>
   );
 };
