@@ -30,18 +30,25 @@ export const ProductsList: React.FC = () => {
       ) : (
         <div className="container mx-auto p-4">
           <h1 className="text-2xl font-bold mb-4">Product List</h1>
-          <ul>
+          <ul className="flex flex-wrap">
             {products.map((product) => (
               <li
                 key={product.id}
-                className="product-item border p-4 rounded mb-4"
+                className="flex w-1/4  justify-between  product-item border p-4 rounded mb-4 mr-2"
               >
-                <h2 className="text-xl font-bold">{product.name}</h2>
+                <div>
+                  <h2 className="text-xl font-bold">{product.name}</h2>
 
-                <p>{product.color}</p>
+                  <p>{product.brand}</p>
+                  <p>{product.description}</p>
+                  <p>
+                    {product.price}
+                    <span className="text-base-darkGreen">$</span>
+                  </p>
+                </div>
                 <button
                   onClick={() => handleDeleteProduct(product.id)}
-                  className=" border-double border-2 border-red-300 px-4 py-2 rounded-md"
+                  className=" flex justify-center items-center w-24 border-double border-2 border-red-300   rounded-md bg-base-pink "
                 >
                   Delete
                 </button>

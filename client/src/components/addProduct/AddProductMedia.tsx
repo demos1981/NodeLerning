@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { AddMediaProps } from "types/addMediaTypes";
 
-const AddProductMedia: React.FC<AddMediaProps> = ({ onUpload }) => {
+const AddProductMedia: React.FC<AddMediaProps> = ({ onUpload, productId }) => {
   const [selectedFiles, setSelectedFiles] = useState<File[]>([]);
 
   const handleFileChange = (event: React.ChangeEvent<HTMLInputElement>) => {
@@ -15,11 +15,32 @@ const AddProductMedia: React.FC<AddMediaProps> = ({ onUpload }) => {
     setSelectedFiles((prev) => prev.filter((_, i) => i !== index));
   };
 
-  const handleUpload = () => {
-    if (selectedFiles.length > 0) {
-      onUpload(selectedFiles);
-      setSelectedFiles([]); // Очистити після завантаження
+  const handleUpload = async () => {
+    if (!productId) {
+      alert("ID продукту не знайдено. Спочатку створіть продукт.");
+      return;
     }
+
+    for (const file of selectedFiles) {
+      const formData = new FormData();
+      formData.append(file.type.startsWith("image") ? "photo" : "video", file);
+
+      const endpoint = file.type.startsWith("image")
+        ? `/api/items/${productId}/photo`
+        : `/api/items/${productId}/video`;
+
+      try {
+        await fetch(endpoint, {
+          method: "POST",
+          body: formData,
+        });
+      } catch (error) {
+        console.error("Upload error:", error);
+      }
+    }
+
+    alert("Файли успішно завантажені!");
+    setSelectedFiles([]);
   };
 
   return (
