@@ -26,8 +26,8 @@ const AddProductMedia: React.FC<AddMediaProps> = ({ onUpload, productId }) => {
       formData.append(file.type.startsWith("image") ? "photo" : "video", file);
 
       const endpoint = file.type.startsWith("image")
-        ? `/api/items/${productId}/photo`
-        : `/api/items/${productId}/video`;
+        ? `/api/media/${productId}/photo`
+        : `/api/media/${productId}/video`;
 
       try {
         await fetch(endpoint, {
