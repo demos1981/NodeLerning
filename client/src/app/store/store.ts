@@ -2,6 +2,7 @@ import { configureStore } from "@reduxjs/toolkit";
 import authReducer from "../../features/auth/authSlice";
 import productReducer from "../../features/product/productSlice";
 import usersReducer from "../../features/users/usersSlice";
+import mediaReducer from "../../features/media/mediaSlice";
 // ...
 
 const store = configureStore({
@@ -9,6 +10,7 @@ const store = configureStore({
     auth: authReducer,
     products: productReducer,
     users: usersReducer,
+    media: mediaReducer,
   },
 });
 

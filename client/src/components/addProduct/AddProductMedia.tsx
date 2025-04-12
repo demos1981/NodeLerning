@@ -1,8 +1,13 @@
 import React, { useState } from "react";
+import { useAppDispatch, useAppSelector } from "hooks/hooks";
+import { uploadMedia, resetMedia } from "features/media/mediaSlice";
 import { AddMediaProps } from "types/addMediaTypes";
 
-const AddProductMedia: React.FC<AddMediaProps> = ({ onUpload, productId }) => {
+const AddProductMedia: React.FC<AddMediaProps> = ({ productId }) => {
   const [selectedFiles, setSelectedFiles] = useState<File[]>([]);
+  const dispatch = useAppDispatch();
+
+  const { loading, error, uploaded } = useAppSelector((state) => state.media);
 
   const handleFileChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     if (!event.target.files) return;
@@ -22,25 +27,14 @@ const AddProductMedia: React.FC<AddMediaProps> = ({ onUpload, productId }) => {
     }
 
     for (const file of selectedFiles) {
-      const formData = new FormData();
-      formData.append(file.type.startsWith("image") ? "photo" : "video", file);
-
-      const endpoint = file.type.startsWith("image")
-        ? `/api/media/${productId}/photo`
-        : `/api/media/${productId}/video`;
-
-      try {
-        await fetch(endpoint, {
-          method: "POST",
-          body: formData,
-        });
-      } catch (error) {
-        console.error("Upload error:", error);
-      }
+      await dispatch(uploadMedia({ file, productId }));
     }
 
-    alert("Файли успішно завантажені!");
     setSelectedFiles([]);
+  };
+
+  const handleReset = () => {
+    dispatch(resetMedia());
   };
 
   return (
@@ -48,6 +42,7 @@ const AddProductMedia: React.FC<AddMediaProps> = ({ onUpload, productId }) => {
       <label className="block mb-2 text-lg font-medium text-gray-700">
         Додати медіа
       </label>
+
       <input
         type="file"
         accept="image/*,video/*"
@@ -83,10 +78,41 @@ const AddProductMedia: React.FC<AddMediaProps> = ({ onUpload, productId }) => {
         ))}
       </div>
 
+      {/* Стани завантаження */}
+      {loading && (
+        <p className="mt-2 text-blue-500 font-medium">Завантаження файлів...</p>
+      )}
+      {error && <p className="mt-2 text-red-500">Помилка: {error}</p>}
+      {uploaded.length > 0 && (
+        <div className="mt-2 text-green-600">
+          <p className="font-medium">Успішно завантажено:</p>
+          <ul className="list-disc list-inside">
+            {uploaded.map((url, i) => (
+              <li key={i}>
+                <a
+                  href={url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="underline text-blue-600"
+                >
+                  {url}
+                </a>
+              </li>
+            ))}
+          </ul>
+          <button
+            onClick={handleReset}
+            className="mt-2 text-sm text-gray-600 underline"
+          >
+            Очистити список
+          </button>
+        </div>
+      )}
+
       {/* Кнопка завантаження */}
       <button
         onClick={handleUpload}
-        disabled={selectedFiles.length === 0}
+        disabled={selectedFiles.length === 0 || loading}
         className="mt-4 bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 disabled:bg-gray-400"
       >
         Завантажити
