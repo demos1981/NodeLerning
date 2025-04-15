@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useAppDispatch, useAppSelector } from "hooks/hooks";
 import { RootState } from "app/store/store";
-import { login } from "features/auth/authSlice";
+import { login } from "app/store/slices/auth/authSlice";
 import { Link } from "react-router-dom";
 import { REGISTRATION_ROUTE } from "utils/consts";
 

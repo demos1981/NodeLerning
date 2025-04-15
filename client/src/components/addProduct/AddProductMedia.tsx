@@ -1,13 +1,19 @@
 import React, { useState } from "react";
-import { useAppDispatch, useAppSelector } from "hooks/hooks";
-import { uploadMedia, resetMedia } from "features/media/mediaSlice";
 import { AddMediaProps } from "types/addMediaTypes";
+import {
+  useUploadMediaMutation,
+  useDeleteMediaMutation,
+  useGetMediaQuery,
+} from "../../app/store/api/mediaApi";
 
 const AddProductMedia: React.FC<AddMediaProps> = ({ productId }) => {
   const [selectedFiles, setSelectedFiles] = useState<File[]>([]);
-  const dispatch = useAppDispatch();
-
-  const { loading, error, uploaded } = useAppSelector((state) => state.media);
+  const [uploadMedia, { isLoading, error, isSuccess }] =
+    useUploadMediaMutation();
+  const [deleteMedia] = useDeleteMediaMutation();
+  const { data: media, isLoading: isMediaLoading } = useGetMediaQuery(
+    productId ?? 0
+  );
 
   const handleFileChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     if (!event.target.files) return;
@@ -22,21 +28,21 @@ const AddProductMedia: React.FC<AddMediaProps> = ({ productId }) => {
 
   const handleUpload = async () => {
     if (!productId) {
-      alert("ID продукту не знайдено. Спочатку створіть продукт.");
+      alert("ID продукту не знайдено.");
       return;
     }
 
     for (const file of selectedFiles) {
-      await dispatch(uploadMedia({ file, productId }));
+      await uploadMedia({ file, productId });
     }
 
     setSelectedFiles([]);
   };
 
-  const handleReset = () => {
-    dispatch(resetMedia());
+  const handleDelete = async (type: "photo" | "video") => {
+    if (!productId) return;
+    await deleteMedia({ productId, type });
   };
-
   return (
     <div className="p-4 border rounded-lg shadow-md w-full">
       <label className="block mb-2 text-lg font-medium text-gray-700">
@@ -78,41 +84,52 @@ const AddProductMedia: React.FC<AddMediaProps> = ({ productId }) => {
         ))}
       </div>
 
-      {/* Стани завантаження */}
-      {loading && (
-        <p className="mt-2 text-blue-500 font-medium">Завантаження файлів...</p>
-      )}
-      {error && <p className="mt-2 text-red-500">Помилка: {error}</p>}
-      {uploaded.length > 0 && (
-        <div className="mt-2 text-green-600">
-          <p className="font-medium">Успішно завантажено:</p>
-          <ul className="list-disc list-inside">
-            {uploaded.map((url, i) => (
-              <li key={i}>
-                <a
-                  href={url}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="underline text-blue-600"
+      {/* Завантажені медіа */}
+      {!isMediaLoading && media && (
+        <div className="mt-4">
+          <h3 className="font-medium text-gray-800">Завантажено:</h3>
+          <div className="grid grid-cols-2 gap-4 mt-2">
+            {media.photoUrl && (
+              <div className="relative">
+                <img
+                  src={media.photoUrl}
+                  alt="Фото"
+                  className="w-full h-32 object-cover rounded-lg"
+                />
+                <button
+                  onClick={() => handleDelete("photo")}
+                  className="absolute top-1 right-1 bg-red-500 text-white rounded-full w-6 h-6 text-xs flex items-center justify-center"
                 >
-                  {url}
-                </a>
-              </li>
-            ))}
-          </ul>
-          <button
-            onClick={handleReset}
-            className="mt-2 text-sm text-gray-600 underline"
-          >
-            Очистити список
-          </button>
+                  🗑
+                </button>
+              </div>
+            )}
+            {media.videoUrl && (
+              <div className="relative">
+                <video
+                  src={media.videoUrl}
+                  controls
+                  className="w-full h-32 object-cover rounded-lg"
+                />
+                <button
+                  onClick={() => handleDelete("video")}
+                  className="absolute top-1 right-1 bg-red-500 text-white rounded-full w-6 h-6 text-xs flex items-center justify-center"
+                >
+                  🗑
+                </button>
+              </div>
+            )}
+          </div>
         </div>
       )}
 
-      {/* Кнопка завантаження */}
+      {isLoading && <p className="mt-2 text-blue-500">Завантаження...</p>}
+      {error && <p className="mt-2 text-red-500">Помилка при завантаженні</p>}
+      {isSuccess && <p className="mt-2 text-green-600">Успішно!</p>}
+
       <button
         onClick={handleUpload}
-        disabled={selectedFiles.length === 0 || loading}
+        disabled={selectedFiles.length === 0 || isLoading}
         className="mt-4 bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 disabled:bg-gray-400"
       >
         Завантажити
