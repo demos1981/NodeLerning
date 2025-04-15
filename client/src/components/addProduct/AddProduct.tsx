@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useAppDispatch } from "hooks/hooks";
-import { addProduct } from "features/product/productSlice";
+import { addProduct } from "app/store/slices/product/productSlice";
 import AddProductMedia from "./AddProductMedia";
 
 export const AddProduct: React.FC = () => {

@@ -1,7 +1,8 @@
 import { configureStore } from "@reduxjs/toolkit";
-import authReducer from "../../features/auth/authSlice";
-import productReducer from "../../features/product/productSlice";
-import usersReducer from "../../features/users/usersSlice";
+import authReducer from "./slices/auth/authSlice";
+import productReducer from "./slices/product/productSlice";
+import usersReducer from "./slices/users/usersSlice";
+import { mediaApi } from "./api/mediaApi";
 // ...
 
 const store = configureStore({
@@ -9,6 +10,7 @@ const store = configureStore({
     auth: authReducer,
     products: productReducer,
     users: usersReducer,
+    [mediaApi.reducerPath]: mediaApi.reducer,
   },
 });
 
