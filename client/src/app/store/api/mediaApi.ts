@@ -4,7 +4,7 @@ const apiBaseUrl = process.env.REACT_APP_API_URL;
 
 export const mediaApi = createApi({
   reducerPath: "mediaApi",
-  baseQuery: fetchBaseQuery({ baseUrl: `${apiBaseUrl}/api` }), //  baseQuery: fetchBaseQuery({ baseUrl: '/api' })
+  baseQuery: fetchBaseQuery({ baseUrl: `${apiBaseUrl}api` }), //  baseQuery: fetchBaseQuery({ baseUrl: '/api' })
   tagTypes: ["Media"],
 
   endpoints: (builder) => ({

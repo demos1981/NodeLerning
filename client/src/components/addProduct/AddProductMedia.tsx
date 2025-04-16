@@ -4,9 +4,9 @@ import {
   useUploadMediaMutation,
   useDeleteMediaMutation,
   useGetMediaQuery,
-} from "../../app/store/api/mediaApi";
+} from "app/store/api/mediaApi";
 
-const AddProductMedia: React.FC<AddMediaProps> = ({ productId }) => {
+export const AddProductMedia: React.FC<AddMediaProps> = ({ productId }) => {
   const [selectedFiles, setSelectedFiles] = useState<File[]>([]);
   const [uploadMedia, { isLoading, error, isSuccess }] =
     useUploadMediaMutation();
@@ -189,5 +189,3 @@ const AddProductMedia: React.FC<AddMediaProps> = ({ productId }) => {
     </div>
   );
 };
-
-export default AddProductMedia;
