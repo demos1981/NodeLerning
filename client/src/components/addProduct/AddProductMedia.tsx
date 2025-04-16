@@ -12,8 +12,13 @@ const AddProductMedia: React.FC<AddMediaProps> = ({ productId }) => {
     useUploadMediaMutation();
   const [deleteMedia] = useDeleteMediaMutation();
   const { data: media, isLoading: isMediaLoading } = useGetMediaQuery(
-    productId ?? 0
+    productId ?? 0,
+    { skip: !productId } // Важливо пропустити запит, якщо немає productId
   );
+  const [uploadStatus, setUploadStatus] = useState<{
+    loaded: number;
+    total: number;
+  }>({ loaded: 0, total: 0 });
 
   const handleFileChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     if (!event.target.files) return;
@@ -31,18 +36,46 @@ const AddProductMedia: React.FC<AddMediaProps> = ({ productId }) => {
       alert("ID продукту не знайдено.");
       return;
     }
+    setUploadStatus({ loaded: 0, total: selectedFiles.length });
 
-    for (const file of selectedFiles) {
-      await uploadMedia({ file, productId });
+    // Завантажуємо кожен файл окремо
+    for (let i = 0; i < selectedFiles.length; i++) {
+      const file = selectedFiles[i];
+      try {
+        // Визначаємо тип файлу (фото чи відео)
+        const type = file.type.startsWith("image") ? "photo" : "video";
+
+        // Завантажуємо файл
+        await uploadMedia({
+          file,
+          productId,
+          type,
+        }).unwrap();
+
+        // Оновлюємо статус завантаження
+        setUploadStatus((prev) => ({
+          ...prev,
+          loaded: prev.loaded + 1,
+        }));
+      } catch (err) {
+        console.error(`Помилка при завантаженні файлу ${file.name}:`, err);
+      }
     }
 
+    // Очищаємо список обраних файлів після завершення
     setSelectedFiles([]);
   };
 
   const handleDelete = async (type: "photo" | "video") => {
     if (!productId) return;
-    await deleteMedia({ productId, type });
+    try {
+      await deleteMedia({ productId, type }).unwrap();
+    } catch (err) {
+      console.error(`Помилка при видаленні ${type}:`, err);
+      alert(`Не вдалося видалити ${type === "photo" ? "фото" : "відео"}`);
+    }
   };
+
   return (
     <div className="p-4 border rounded-lg shadow-md w-full">
       <label className="block mb-2 text-lg font-medium text-gray-700">
@@ -83,6 +116,23 @@ const AddProductMedia: React.FC<AddMediaProps> = ({ productId }) => {
           </div>
         ))}
       </div>
+
+      {/* Прогрес завантаження */}
+      {uploadStatus.total > 0 && uploadStatus.loaded < uploadStatus.total && (
+        <div className="mt-2">
+          <div className="w-full bg-gray-200 rounded-full h-2.5">
+            <div
+              className="bg-blue-600 h-2.5 rounded-full"
+              style={{
+                width: `${(uploadStatus.loaded / uploadStatus.total) * 100}%`,
+              }}
+            />
+          </div>
+          <p className="text-sm text-gray-600 mt-1">
+            Завантажено {uploadStatus.loaded} з {uploadStatus.total}
+          </p>
+        </div>
+      )}
 
       {/* Завантажені медіа */}
       {!isMediaLoading && media && (
@@ -125,7 +175,9 @@ const AddProductMedia: React.FC<AddMediaProps> = ({ productId }) => {
 
       {isLoading && <p className="mt-2 text-blue-500">Завантаження...</p>}
       {error && <p className="mt-2 text-red-500">Помилка при завантаженні</p>}
-      {isSuccess && <p className="mt-2 text-green-600">Успішно!</p>}
+      {isSuccess && uploadStatus.loaded === uploadStatus.total && (
+        <p className="mt-2 text-green-600">Успішно завантажено!</p>
+      )}
 
       <button
         onClick={handleUpload}
