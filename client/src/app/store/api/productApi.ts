@@ -1,11 +1,11 @@
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
 import { ProductProps } from "types/productTypes";
 
-//const apiBase = process.env.REACT_APP_API_URL;
+const apiBase = process.env.REACT_APP_API_URL;
 
 export const productApi = createApi({
   reducerPath: "productApi",
-  baseQuery: fetchBaseQuery({ baseUrl: "/api" }), //baseQuery: fetchBaseQuery({ baseUrl: `${apiBase}api/` }),
+  baseQuery: fetchBaseQuery({ baseUrl: `${apiBase}api/` }),
   tagTypes: ["Product"],
 
   endpoints: (builder) => ({
@@ -18,7 +18,7 @@ export const productApi = createApi({
     // POST /items
     addProduct: builder.mutation<ProductProps, Omit<ProductProps, "id">>({
       query: (newProduct) => ({
-        url: "/items",
+        url: "items",
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -31,7 +31,7 @@ export const productApi = createApi({
     // DELETE /items/:id
     deleteProduct: builder.mutation<void, number>({
       query: (id) => ({
-        url: `/items/${id}`,
+        url: `items/${id}`,
         method: "DELETE",
       }),
       invalidatesTags: ["Product"],

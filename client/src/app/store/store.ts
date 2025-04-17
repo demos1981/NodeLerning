@@ -14,7 +14,7 @@ const store = configureStore({
     [mediaApi.reducerPath]: mediaApi.reducer,
   },
   middleware: (getDefaultMiddleware) =>
-    getDefaultMiddleware().concat(mediaApi.middleware, productApi.middleware),
+    getDefaultMiddleware().concat(productApi.middleware, mediaApi.middleware),
 });
 
 // Выведение типов `RootState` и `AppDispatch` из хранилища
