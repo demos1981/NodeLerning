@@ -18,7 +18,7 @@ export const productApi = createApi({
     // POST /items
     addProduct: builder.mutation<ProductProps, Omit<ProductProps, "id">>({
       query: (newProduct) => ({
-        url: "items",
+        url: "/items",
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -31,7 +31,7 @@ export const productApi = createApi({
     // DELETE /items/:id
     deleteProduct: builder.mutation<void, number>({
       query: (id) => ({
-        url: `items/${id}`,
+        url: `/items/${id}`,
         method: "DELETE",
       }),
       invalidatesTags: ["Product"],
