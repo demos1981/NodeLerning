@@ -1,32 +1,28 @@
 import React, { useState } from "react";
-import { useAppDispatch } from "hooks/hooks";
-import { addProduct } from "app/store/slices/product/productSlice";
-import AddProductMedia from "./AddProductMedia";
+import { useAddProductMutation } from "app/store/api/productApi";
+import { AddProductMedia } from "./AddProductMedia";
 
 export const AddProduct: React.FC = () => {
-  const [articles, setArticles] = useState<string>("");
-  const [brand, setBrand] = useState<string>("");
-  const [name, setName] = useState<string>("");
-  const [description, setDescription] = useState<string>("");
-  const [quantity, setQuantity] = useState<number>(0);
-  const [price, setPrice] = useState<number>(0);
-  const [barcode, setBarcode] = useState<string>("");
-  const [color, setColor] = useState<string>("");
-  const [size, setSize] = useState<string>("");
-  const [role, setRole] = useState<string>("new");
-  const [sex, setSex] = useState<string>("unisex");
-  const [category, setCategory] = useState<string>("");
+  const [articles, setArticles] = useState("");
+  const [brand, setBrand] = useState("");
+  const [name, setName] = useState("");
+  const [description, setDescription] = useState("");
+  const [quantity, setQuantity] = useState(0);
+  const [price, setPrice] = useState(0);
+  const [barcode, setBarcode] = useState("");
+  const [color, setColor] = useState("");
+  const [size, setSize] = useState("");
+  const [role, setRole] = useState("new");
+  const [sex, setSex] = useState("unisex");
+  const [category, setCategory] = useState("");
   const [errors, setErrors] = useState<Record<string, string>>({});
   const [productId, setProductId] = useState<number | null>(null);
-  const dispatch = useAppDispatch();
-  const handleUpload = (files: File[]) => {
-    // Implement your file upload logic here
-    console.log("Files to upload:", files);
-    // Example: You might want to upload files to a server or process them
-  };
+  const [productCreated, setProductCreated] = useState(false);
+
+  const [addProduct, { isLoading, error }] = useAddProductMutation();
 
   const validateForm = () => {
-    let newErrors: Record<string, string> = {};
+    const newErrors: Record<string, string> = {};
     if (!articles) newErrors.articles = "Add articles";
     if (!brand) newErrors.brand = "Add Brand";
     if (!name) newErrors.name = "Add name";
@@ -38,7 +34,6 @@ export const AddProduct: React.FC = () => {
     if (!size) newErrors.size = "Add size";
     if (!role) newErrors.role = "Add role";
     if (!sex) newErrors.sex = "Add sex";
-
     if (!category) newErrors.category = "Add category";
 
     setErrors(newErrors);
@@ -56,46 +51,45 @@ export const AddProduct: React.FC = () => {
     if (!validateForm()) return;
 
     try {
-      const resultAction = await dispatch(
-        addProduct({
-          articles,
-          brand,
-          name,
-          description,
-          quantity,
-          price,
-          barcode,
-          color,
-          size,
-          role,
-          sex,
-          category,
-        })
-      );
-      const newProduct = resultAction.payload;
+      const newProduct = await addProduct({
+        articles,
+        brand,
+        name,
+        description,
+        quantity,
+        price,
+        barcode,
+        color,
+        size,
+        role,
+        sex,
+        category,
+      }).unwrap(); // 👈 `unwrap()` дозволяє обробити помилки як звичайний `try/catch`
 
       if (newProduct?.id) {
-        setProductId(newProduct.id); // <-- Це те, що потрібно для медіа
-        alert("Продукт створено. Тепер завантаж медіафайли.");
-      }
-    } catch (errors) {
-      alert("Помилка при створенні продукту");
-      console.error(errors);
-    }
+        console.log("Product created with ID:", newProduct.id);
+        setProductId(newProduct.id);
+        setProductCreated(true);
+        alert("Продукт створено. Тепер завантажте медіафайли.");
 
-    setArticles("");
-    setBrand("");
-    setName("");
-    setDescription("");
-    setQuantity(0);
-    setPrice(0);
-    setBarcode("");
-    setColor("");
-    setSize("");
-    setRole("");
-    setSex("");
-    setCategory("");
-    alert("Product added successfully");
+        // Очистка форми
+        setArticles("");
+        setBrand("");
+        setName("");
+        setDescription("");
+        setQuantity(0);
+        setPrice(0);
+        setBarcode("");
+        setColor("");
+        setSize("");
+        setRole("new");
+        setSex("unisex");
+        setCategory("");
+      }
+    } catch (err) {
+      alert("Помилка при створенні продукту");
+      console.error(err);
+    }
   };
 
   return (
@@ -233,14 +227,14 @@ export const AddProduct: React.FC = () => {
 
           <button
             type="submit"
-            onClick={handleSubmit}
+            disabled={isLoading}
             className="mt-2 px-4 py-2 border bg-base-gray text-base-gray-dark rounded w-full hover:bg-base-blue hover:text-base-gray-dark transition duration-300"
           >
-            Add Product
+            {isLoading ? "Додаємо..." : "Add Product"}
           </button>
         </form>
       </div>
-      <AddProductMedia onUpload={handleUpload} productId={productId} />;
+      {productId && <AddProductMedia productId={productId} />}
     </div>
   );
 };
