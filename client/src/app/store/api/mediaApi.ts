@@ -1,10 +1,10 @@
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
 
-const apiBaseUrl = process.env.REACT_APP_API_URL;
+//const apiBaseUrl = process.env.REACT_APP_API_URL;
 
 export const mediaApi = createApi({
   reducerPath: "mediaApi",
-  baseQuery: fetchBaseQuery({ baseUrl: `${apiBaseUrl}api` }), //  baseQuery: fetchBaseQuery({ baseUrl: '/api' })
+  baseQuery: fetchBaseQuery({ baseUrl: "/api" }), // baseQuery: fetchBaseQuery({ baseUrl: `${apiBaseUrl}api` }),
   tagTypes: ["Media"],
 
   endpoints: (builder) => ({
