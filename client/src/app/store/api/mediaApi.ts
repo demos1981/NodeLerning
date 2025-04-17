@@ -15,7 +15,7 @@ export const mediaApi = createApi({
     uploadMedia: builder.mutation({
       query: ({ file, productId, type = "photo" }) => {
         const formData = new FormData();
-        formData.append("file", file);
+        formData.append(type, file);
 
         return {
           url: `/items/${productId}/${type}`,
