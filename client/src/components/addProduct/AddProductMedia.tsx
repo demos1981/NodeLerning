@@ -50,7 +50,7 @@ export const AddProductMedia: React.FC<AddMediaProps> = ({ productId }) => {
           file,
           productId,
           type,
-        }).unwrap();
+        });
 
         // Оновлюємо статус завантаження
         setUploadStatus((prev) => ({
