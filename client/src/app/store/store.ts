@@ -2,19 +2,19 @@ import { configureStore } from "@reduxjs/toolkit";
 import authReducer from "./slices/auth/authSlice";
 
 import usersReducer from "./slices/users/usersSlice";
-import { mediaApi } from "./api/mediaApi";
-import { productApi } from "./api/productApi";
+
+import adminApi from "./api/adminApi";
+
 // ...
 
 const store = configureStore({
   reducer: {
     auth: authReducer,
     users: usersReducer,
-    [productApi.reducerPath]: productApi.reducer,
-    [mediaApi.reducerPath]: mediaApi.reducer,
+    [adminApi.reducerPath]: adminApi.reducer,
   },
   middleware: (getDefaultMiddleware) =>
-    getDefaultMiddleware().concat(productApi.middleware, mediaApi.middleware),
+    getDefaultMiddleware().concat([adminApi.middleware]),
 });
 
 // Выведение типов `RootState` и `AppDispatch` из хранилища

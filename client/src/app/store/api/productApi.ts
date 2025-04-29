@@ -1,13 +1,11 @@
-import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
 import { ProductProps } from "types/productTypes";
+import adminApi from "./adminApi";
 
-const apiBase = process.env.REACT_APP_API_URL;
+const enchancedProductApi = adminApi.enhanceEndpoints({
+  addTagTypes: ["Product"],
+});
 
-export const productApi = createApi({
-  reducerPath: "productApi",
-  baseQuery: fetchBaseQuery({ baseUrl: `${apiBase}api/` }),
-  tagTypes: ["Product"],
-
+export const productApi = enchancedProductApi.injectEndpoints({
   endpoints: (builder) => ({
     // GET /items
     getProducts: builder.query<ProductProps[], void>({

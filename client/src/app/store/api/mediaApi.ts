@@ -1,13 +1,12 @@
-import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
+import adminApi from "./adminApi";
 
-const apiBaseUrl = process.env.REACT_APP_API_URL;
+const enchancedMediaApi = adminApi.enhanceEndpoints({
+  addTagTypes: ["Media"],
+});
 
-export const mediaApi = createApi({
-  reducerPath: "mediaApi",
-  baseQuery: fetchBaseQuery({ baseUrl: `${apiBaseUrl}api/` }), //  baseQuery: fetchBaseQuery({ baseUrl: "/api" }),
-  tagTypes: ["Media"],
-
+export const mediaApi = enchancedMediaApi.injectEndpoints({
   endpoints: (builder) => ({
+    // Upload media (photo, video, etc.) for a product
     uploadMedia: builder.mutation({
       query: ({ file, productId, type = "photo" }) => {
         const formData = new FormData();
@@ -23,10 +22,14 @@ export const mediaApi = createApi({
       },
       invalidatesTags: ["Media"],
     }),
+
+    // Get media (photo, video, etc.) for a product
     getMedia: builder.query({
-      query: (productId, types = "photo") => `${productId}/${types}`,
+      query: (productId, type = "photo") => `${productId}/${type}`,
       providesTags: ["Media"],
     }),
+
+    // Delete media (photo, video, etc.) for a product
     deleteMedia: builder.mutation({
       query: ({ productId, type }) => ({
         url: `${productId}/${type}`,
