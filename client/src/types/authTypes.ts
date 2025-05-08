@@ -1,5 +1,5 @@
 export interface AuthUser {
-  id: number | undefined;
+  id?: number | undefined;
   email: string;
   token: string;
 }

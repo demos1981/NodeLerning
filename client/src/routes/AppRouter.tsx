@@ -26,7 +26,7 @@ import { ContactPage } from "pages";
 import { DeliveryPage } from "pages";
 import { PaymentsPage } from "pages";
 import { AdminPage } from "pages";
-import { AuthPage } from "pages";
+import { LoginPage } from "pages";
 import { RegistrPage } from "pages";
 import { ProductsListPage } from "pages";
 import { AddProduct } from "components";
@@ -59,9 +59,9 @@ const AppRouter: React.FC = () => {
         <Route path={BAGS_ROUTE} element={<BagsProductPage />} />
       </Route>
       <Route path={ADMIN_ROUTE} element={<AdminPage />} />
-      <Route path={LOGIN_ROUTE} element={<AuthPage />} />
+      <Route path={LOGIN_ROUTE} element={<LoginPage />} />
       <Route path={REGISTRATION_ROUTE} element={<RegistrPage />} />
-      <Route path={LOGIN_ROUTE} element={<AuthPage />} />
+
       <Route path={PRODUCT_LIST_ROUTE} element={<ProductsListPage />} />
       <Route path={PRODUCT_ADD} element={<AddProduct />} />
     </Routes>

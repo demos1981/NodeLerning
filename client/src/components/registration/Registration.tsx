@@ -1,83 +1,76 @@
 import React, { useState, ChangeEvent } from "react";
 import { RegistrationUser } from "types/registerType";
+import { useRegisterMutation } from "../../app/store/api/authApi"; // змінити шлях при потребі
 
 export const Registration: React.FC<RegistrationUser> = ({
   title,
   handleClick,
 }) => {
-  const [name, setName] = useState<string>("");
-  const [email, setEmail] = useState<string>("");
-  const [password, setPassword] = useState<string>("");
-  const [role, setRole] = useState<string>("");
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [role, setRole] = useState("");
 
-  const handleNameChange = (e: ChangeEvent<HTMLInputElement>) => {
-    setName(e.target.value);
-  };
-  const handleEmailChange = (e: ChangeEvent<HTMLInputElement>) => {
-    setEmail(e.target.value);
-  };
-  const handlePasswordChange = (e: ChangeEvent<HTMLInputElement>) => {
-    setPassword(e.target.value);
-  };
-  const handleRoleChange = (e: ChangeEvent<HTMLSelectElement>) => {
-    setRole(e.target.value);
-  };
+  const [register, { isLoading, isError, error, isSuccess }] =
+    useRegisterMutation();
+
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     try {
-      const response = await fetch("http://localhost:3001/api/users", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({ name, email, password, role }),
-      });
-
-      if (!response.ok) throw new Error("Failed to save data");
-
-      const data = await response.json();
-      console.log("Data saved:", data);
-    } catch (error) {
-      console.error("Error saving data:", error);
+      const res = await register({ email, password }).unwrap();
+      console.log("Користувач зареєстрований:", res);
+      // handleClick?.(); // якщо є додаткова дія після успіху
+    } catch (err) {
+      console.error("Помилка реєстрації:", err);
     }
   };
+
   return (
     <div className="min-h-screen flex items-center justify-center max-w-md bg-base-gray text-base-gray-dark">
-      <div className=" mx-auto  p-6 bg-white shadow-md rounded-lg bg-base-gray-dark">
+      <form
+        onSubmit={handleSubmit}
+        className="mx-auto p-6 bg-white shadow-md rounded-lg bg-base-gray-dark w-full"
+      >
         <h1 className="text-2xl font-bold mb-6 text-center text-base-gray-light">
           {title}
         </h1>
+
         <div className="mb-4">
           <input
             type="text"
             value={name}
-            onChange={handleNameChange}
+            onChange={(e) => setName(e.target.value)}
             placeholder="Name"
             className="w-full px-3 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
           />
         </div>
+
         <div className="mb-4">
           <input
             type="email"
             value={email}
-            onChange={handleEmailChange}
+            onChange={(e) => setEmail(e.target.value)}
             placeholder="Email"
             className="w-full px-3 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+            required
           />
         </div>
+
         <div className="mb-4">
           <input
             type="password"
             value={password}
-            onChange={handlePasswordChange}
+            onChange={(e) => setPassword(e.target.value)}
             placeholder="Password"
             className="w-full px-3 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+            required
           />
         </div>
+
         <div className="mb-4">
           <select
             value={role}
-            onChange={handleRoleChange}
+            onChange={(e) => setRole(e.target.value)}
             className="w-full px-3 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
           >
             <option value="" disabled>
@@ -88,13 +81,24 @@ export const Registration: React.FC<RegistrationUser> = ({
             <option value="guest">Guest</option>
           </select>
         </div>
+
         <button
-          onClick={handleSubmit}
-          className="w-full bg-base-gray text-base-gray-dark py-2 rounded-lg hover:bg-base-blue transition duration-300 border-2 "
+          type="submit"
+          disabled={isLoading}
+          className="w-full bg-base-gray text-base-gray-dark py-2 rounded-lg hover:bg-base-blue transition duration-300 border-2"
         >
-          Submit
+          {isLoading ? "Завантаження..." : "Зареєструватись"}
         </button>
-      </div>
+
+        {isError && (
+          <p className="text-red-500 mt-2 text-sm">
+            Помилка реєстрації. Перевірте введені дані.
+          </p>
+        )}
+        {isSuccess && (
+          <p className="text-green-500 mt-2 text-sm">Реєстрація успішна!</p>
+        )}
+      </form>
     </div>
   );
 };

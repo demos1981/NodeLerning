@@ -1,7 +1,7 @@
 import React from "react";
 import { Login } from "components";
 
-export const AuthPage: React.FC = () => {
+export const LoginPage: React.FC = () => {
   return (
     <>
       <div>
