@@ -52,7 +52,7 @@ export const Login: React.FC = () => {
               </label>
             </div>
             <Link to={REGISTRATION_ROUTE}>
-              <span>Forgot Password?</span>
+              <span>Registration</span>
             </Link>
           </div>
           <button

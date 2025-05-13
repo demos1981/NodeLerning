@@ -1,8 +1,5 @@
 import adminApi from "./adminApi";
 import { AuthUser } from "types/authTypes";
-// const enchancedMediaApi = adminApi.enhanceEndpoints({
-//   addTagTypes: ["Media"],
-// });
 
 export const authApi = adminApi.injectEndpoints({
   endpoints: (builder) => ({
