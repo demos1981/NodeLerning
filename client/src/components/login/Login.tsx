@@ -1,27 +1,39 @@
 import React, { useState } from "react";
-import { useAppDispatch, useAppSelector } from "hooks/hooks";
-import { RootState } from "app/store/store";
-import { login } from "app/store/slices/auth/authSlice";
-import { Link } from "react-router-dom";
+import { useLoginMutation } from "app/store/api/authApi";
+import { Link, useNavigate } from "react-router-dom";
 import { REGISTRATION_ROUTE } from "utils/consts";
 
 export const Login: React.FC = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const dispatch = useAppDispatch();
-  const { message, loading } = useAppSelector((state: RootState) => state.auth);
+  const [message, setMessage] = useState<string | null>(null);
+
+  const [login, { isLoading }] = useLoginMutation();
+  const navigate = useNavigate();
 
   const handleLogin = async (e: React.FormEvent) => {
     e.preventDefault();
-    dispatch(login({ email, password }));
+    try {
+      const user = await login(
+        { email, password }
+        // обовʼязково для роботи з httpOnly cookie
+      ).unwrap();
+
+      // Зберігаємо тільки accessToken (refresh буде в cookie)
+      localStorage.setItem("accessToken", user.token);
+
+      navigate("/");
+    } catch (err: any) {
+      setMessage(err?.data?.message || "Login failed");
+    }
   };
 
   return (
-    <div className=" min-h-screen flex items-center   text-base-gray-light ">
+    <div className="min-h-screen flex items-center text-base-gray-light">
       <div className="max-w-3xl">
-        <img src="/assets/Login.jpg" alt="login"></img>
+        <img src="/assets/Login.jpg" alt="login" />
       </div>
-      <div className=" p-8 rounded-md   w-2/6  text-base-gray-dark">
+      <div className="p-8 rounded-md w-2/6 text-base-gray-dark">
         <h2 className="text-2xl font-bold mb-6 text-center">Welcome</h2>
         <form onSubmit={handleLogin}>
           <div className="mb-4">
@@ -47,7 +59,7 @@ export const Login: React.FC = () => {
           <div className="mb-10 flex justify-between">
             <div>
               <input type="checkbox" id="remember" name="scales" />
-              <label htmlFor="remember" className="ml-3 ">
+              <label htmlFor="remember" className="ml-3">
                 Remember Me
               </label>
             </div>
@@ -58,9 +70,9 @@ export const Login: React.FC = () => {
           <button
             type="submit"
             className="bg-base-gray text-base-gray-dark hover:bg-base-blue text-white font-bold py-2 px-4 rounded w-full transition duration-300"
-            disabled={loading}
+            disabled={isLoading}
           >
-            {loading ? "Logging in..." : "Login"}
+            {isLoading ? "Logging in..." : "Login"}
           </button>
         </form>
         {message && <p className="mt-4 text-center text-red-500">{message}</p>}
