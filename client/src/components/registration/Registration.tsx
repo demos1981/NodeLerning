@@ -10,12 +10,19 @@ export const Registration: React.FC<RegistrationUser> = ({
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [role, setRole] = useState("");
+  const [errorMessage, setErrorMessage] = useState("");
 
   const [register, { isLoading, isError, error, isSuccess }] =
     useRegisterMutation();
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    setErrorMessage("");
+
+    if (!name || !email || !password || !role) {
+      setErrorMessage("Please fill in all fields");
+      return;
+    }
     try {
       const res = await register({ email, password, name, role }).unwrap();
       console.log("Користувач зареєстрований:", res);
