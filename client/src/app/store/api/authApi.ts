@@ -13,7 +13,10 @@ export const authApi = adminApi.injectEndpoints({
     }),
 
     // Реєстрація
-    register: builder.mutation<AuthUser, { email: string; password: string }>({
+    register: builder.mutation<
+      AuthUser,
+      { email: string; password: string; name: string; role: string }
+    >({
       query: (credentials) => ({
         url: "auth/register",
         method: "POST",

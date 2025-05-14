@@ -17,7 +17,7 @@ export const Registration: React.FC<RegistrationUser> = ({
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     try {
-      const res = await register({ email, password }).unwrap();
+      const res = await register({ email, password, name, role }).unwrap();
       console.log("Користувач зареєстрований:", res);
       // handleClick?.(); // якщо є додаткова дія після успіху
     } catch (err) {
