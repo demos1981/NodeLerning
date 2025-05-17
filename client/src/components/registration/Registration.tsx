@@ -83,9 +83,9 @@ export const Registration: React.FC<RegistrationUser> = ({
             <option value="" disabled>
               Select Role
             </option>
-            <option value="admin">Admin</option>
-            <option value="user">User</option>
-            <option value="guest">Guest</option>
+            <option value="ADMIN">ADMIN</option>
+            <option value="OWNER">OWNER</option>
+            <option value="CUSTOMER">CUSTOMER</option>
           </select>
         </div>
 
