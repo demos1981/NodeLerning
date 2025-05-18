@@ -17,3 +17,4 @@ export const ARRIVAL_ROUTE = "/arrival";
 export const ACCESSORIES_ROUTE = "/accessories";
 export const BAGS_ROUTE = "/bags";
 export const MEDIA_ADD = "/media-add";
+export const USERS_LIST_ROUTE = "/users-list";

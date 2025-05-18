@@ -17,3 +17,12 @@ export interface UserState {
   loading: boolean;
   error: string | null;
 }
+export interface IUsersApiResponse {
+  pagination: {
+    total: number;
+    page: number;
+    limit: number;
+    totalPages: number;
+  };
+  users: User[];
+}

@@ -15,3 +15,4 @@ export { RegistrPage } from "pages/registrPage/RegistrPage";
 export { WomansProductPage } from "pages/womansProductPage/WomansProductPage";
 export { AdminPage } from "pages/adminPage/AdminPage";
 export { AccessoriesProductPage } from "pages/accessoriesProductPage/AccessoriesProductPage";
+export { UsersListPage } from "pages/usersListPage/UsersListPage";

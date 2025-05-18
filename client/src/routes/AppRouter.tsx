@@ -36,6 +36,8 @@ import { ChildrensProductPage } from "pages";
 import { ArrivalProductPage } from "pages";
 import { AccessoriesProductPage } from "pages";
 import { BagsProductPage } from "pages";
+import { UsersListPage } from "pages";
+import { USERS_LIST_ROUTE } from "utils/consts";
 
 const AppRouter: React.FC = () => {
   // const isAuthenticated = useAppSelector(
@@ -61,6 +63,7 @@ const AppRouter: React.FC = () => {
       <Route path={ADMIN_ROUTE} element={<AdminPage />} />
       <Route path={LOGIN_ROUTE} element={<LoginPage />} />
       <Route path={REGISTRATION_ROUTE} element={<RegistrPage />} />
+      <Route path={USERS_LIST_ROUTE} element={<UsersListPage />} />
 
       <Route path={PRODUCT_LIST_ROUTE} element={<ProductsListPage />} />
       <Route path={PRODUCT_ADD} element={<AddProduct />} />

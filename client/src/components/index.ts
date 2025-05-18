@@ -31,3 +31,4 @@ export { WhatOurCustomerSays } from "components/whatOurCustomerSays/WhatOurCusto
 export { OurBenefits } from "components/ourBenefits/OurBenefits";
 export { TimeLine } from "components/timeline/TimeLine";
 export { AddProductMedia } from "components/addProduct/AddProductMedia";
+export { UsersList } from "components/usersList/UsersList";

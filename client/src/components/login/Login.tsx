@@ -21,7 +21,7 @@ export const Login: React.FC = () => {
 
       // Зберігаємо тільки accessToken (refresh буде в cookie)
       localStorage.setItem("accessToken", user.token);
-
+      alert("You have successfully logged in!");
       navigate("/");
     } catch (err: any) {
       setMessage(err?.data?.message || "Login failed");
