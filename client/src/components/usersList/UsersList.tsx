@@ -24,16 +24,36 @@ export const UsersList: React.FC = () => {
 
   return (
     <>
-      <h2>Список користувачів</h2>
-      <ul>
-        {users.map((user: User) => (
-          <li key={user.id}>
-            {" "}
-            {/* Припускаємо, що у користувача є поле id */}
-            <strong>{user.name}</strong> ({user.email}) - {user.role}
-          </li>
-        ))}
-      </ul>
+      <div className="flex   justify-center mt-7">
+        <div className="flex  max-w-7xl justify-center">
+          <h2 className="flex ml-2 mb-4 min-w-52 max-h-16  rounded-md  justify-center items-center bg-base-darkGreen">
+            Список користувачів
+          </h2>
+          <ul className="flex flex-row flex-wrap">
+            {users.map((user: User) => (
+              <li key={user.id}>
+                <div className="flex flex-col  min-w-48  mb-4 ml-4 mr-4">
+                  <span className="flex bg-base-darkGreen mb-2 justify-center">
+                    Customers id:{user.id}
+                  </span>
+                  <span className="border-2 rounded-sm border-base-darkGreen mb-2 ">
+                    name:
+                    <b>{user.name}</b>
+                  </span>
+                  <span className="border-2 rounded-sm border-base-darkGreen mb-2 ">
+                    email:
+                    <b>{user.email}</b>
+                  </span>
+                  <span className="border-2 rounded-sm border-base-darkGreen mb-2 ">
+                    role:
+                    <b>{user.role}</b>
+                  </span>
+                </div>
+              </li>
+            ))}
+          </ul>
+        </div>
+      </div>
     </>
   );
 };
