@@ -3,7 +3,7 @@ import { Routes, Route } from "react-router-dom";
 import {
   ABOUT_ROUTE,
   ACCESSORIES_ROUTE,
-  ADMIN_ROUTE,
+  ADMIN_LOGIN_ROUTE,
   ARRIVAL_ROUTE,
   BAGS_ROUTE,
   CHILDRENS_ROUTE,
@@ -16,28 +16,32 @@ import {
   PRODUCT_LIST_ROUTE,
   REGISTRATION_ROUTE,
   WOMENS_ROUTE,
+  ADMIN_DASHBOARD_ROUTE,
+  USERS_LIST_ROUTE,
 } from "utils/consts";
 // import { useAppSelector } from "hook/hooks";
 // import { RootState } from "app/store/store";
-import { HomePage } from "pages";
-import { AboutPage } from "pages";
+import {
+  HomePage,
+  AboutPage,
+  ContactPage,
+  DeliveryPage,
+  PaymentsPage,
+  AdminPage,
+  LoginPage,
+  RegistrPage,
+  ProductsListPage,
+  MansProductPage,
+  WomansProductPage,
+  ChildrensProductPage,
+  ArrivalProductPage,
+  AccessoriesProductPage,
+  BagsProductPage,
+  UsersListPage,
+} from "pages";
+
 import { Layouts } from "layouts";
-import { ContactPage } from "pages";
-import { DeliveryPage } from "pages";
-import { PaymentsPage } from "pages";
-import { AdminPage } from "pages";
-import { LoginPage } from "pages";
-import { RegistrPage } from "pages";
-import { ProductsListPage } from "pages";
-import { AddProduct } from "components";
-import { MansProductPage } from "pages";
-import { WomansProductPage } from "pages";
-import { ChildrensProductPage } from "pages";
-import { ArrivalProductPage } from "pages";
-import { AccessoriesProductPage } from "pages";
-import { BagsProductPage } from "pages";
-import { UsersListPage } from "pages";
-import { USERS_LIST_ROUTE } from "utils/consts";
+import { AddProduct, RequireAdmin, AdminAuth } from "components";
 
 const AppRouter: React.FC = () => {
   // const isAuthenticated = useAppSelector(
@@ -45,7 +49,7 @@ const AppRouter: React.FC = () => {
   // );
   // const isAuth = false;
   return (
-    // <Router>
+    //  <Router>
     <Routes>
       <Route path="/" element={<Layouts />}>
         <Route index element={<HomePage />} />
@@ -60,7 +64,15 @@ const AppRouter: React.FC = () => {
         <Route path={ACCESSORIES_ROUTE} element={<AccessoriesProductPage />} />
         <Route path={BAGS_ROUTE} element={<BagsProductPage />} />
       </Route>
-      <Route path={ADMIN_ROUTE} element={<AdminPage />} />
+      <Route
+        path={ADMIN_DASHBOARD_ROUTE}
+        element={
+          <RequireAdmin>
+            <AdminPage />
+          </RequireAdmin>
+        }
+      />
+      <Route path={ADMIN_LOGIN_ROUTE} element={<AdminAuth />} />
       <Route path={LOGIN_ROUTE} element={<LoginPage />} />
       <Route path={REGISTRATION_ROUTE} element={<RegistrPage />} />
       <Route path={USERS_LIST_ROUTE} element={<UsersListPage />} />
@@ -68,7 +80,7 @@ const AppRouter: React.FC = () => {
       <Route path={PRODUCT_LIST_ROUTE} element={<ProductsListPage />} />
       <Route path={PRODUCT_ADD} element={<AddProduct />} />
     </Routes>
-    // </Router>
+    //  </Router>
   );
 };
 export default AppRouter;

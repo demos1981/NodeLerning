@@ -32,3 +32,5 @@ export { OurBenefits } from "components/ourBenefits/OurBenefits";
 export { TimeLine } from "components/timeline/TimeLine";
 export { AddProductMedia } from "components/addProduct/AddProductMedia";
 export { UsersList } from "components/usersList/UsersList";
+export { RequireAdmin } from "components/requireAdmin/RequireAdmin";
+export { AdminAuth } from "components/adminAuth/AdminAuth";

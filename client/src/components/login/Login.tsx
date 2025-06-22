@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useLoginMutation } from "app/store/api/authApi";
 import { Link, useNavigate } from "react-router-dom";
-import { REGISTRATION_ROUTE } from "utils/consts";
+import { REGISTRATION_ROUTE, HOME_ROUTE } from "utils/consts";
 
 export const Login: React.FC = () => {
   const [email, setEmail] = useState("");
@@ -22,7 +22,7 @@ export const Login: React.FC = () => {
       // Зберігаємо тільки accessToken (refresh буде в cookie)
       localStorage.setItem("accessToken", user.token);
       alert("You have successfully logged in!");
-      navigate("/");
+      navigate(HOME_ROUTE);
     } catch (err: any) {
       setMessage(err?.data?.message || "Login failed");
     }

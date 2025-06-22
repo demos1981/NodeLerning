@@ -2,7 +2,10 @@ import React from "react";
 import { AdminProduct } from "components";
 import { AdminUser } from "components";
 
+import { useNavigate } from "react-router-dom";
+
 export const AdminPage: React.FC = () => {
+  const navigate = useNavigate();
   return (
     <>
       <div className="min-h-screen">

@@ -1,4 +1,4 @@
-export const ADMIN_ROUTE = "/admin";
+export const ADMIN_LOGIN_ROUTE = "/admin/login";
 export const LOGIN_ROUTE = "/login";
 export const REGISTRATION_ROUTE = "/users_add";
 export const HOME_ROUTE = "/";
@@ -18,3 +18,4 @@ export const ACCESSORIES_ROUTE = "/accessories";
 export const BAGS_ROUTE = "/bags";
 export const MEDIA_ADD = "/media_add";
 export const USERS_LIST_ROUTE = "/users_list";
+export const ADMIN_DASHBOARD_ROUTE = "/admin/dashboard";
