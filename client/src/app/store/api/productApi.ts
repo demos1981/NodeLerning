@@ -17,6 +17,11 @@ export const productApi = enchancedProductApi.injectEndpoints({
       query: () => "items/mans", //  бекенд-ендпоінт
       providesTags: ["Product"],
     }),
+    // GET /items/womens
+    getWomenProducts: builder.query<ProductProps[], void>({
+      query: () => "items/womens", //  бекенд-ендпоінт
+      providesTags: ["Product"],
+    }),
     // POST /items
     addProduct: builder.mutation<ProductProps, Omit<ProductProps, "id">>({
       query: (newProduct) => ({
@@ -46,5 +51,6 @@ export const {
   useGetProductsQuery,
   useAddProductMutation,
   useDeleteProductMutation,
-  useGetManProductsQuery
+  useGetManProductsQuery,
+  useGetWomenProductsQuery,
 } = productApi;
