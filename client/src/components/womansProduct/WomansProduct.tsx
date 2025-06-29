@@ -1,11 +1,14 @@
 import React from "react";
-import { Product } from "types/productTypes";
+import { useGetWomenProductsQuery } from "app/store/api/productApi";
 
-interface WomansProductProps {
-  products: Product[];
-}
-
-export const WomansProduct: React.FC<WomansProductProps> = ({ products }) => {
+export const WomansProduct: React.FC = () => {
+  const { data: products, isLoading, error } = useGetWomenProductsQuery();
+  console.log("Products:", products);
+  if (isLoading) return <p>Loading womens products...</p>;
+  if (error) return <p>Error loading womens products.</p>;
+  if (!products || products.length === 0) {
+    return <p>No products found.</p>;
+  }
   return (
     <div className="container mx-auto py-8">
       <h1 className="text-3xl font-bold mb-6 text-gray-800">
@@ -18,7 +21,7 @@ export const WomansProduct: React.FC<WomansProductProps> = ({ products }) => {
             className="bg-white shadow-lg rounded-lg overflow-hidden"
           >
             <img
-              src={product.imageUrl}
+              // src={product.photoUrl}
               alt={product.name}
               className="w-full h-48 object-cover"
             />

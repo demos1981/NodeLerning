@@ -5,7 +5,7 @@ import { NavLink } from "react-router-dom";
 
 export const AdminProduct: React.FC = () => {
   return (
-    <div>
+    <>
       <div className="flex justify-start flex-col  max-w-fit bg-base-gray-dark rounded-tr-lg mt-10">
         <div className="flex flex-row ml-10px text-base-gray-light">
           <Shirt />
@@ -33,6 +33,6 @@ export const AdminProduct: React.FC = () => {
           </div>
         </div>
       </div>
-    </div>
+    </>
   );
 };

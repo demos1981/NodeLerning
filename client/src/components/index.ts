@@ -5,7 +5,6 @@ export { AddProduct } from "components/addProduct/AddProduct";
 export { AdminProduct } from "components/adminProduct/AdminProduct";
 export { AdminUser } from "components/adminUser/AdminUser";
 export { ArrivalProduct } from "components/arrivalProduct/ArrivalProduct";
-export { BagsProduct } from "components/bagsProduct/BagsProduct";
 export { Button } from "components/button/Button";
 export { CatalogCategory } from "components/catalogCategory/CatalogCategory";
 export { CategoryMenu } from "components/categoryMenu/CategoryMenu";
@@ -31,3 +30,6 @@ export { WhatOurCustomerSays } from "components/whatOurCustomerSays/WhatOurCusto
 export { OurBenefits } from "components/ourBenefits/OurBenefits";
 export { TimeLine } from "components/timeline/TimeLine";
 export { AddProductMedia } from "components/addProduct/AddProductMedia";
+export { UsersList } from "components/usersList/UsersList";
+export { RequireAdmin } from "components/requireAdmin/RequireAdmin";
+export { AdminAuth } from "components/adminAuth/AdminAuth";

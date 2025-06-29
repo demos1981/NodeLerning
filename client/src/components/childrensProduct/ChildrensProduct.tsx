@@ -1,13 +1,13 @@
 import React from "react";
-import { Product } from "types/productTypes";
+import { useGetChildrenProductsQuery } from "app/store/api/productApi";
 
-interface ChildrensProductProps {
-  products: Product[];
-}
+export const ChildrensProduct: React.FC = () => {
+  const { data: products = [], isLoading } = useGetChildrenProductsQuery();
 
-export const ChildrensProduct: React.FC<ChildrensProductProps> = ({
-  products,
-}) => {
+  if (isLoading) {
+    return <div>Loading...</div>;
+  }
+
   return (
     <div className="container mx-auto py-8">
       <h1 className="text-3xl font-bold mb-6 text-gray-800">
@@ -20,7 +20,7 @@ export const ChildrensProduct: React.FC<ChildrensProductProps> = ({
             className="bg-white shadow-lg rounded-lg overflow-hidden"
           >
             <img
-              src={product.imageUrl}
+              // src={product.imageUrl}
               alt={product.name}
               className="w-full h-48 object-cover"
             />

@@ -1,5 +1,6 @@
 import adminApi from "./adminApi";
 import { AuthUser } from "types/authTypes";
+import { User } from "types/userTypes";
 
 export const authApi = adminApi.injectEndpoints({
   endpoints: (builder) => ({
@@ -41,6 +42,13 @@ export const authApi = adminApi.injectEndpoints({
         body,
       }),
     }),
+    // Отримання всіх користувачів
+    getUsers: builder.query<{ users: User[] }, void>({
+      query: () => ({
+        url: "auth/users", // 👈 переконайся, що бекенд слухає на /api/users або /users
+        method: "GET",
+      }),
+    }),
   }),
 });
 
@@ -49,4 +57,5 @@ export const {
   useRegisterMutation,
   useRefreshTokenMutation,
   useLogoutMutation,
+  useGetUsersQuery,
 } = authApi;
