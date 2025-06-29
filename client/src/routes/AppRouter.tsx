@@ -5,7 +5,6 @@ import {
   ACCESSORIES_ROUTE,
   ADMIN_LOGIN_ROUTE,
   ARRIVAL_ROUTE,
-  BAGS_ROUTE,
   CHILDRENS_ROUTE,
   CONTACTS_ROUTE,
   DELIVERY_ROUTE,
@@ -36,7 +35,6 @@ import {
   ChildrensProductPage,
   ArrivalProductPage,
   AccessoriesProductPage,
-  BagsProductPage,
   UsersListPage,
 } from "pages";
 
@@ -62,7 +60,6 @@ const AppRouter: React.FC = () => {
         <Route path={CHILDRENS_ROUTE} element={<ChildrensProductPage />} />
         <Route path={ARRIVAL_ROUTE} element={<ArrivalProductPage />} />
         <Route path={ACCESSORIES_ROUTE} element={<AccessoriesProductPage />} />
-        <Route path={BAGS_ROUTE} element={<BagsProductPage />} />
       </Route>
       <Route
         path={ADMIN_DASHBOARD_ROUTE}

@@ -1,7 +1,7 @@
 export { AboutPage } from "pages/aboutPage/AboutPage";
 export { ArrivalProductPage } from "pages/arrivalProductPage/ArrivalProductPage";
 export { LoginPage } from "pages/loginPage/LoginPage";
-export { BagsProductPage } from "pages/bagsProductPage/BagsProductPage";
+
 export { BasketPage } from "pages/basketPage/BasketPage";
 export { ChildrensProductPage } from "pages/childrensProductPage/ChildrensProductPage";
 export { ContactPage } from "pages/contactPage/ContactPage";

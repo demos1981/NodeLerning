@@ -14,6 +14,7 @@ export const AddProduct: React.FC = () => {
   const [size, setSize] = useState("");
   const [role, setRole] = useState("new");
   const [sex, setSex] = useState("unisex");
+  const [imageUrl, setImageUrl] = useState(""); // Assuming you might want to add image URL later
   const [category, setCategory] = useState("");
   const [errors, setErrors] = useState<Record<string, string>>({});
   const [productId, setProductId] = useState<number | null>(null);
@@ -63,6 +64,7 @@ export const AddProduct: React.FC = () => {
         size,
         role,
         sex,
+        imageUrl, // Assuming you want to add image URL later
         category,
       }).unwrap(); // 👈 `unwrap()` дозволяє обробити помилки як звичайний `try/catch`
 
@@ -212,6 +214,7 @@ export const AddProduct: React.FC = () => {
               <option value="man">Man</option>
               <option value="woman">Woman</option>
               <option value="children">Children</option>
+              <option value="accessories">Accessories</option>
             </select>
           </div>
           <div>

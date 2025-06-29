@@ -5,7 +5,6 @@ export { AddProduct } from "components/addProduct/AddProduct";
 export { AdminProduct } from "components/adminProduct/AdminProduct";
 export { AdminUser } from "components/adminUser/AdminUser";
 export { ArrivalProduct } from "components/arrivalProduct/ArrivalProduct";
-export { BagsProduct } from "components/bagsProduct/BagsProduct";
 export { Button } from "components/button/Button";
 export { CatalogCategory } from "components/catalogCategory/CatalogCategory";
 export { CategoryMenu } from "components/categoryMenu/CategoryMenu";
