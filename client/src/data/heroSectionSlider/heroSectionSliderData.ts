@@ -30,7 +30,7 @@ export const slides = [
     id: 4,
     name: "four slide",
     link: "/accessories",
-    title: "Chancery",
+    title: "Accessories",
     description: "New Collection",
     sale: "Up to 25% OFF",
     image: "/assets/heroes_section4.png",

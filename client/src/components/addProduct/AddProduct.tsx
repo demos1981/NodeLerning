@@ -214,7 +214,11 @@ export const AddProduct: React.FC = () => {
               <option value="man">Man</option>
               <option value="woman">Woman</option>
               <option value="children">Children</option>
-              <option value="accessories">Accessories</option>
+              <option value="accessories_man">Accessories Man's</option>
+              <option value="accessories_woman">Accessories Woman's</option>
+              <option value="accessories_children">
+                Accessories Children's
+              </option>
             </select>
           </div>
           <div>
